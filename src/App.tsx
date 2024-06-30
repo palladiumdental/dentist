@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Spinner from "./components/spinner";
+import Topbar from "./components/topbar";
+import Navbar from "./components/navbar";
+import Header from "./components/header";
+import About from "./components/about";
+import Service from "./components/service";
+import Feature from "./components/feature";
+import Team from "./components/team";
+import Appointment from "./components/appointment";
+import Testimonial from "./components/testimonial";
+import Footer from "./components/footer";
+import BackToTop from "./components/backToTop";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  // Simulate loading, [Can be removed later]
+  React.useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Dentist
+      <Spinner show={loading} />
+      <Topbar />
+      <Navbar />
+      <Header />
+      <About />
+      <Service />
+      <Feature />
+      <Team />
+      <Appointment />
+      <Testimonial />
+      <Footer />
+      <BackToTop />
     </div>
   );
 }
