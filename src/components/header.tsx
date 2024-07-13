@@ -1,23 +1,18 @@
-import React, { useEffect, useRef } from "react";
-// import $ from "jquery";
-// import "owl.carousel";
+import React from "react";
+// import logo from "./carousel-1.jpg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import test from "../assets/carousel-1.jpg";
+import test1 from "../assets/carousel-2.jpg";
+import test2 from "../assets/carousel-3.jpg";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { EffectFade, Navigation, Pagination } from "swiper/modules";
 
 const Header: React.FC = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  //   useEffect(() => {
-  //     if (carouselRef.current) {
-  //       $(carouselRef.current).owlCarousel({
-  //         items: 1,
-  //         loop: true,
-  //         nav: true,
-  //         autoplay: true,
-  //         autoplayTimeout: 3000,
-  //         smartSpeed: 800,
-  //       });
-  //     }
-  //   }, []);
-
   return (
     <div className="container-fluid header bg-primary p-0 mb-5">
       <div className="row g-0 align-items-center flex-column-reverse flex-lg-row">
@@ -53,41 +48,31 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-          {/* <div className="owl-carousel header-carousel" ref={carouselRef}>
-            <div className="owl-carousel-item position-relative">
-              <img
-                className="img-fluid"
-                src="/img/carousel-1.jpg"
-                alt="Cardiology"
-              />
-              <div className="owl-carousel-text">
-                <h1 className="display-1 text-white mb-0">Cardiology</h1>
-              </div>
-            </div>
-            <div className="owl-carousel-item position-relative">
-              <img
-                className="img-fluid"
-                src="/img/carousel-2.jpg"
-                alt="Neurology"
-              />
-              <div className="owl-carousel-text">
-                <h1 className="display-1 text-white mb-0">Neurology</h1>
-              </div>
-            </div>
-            <div className="owl-carousel-item position-relative">
-              <img
-                className="img-fluid"
-                src="/img/carousel-3.jpg"
-                alt="Pulmonary"
-              />
-              <div className="owl-carousel-text">
-                <h1 className="display-1 text-white mb-0">Pulmonary</h1>
-              </div>
-            </div>
-          </div> */}
+          {/* <div className="owl-carousel header-carousel"> */}
+          <Swiper
+            spaceBetween={30}
+            effect={"fade"}
+            navigation={true}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[EffectFade, Navigation, Pagination]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <img src={test} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={test1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={test2} />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </div>
+    // </div> */}
   );
 };
 
