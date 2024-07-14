@@ -73,7 +73,7 @@ const Appointment: React.FC = () => {
                       className="form-select border-0"
                       style={{ height: "55px" }}
                     >
-                      <option selected>Choose Doctor</option>
+                      <option defaultValue="1">Choose Doctor</option>
                       <option value="1">Doctor 1</option>
                       <option value="2">Doctor 2</option>
                       <option value="3">Doctor 3</option>

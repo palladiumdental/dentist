@@ -3,21 +3,24 @@ import "../App.css";
 import Spinner from "../components/spinner";
 import Topbar from "../components/topbar";
 import Navbar from "../components/navbar";
-import PageHeader from "../components/pageHeader";
 import Footer from "../components/footer";
 import BackToTop from "../components/backToTop";
+import Service from "../components/service";
+import Appointment from "../components/appointment";
+import Testimonial from "../components/testimonial";
+import Header from "../components/header";
 import About from "../components/about";
 import Feature from "../components/feature";
 import Team from "../components/team";
 
-function AboutPage() {
+function HomePage() {
   const [loading, setLoading] = useState(true);
 
-  const breadcrumb = [
-    { name: "Home", link: "#" },
-    { name: "Pages", link: "#" },
-    { name: "About", active: true },
-  ];
+  // const breadcrumb = [
+  //   { name: "Home", link: "#" },
+  //   { name: "Page", link: "#" },
+  //   { name: "Services", active: true },
+  // ];
 
   // Simulate loading, [Can be removed later]
   React.useEffect(() => {
@@ -27,17 +30,21 @@ function AboutPage() {
 
   return (
     <div className="App">
+      {/* <MainRouter /> */}
       <Spinner show={loading} />
       <Topbar />
       <Navbar />
-      <PageHeader title="About us" breadcrumb={breadcrumb} />
+      <Header />
       <About />
+      <Service />
       <Feature />
       <Team />
+      <Appointment />
+      <Testimonial />
       <Footer />
       <BackToTop />
     </div>
   );
 }
 
-export default AboutPage;
+export default HomePage;

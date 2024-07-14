@@ -6,8 +6,9 @@ import Navbar from "../components/navbar";
 import PageHeader from "../components/pageHeader";
 import Footer from "../components/footer";
 import BackToTop from "../components/backToTop";
+import Contact from "../components/contact";
 
-function Contact() {
+function ContactPage() {
   const [loading, setLoading] = useState(true);
 
   const breadcrumb = [
@@ -36,4 +37,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactPage;
