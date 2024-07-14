@@ -45,7 +45,6 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-          {/* <div className="owl-carousel header-carousel"> */}
           <Swiper
             spaceBetween={30}
             effect={"fade"}
@@ -57,19 +56,18 @@ const Header: React.FC = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src={carousel1} />
+              <img src={carousel1} alt="carousel1" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={carousel2} />
+              <img src={carousel2} alt="carousel2" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={carousel3} />
+              <img src={carousel3} alt="carousel3" />
             </SwiperSlide>
           </Swiper>
         </div>
       </div>
     </div>
-    // </div> */}
   );
 };
 

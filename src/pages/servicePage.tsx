@@ -8,7 +8,6 @@ import Footer from "../components/footer";
 import BackToTop from "../components/backToTop";
 import Service from "../components/service";
 import Appointment from "../components/appointment";
-import Testimonial from "../components/testimonial";
 
 function ServicePage() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +33,6 @@ function ServicePage() {
       <PageHeader title="Services" breadcrumb={breadcrumb} />
       <Service />
       <Appointment />
-      <Testimonial />
       <Footer />
       <BackToTop />
     </div>
