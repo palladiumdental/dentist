@@ -3,7 +3,7 @@ import testimonial1 from "../assets/testimonial-1.jpg";
 import testimonial2 from "../assets/testimonial-2.jpg";
 import testimonial3 from "../assets/testimonial-3.jpg";
 
-const Testimonial: React.FC = () => {
+const Price: React.FC = () => {
   return (
     <div className="container-xxl py-5">
       <div className="container">
@@ -12,9 +12,7 @@ const Testimonial: React.FC = () => {
           data-wow-delay="0.1s"
           style={{ maxWidth: "600px" }}
         >
-          <p className="d-inline-block border rounded-pill py-1 px-4">
-            Testimonial
-          </p>
+          <p className="d-inline-block border rounded-pill py-1 px-4">Price</p>
           <h1>What Say Our Patients!</h1>
         </div>
         <div
@@ -26,7 +24,7 @@ const Testimonial: React.FC = () => {
               className="img-fluid bg-light rounded-circle p-2 mx-auto mb-4"
               src={testimonial1}
               style={{ width: "100px", height: "100px" }}
-              alt="Testimonial 1"
+              alt="Price 1"
             />
             <div className="testimonial-text rounded text-center p-4">
               <p>
@@ -44,7 +42,7 @@ const Testimonial: React.FC = () => {
               className="img-fluid bg-light rounded-circle p-2 mx-auto mb-4"
               src={testimonial2}
               style={{ width: "100px", height: "100px" }}
-              alt="Testimonial 2"
+              alt="Price 2"
             />
             <div className="testimonial-text rounded text-center p-4">
               <p>
@@ -62,7 +60,7 @@ const Testimonial: React.FC = () => {
               className="img-fluid bg-light rounded-circle p-2 mx-auto mb-4"
               src={testimonial3}
               style={{ width: "100px", height: "100px" }}
-              alt="Testimonial 3"
+              alt="Price 3"
             />
             <div className="testimonial-text rounded text-center p-4">
               <p>
@@ -81,4 +79,4 @@ const Testimonial: React.FC = () => {
   );
 };
 
-export default Testimonial;
+export default Price;

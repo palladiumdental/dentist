@@ -6,15 +6,15 @@ import Navbar from "../components/navbar";
 import PageHeader from "../components/pageHeader";
 import Footer from "../components/footer";
 import BackToTop from "../components/backToTop";
-import Feature from "../components/feature";
+import Price from "../components/price";
 
-function FeaturePage() {
+function PricePage() {
   const [loading, setLoading] = useState(true);
 
   const breadcrumb = [
     { name: "Home", link: "#" },
     { name: "Page", link: "#" },
-    { name: "Feature", active: true },
+    { name: "Price", active: true },
   ];
 
   // Simulate loading, [Can be removed later]
@@ -29,12 +29,12 @@ function FeaturePage() {
       <Spinner show={loading} />
       <Topbar />
       <Navbar />
-      <PageHeader title="Feature" breadcrumb={breadcrumb} />
-      <Feature />
+      <PageHeader title="Price" breadcrumb={breadcrumb} />
+      <Price />
       <Footer />
       <BackToTop />
     </div>
   );
 }
 
-export default FeaturePage;
+export default PricePage;

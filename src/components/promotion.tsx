@@ -1,7 +1,7 @@
 import React from "react";
-import feature from "../assets/feature.jpg";
+import promotion from "../assets/feature.jpg";
 
-const Feature: React.FC = () => {
+const Promotion: React.FC = () => {
   return (
     <div className="container-fluid bg-primary overflow-hidden my-5 px-lg-0">
       <div className="container feature px-lg-0">
@@ -12,7 +12,7 @@ const Feature: React.FC = () => {
           >
             <div className="p-lg-5 ps-lg-0">
               <p className="d-inline-block border rounded-pill text-light py-1 px-4">
-                Features
+                Promotions
               </p>
               <h1 className="text-white mb-4">Why Choose Us</h1>
               <p className="text-white mb-4 pb-2">
@@ -30,18 +30,18 @@ const Feature: React.FC = () => {
                     text: "Positive",
                   },
                   { icon: "fa-headphones", title: "Support", text: "24 Hours" },
-                ].map((feature, index) => (
+                ].map((promotion, index) => (
                   <div className="col-6" key={index}>
                     <div className="d-flex align-items-center">
                       <div
                         className="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light"
                         style={{ width: "55px", height: "55px" }}
                       >
-                        <i className={`fa ${feature.icon} text-primary`}></i>
+                        <i className={`fa ${promotion.icon} text-primary`}></i>
                       </div>
                       <div className="ms-4">
-                        <p className="text-white mb-2">{feature.text}</p>
-                        <h5 className="text-white mb-0">{feature.title}</h5>
+                        <p className="text-white mb-2">{promotion.text}</p>
+                        <h5 className="text-white mb-0">{promotion.title}</h5>
                       </div>
                     </div>
                   </div>
@@ -57,9 +57,9 @@ const Feature: React.FC = () => {
             <div className="position-relative h-100">
               <img
                 className="position-absolute img-fluid w-100 h-100"
-                src={feature}
+                src={promotion}
                 style={{ objectFit: "cover" }}
-                alt="Feature"
+                alt="Promotion"
               />
             </div>
           </div>
@@ -69,4 +69,4 @@ const Feature: React.FC = () => {
   );
 };
 
-export default Feature;
+export default Promotion;

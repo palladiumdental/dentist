@@ -6,15 +6,15 @@ import Navbar from "../components/navbar";
 import PageHeader from "../components/pageHeader";
 import Footer from "../components/footer";
 import BackToTop from "../components/backToTop";
-import Testimonial from "../components/testimonial";
+import Promotion from "../components/promotion";
 
-function TestimonialPage() {
+function PromotionPage() {
   const [loading, setLoading] = useState(true);
 
   const breadcrumb = [
     { name: "Home", link: "#" },
     { name: "Page", link: "#" },
-    { name: "Testimonial", active: true },
+    { name: "Promotion", active: true },
   ];
 
   // Simulate loading, [Can be removed later]
@@ -29,12 +29,12 @@ function TestimonialPage() {
       <Spinner show={loading} />
       <Topbar />
       <Navbar />
-      <PageHeader title="Testimonial" breadcrumb={breadcrumb} />
-      <Testimonial />
+      <PageHeader title="Promotion" breadcrumb={breadcrumb} />
+      <Promotion />
       <Footer />
       <BackToTop />
     </div>
   );
 }
 
-export default TestimonialPage;
+export default PromotionPage;

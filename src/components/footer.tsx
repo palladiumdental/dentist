@@ -9,15 +9,17 @@ const Footer: React.FC = () => {
       <div className="container py-5">
         <div className="row g-5">
           <div className="col-lg-3 col-md-6">
-            <h5 className="text-light mb-4">Address</h5>
-            <p className="mb-2">
+            <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
+              Address
+            </h5>
+            <p className="mb-2" style={{ textAlign: "left" }}>
               <i className="fa fa-map-marker-alt me-3"></i>123 Street, New York,
               USA
             </p>
-            <p className="mb-2">
+            <p className="mb-2" style={{ textAlign: "left" }}>
               <i className="fa fa-phone-alt me-3"></i>+012 345 67890
             </p>
-            <p className="mb-2">
+            <p className="mb-2" style={{ textAlign: "left" }}>
               <i className="fa fa-envelope me-3"></i>info@example.com
             </p>
             <div className="d-flex pt-2">

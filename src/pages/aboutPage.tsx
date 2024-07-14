@@ -7,7 +7,7 @@ import PageHeader from "../components/pageHeader";
 import Footer from "../components/footer";
 import BackToTop from "../components/backToTop";
 import About from "../components/about";
-import Feature from "../components/feature";
+import Promotion from "../components/promotion";
 
 function AboutPage() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ function AboutPage() {
       <Navbar />
       <PageHeader title="About us" breadcrumb={breadcrumb} />
       <About />
-      <Feature />
+      <Promotion />
       <Footer />
       <BackToTop />
     </div>

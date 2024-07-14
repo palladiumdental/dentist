@@ -9,7 +9,8 @@ import Service from "../components/service";
 import Appointment from "../components/appointment";
 import Header from "../components/header";
 import About from "../components/about";
-import Feature from "../components/feature";
+import Promotion from "../components/promotion";
+import Price from "../components/price";
 
 function HomePage() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,8 @@ function HomePage() {
       <Header />
       <About />
       <Service />
-      <Feature />
+      <Price />
+      <Promotion />
       <Appointment />
       <Footer />
       <BackToTop />
