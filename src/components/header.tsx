@@ -1,11 +1,8 @@
 import React from "react";
-// import logo from "./carousel-1.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import test from "../assets/carousel-1.jpg";
-import test1 from "../assets/carousel-2.jpg";
-import test2 from "../assets/carousel-3.jpg";
-
-// Import Swiper styles
+import carousel1 from "../assets/carousel-1.jpg";
+import carousel2 from "../assets/carousel-2.jpg";
+import carousel3 from "../assets/carousel-3.jpg";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -60,13 +57,13 @@ const Header: React.FC = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src={test} />
+              <img src={carousel1} />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={test1} />
+              <img src={carousel2} />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={test2} />
+              <img src={carousel3} />
             </SwiperSlide>
           </Swiper>
         </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import about1 from "../assets/about-1.jpg";
+import about2 from "../assets/about-2.jpg";
 
 const About: React.FC = () => {
   return (
@@ -9,13 +11,13 @@ const About: React.FC = () => {
             <div className="d-flex flex-column">
               <img
                 className="img-fluid rounded w-75 align-self-end"
-                src="img/about-1.jpg"
-                alt="About Image 1"
+                src={about1}
+                alt="About 1"
               />
               <img
                 className="img-fluid rounded w-50 bg-white pt-3 pe-3"
-                src="img/about-2.jpg"
-                alt="About Image 2"
+                src={about2}
+                alt="About 2"
                 style={{ marginTop: "-25%" }}
               />
             </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import feature from "../assets/feature.jpg";
 
 const Feature: React.FC = () => {
   return (
@@ -56,7 +57,7 @@ const Feature: React.FC = () => {
             <div className="position-relative h-100">
               <img
                 className="position-absolute img-fluid w-100 h-100"
-                src="img/feature.jpg"
+                src={feature}
                 style={{ objectFit: "cover" }}
                 alt="Feature"
               />

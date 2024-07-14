@@ -1,4 +1,8 @@
 import React from "react";
+import team1 from "../assets/team-1.jpg";
+import team2 from "../assets/team-2.jpg";
+import team3 from "../assets/team-3.jpg";
+import team4 from "../assets/team-4.jpg";
 
 interface Doctor {
   name: string;
@@ -11,7 +15,7 @@ const doctors: Doctor[] = [
   {
     name: "Doctor Name",
     department: "Department",
-    imgSrc: "img/team-1.jpg",
+    imgSrc: team1,
     social: {
       facebook: "#",
       twitter: "#",
@@ -21,7 +25,7 @@ const doctors: Doctor[] = [
   {
     name: "Doctor Name",
     department: "Department",
-    imgSrc: "img/team-2.jpg",
+    imgSrc: team2,
     social: {
       facebook: "#",
       twitter: "#",
@@ -31,7 +35,7 @@ const doctors: Doctor[] = [
   {
     name: "Doctor Name",
     department: "Department",
-    imgSrc: "img/team-3.jpg",
+    imgSrc: team3,
     social: {
       facebook: "#",
       twitter: "#",
@@ -41,7 +45,7 @@ const doctors: Doctor[] = [
   {
     name: "Doctor Name",
     department: "Department",
-    imgSrc: "img/team-4.jpg",
+    imgSrc: team4,
     social: {
       facebook: "#",
       twitter: "#",

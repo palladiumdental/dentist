@@ -1,7 +1,7 @@
 import React from "react";
-// import testimonial1 from "../img/testimonial-1.jpg";
-// import testimonial2 from "../img/testimonial-2.jpg";
-// import testimonial3 from "../img/testimonial-3.jpg";
+import testimonial1 from "../assets/testimonial-1.jpg";
+import testimonial2 from "../assets/testimonial-2.jpg";
+import testimonial3 from "../assets/testimonial-3.jpg";
 
 const Testimonial: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const Testimonial: React.FC = () => {
           <div className="testimonial-item text-center">
             <img
               className="img-fluid bg-light rounded-circle p-2 mx-auto mb-4"
-              //   src={testimonial1}
+              src={testimonial1}
               style={{ width: "100px", height: "100px" }}
               alt="Testimonial 1"
             />
@@ -42,7 +42,7 @@ const Testimonial: React.FC = () => {
           <div className="testimonial-item text-center">
             <img
               className="img-fluid bg-light rounded-circle p-2 mx-auto mb-4"
-              //   src={testimonial2}
+              src={testimonial2}
               style={{ width: "100px", height: "100px" }}
               alt="Testimonial 2"
             />
@@ -60,7 +60,7 @@ const Testimonial: React.FC = () => {
           <div className="testimonial-item text-center">
             <img
               className="img-fluid bg-light rounded-circle p-2 mx-auto mb-4"
-              //   src={testimonial3}
+              src={testimonial3}
               style={{ width: "100px", height: "100px" }}
               alt="Testimonial 3"
             />
