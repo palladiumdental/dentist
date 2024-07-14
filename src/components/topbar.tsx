@@ -19,6 +19,16 @@ const Topbar: React.FC = () => {
         </div>
         <div className="col-lg-5 px-5 text-end">
           <div className="h-100 d-inline-flex align-items-center py-3 me-4">
+            <select
+              className="form-select border-0 form-select-sm"
+              name="language"
+              id="language"
+            >
+              <option value="Hungarian">HU</option>
+              <option value="default">EN</option>
+            </select>
+          </div>
+          <div className="h-100 d-inline-flex align-items-center py-3 me-4">
             <small className="fa fa-phone-alt text-primary me-2"></small>
             <small>+012 345 6789</small>
           </div>
