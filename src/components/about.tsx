@@ -1,6 +1,7 @@
 import React from "react";
 import about1 from "../assets/about-1.jpg";
 import about2 from "../assets/about-2.jpg";
+import { Link } from "react-router-dom";
 
 const About: React.FC = () => {
   return (
@@ -51,9 +52,12 @@ const About: React.FC = () => {
               <i className="far fa-check-circle text-primary me-3"></i>Medical
               Research Professionals
             </p>
-            <a className="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">
+            <Link
+              className="btn btn-primary rounded-pill py-3 px-5 mt-3"
+              to="/about"
+            >
               Read More
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -11,16 +11,14 @@ import PricePage from "../pages/pricePage";
 const MainRouter: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />}>
-        <Route index element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/service" element={<ServicePage />} />
-        <Route path="/price" element={<PricePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/_404" element={<_404 />} />
-        <Route path="/Promotion" element={<PromotionPage />} />
-        <Route path="/appointment" element={<AppointmentPage />} />
-      </Route>
+      <Route index element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/service" element={<ServicePage />} />
+      <Route path="/price" element={<PricePage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/_404" element={<_404 />} />
+      <Route path="/Promotion" element={<PromotionPage />} />
+      <Route path="/appointment" element={<AppointmentPage />} />
     </Routes>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
@@ -53,41 +54,41 @@ const Footer: React.FC = () => {
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
               Services
             </h5>
-            <a className="btn btn-link" href="">
+            <Link className="btn btn-link" to="">
               Cardiology
-            </a>
-            <a className="btn btn-link" href="">
+            </Link>
+            <Link className="btn btn-link" to="">
               Pulmonary
-            </a>
-            <a className="btn btn-link" href="">
+            </Link>
+            <Link className="btn btn-link" to="">
               Neurology
-            </a>
-            <a className="btn btn-link" href="">
+            </Link>
+            <Link className="btn btn-link" to="">
               Orthopedics
-            </a>
-            <a className="btn btn-link" href="">
+            </Link>
+            <Link className="btn btn-link" to="">
               Laboratory
-            </a>
+            </Link>
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
               Quick Links
             </h5>
-            <a className="btn btn-link" href="">
+            <Link className="btn btn-link" to="/about">
               About Us
-            </a>
-            <a className="btn btn-link" href="">
+            </Link>
+            <Link className="btn btn-link" to="/contact">
               Contact Us
-            </a>
-            <a className="btn btn-link" href="">
+            </Link>
+            <Link className="btn btn-link" to="/service">
               Our Services
-            </a>
-            <a className="btn btn-link" href="">
+            </Link>
+            <Link className="btn btn-link" to="">
               Terms & Condition
-            </a>
-            <a className="btn btn-link" href="">
+            </Link>
+            <Link className="btn btn-link" to="">
               Support
-            </a>
+            </Link>
           </div>
         </div>
       </div>
