@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CustomNavLink from "./customNavLink";
 
 const Navbar: React.FC = () => {
   return (
@@ -17,24 +18,12 @@ const Navbar: React.FC = () => {
       </Link>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav ms-auto p-4 p-lg-0">
-          <Link to="/" className="nav-item nav-link active">
-            Home
-          </Link>
-          <Link to="/service" className="nav-item nav-link">
-            Services
-          </Link>
-          <Link to="/price" className="nav-item nav-link">
-            Prices
-          </Link>
-          <Link to="/promotion" className="nav-item nav-link">
-            Promotions
-          </Link>
-          <Link to="/about" className="nav-item nav-link">
-            About us
-          </Link>
-          <Link to="/contact" className="nav-item nav-link">
-            Contact
-          </Link>
+          <CustomNavLink redirectTo="/">Home</CustomNavLink>
+          <CustomNavLink redirectTo="/service">Services</CustomNavLink>
+          <CustomNavLink redirectTo="/price">Prices</CustomNavLink>
+          <CustomNavLink redirectTo="/promotion">Promotions</CustomNavLink>
+          <CustomNavLink redirectTo="/about">About us</CustomNavLink>
+          <CustomNavLink redirectTo="/contact">Contact</CustomNavLink>
         </div>
         <Link
           to="/appointment"
