@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MAIN_ROUTE } from "../constants/constants";
 
 const Footer: React.FC = () => {
   return (
@@ -74,13 +75,13 @@ const Footer: React.FC = () => {
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
               Quick Links
             </h5>
-            <Link className="btn btn-link" to="/about">
+            <Link className="btn btn-link" to={`${MAIN_ROUTE}/about`}>
               About Us
             </Link>
-            <Link className="btn btn-link" to="/contact">
+            <Link className="btn btn-link" to={`${MAIN_ROUTE}/contact`}>
               Contact Us
             </Link>
-            <Link className="btn btn-link" to="/service">
+            <Link className="btn btn-link" to={`${MAIN_ROUTE}/service`}>
               Our Services
             </Link>
             <Link className="btn btn-link" to="">

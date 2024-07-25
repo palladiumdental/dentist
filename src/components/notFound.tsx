@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MAIN_ROUTE } from "../constants/constants";
 
 const NotFound: React.FC = () => {
   return (
@@ -14,7 +15,10 @@ const NotFound: React.FC = () => {
               We’re sorry, the page you have looked for does not exist in our
               website! Maybe go to our home page or try to use a search?
             </p>
-            <Link className="btn btn-primary rounded-pill py-3 px-5" to="/">
+            <Link
+              className="btn btn-primary rounded-pill py-3 px-5"
+              to={MAIN_ROUTE}
+            >
               Go Back To Home
             </Link>
           </div>
