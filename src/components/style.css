@@ -1,0 +1,17 @@
+.custom-table-container {
+  background-color: white;
+  border-radius: 15px; /* Adjust the value for more or less curvature */
+  padding: 15px; /* Optional: Adds some padding inside the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for better aesthetics */
+}
+
+.custom-table {
+  border-radius: 15px;
+  overflow: hidden; /* Ensures rounded corners are visible */
+  border-collapse: separate; /* Makes sure borders stay separate */
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #dee2e6;
+}

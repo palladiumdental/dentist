@@ -17,32 +17,6 @@ const Header: React.FC = () => {
           <h1 className="display-4 text-white mb-5">
             Good Health Is The Root Of All Happiness
           </h1>
-          <div className="row g-4">
-            <div className="col-sm-4">
-              <div className="border-start border-light ps-4">
-                <h2 className="text-white mb-1" data-toggle="counter-up">
-                  123
-                </h2>
-                <p className="text-light mb-0">Expert Doctors</p>
-              </div>
-            </div>
-            <div className="col-sm-4">
-              <div className="border-start border-light ps-4">
-                <h2 className="text-white mb-1" data-toggle="counter-up">
-                  1234
-                </h2>
-                <p className="text-light mb-0">Medical Staff</p>
-              </div>
-            </div>
-            <div className="col-sm-4">
-              <div className="border-start border-light ps-4">
-                <h2 className="text-white mb-1" data-toggle="counter-up">
-                  12345
-                </h2>
-                <p className="text-light mb-0">Total Patients</p>
-              </div>
-            </div>
-          </div>
         </div>
         <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
           <Swiper

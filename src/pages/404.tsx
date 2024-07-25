@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "../App.css";
-import Spinner from "../components/spinner";
 import Topbar from "../components/topbar";
 import Navbar from "../components/navbar";
 import PageHeader from "../components/pageHeader";

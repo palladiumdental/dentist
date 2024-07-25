@@ -18,7 +18,7 @@ const MainRouter: React.FC = () => {
       <Route path={`${MAIN_ROUTE}/price`} element={<PricePage />} />
       <Route path={`${MAIN_ROUTE}/contact`} element={<ContactPage />} />
       <Route path={`${MAIN_ROUTE}/_404`} element={<_404 />} />
-      <Route path={`${MAIN_ROUTE}/Promotion`} element={<PromotionPage />} />
+      <Route path={`${MAIN_ROUTE}/promotion`} element={<PromotionPage />} />
       <Route path={`${MAIN_ROUTE}/appointment`} element={<AppointmentPage />} />
     </Routes>
   );

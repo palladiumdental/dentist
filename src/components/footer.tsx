@@ -75,20 +75,20 @@ const Footer: React.FC = () => {
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
               Quick Links
             </h5>
+            <Link className="btn btn-link" to={`${MAIN_ROUTE}/service`}>
+              Services
+            </Link>
+            <Link className="btn btn-link" to={`${MAIN_ROUTE}/price`}>
+              Prices
+            </Link>
+            <Link className="btn btn-link" to={`${MAIN_ROUTE}/promotion`}>
+              Promotions
+            </Link>
             <Link className="btn btn-link" to={`${MAIN_ROUTE}/about`}>
               About Us
             </Link>
             <Link className="btn btn-link" to={`${MAIN_ROUTE}/contact`}>
-              Contact Us
-            </Link>
-            <Link className="btn btn-link" to={`${MAIN_ROUTE}/service`}>
-              Our Services
-            </Link>
-            <Link className="btn btn-link" to="">
-              Terms & Condition
-            </Link>
-            <Link className="btn btn-link" to="">
-              Support
+              Contact
             </Link>
           </div>
         </div>
