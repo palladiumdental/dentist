@@ -1,6 +1,13 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Topbar: React.FC = () => {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (event: any) => {
+    i18n.changeLanguage(event.target.value);
+  };
+
   return (
     <div
       className="container-fluid bg-light p-0 wow fadeIn"
@@ -23,9 +30,11 @@ const Topbar: React.FC = () => {
               className="form-select border-0 form-select-sm"
               name="language"
               id="language"
+              onChange={changeLanguage}
+              value={i18n.language}
             >
-              <option value="Hungarian">HU</option>
-              <option value="default">EN</option>
+              <option value="hu">HU</option>
+              <option value="en">EN</option>
             </select>
           </div>
           <div className="h-100 d-inline-flex align-items-center py-3 me-4">

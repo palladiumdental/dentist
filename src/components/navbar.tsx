@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CustomNavLink from "./customNavLink";
 import { MAIN_ROUTE } from "../constants/constants";
+import { useTranslation } from "react-i18next";
 
 const Navbar: React.FC = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <nav
       className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn"
@@ -19,21 +22,21 @@ const Navbar: React.FC = () => {
       </Link>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav ms-auto p-4 p-lg-0">
-          <CustomNavLink redirectTo={MAIN_ROUTE}>Home</CustomNavLink>
+          <CustomNavLink redirectTo={MAIN_ROUTE}>{t("home")}</CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/service`}>
-            Services
+            {t("services")}
           </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/price`}>
-            Prices
+            {t("prices")}
           </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/promotion`}>
-            Promotions
+            {t("promotions")}
           </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/about`}>
-            About us
+            {t("about us")}
           </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/contact`}>
-            Contact
+            {t("contact")}
           </CustomNavLink>
         </div>
         <Link
