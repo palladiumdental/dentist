@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "../App.css";
-import Spinner from "../components/spinner";
 import Topbar from "../components/topbar";
 import Navbar from "../components/navbar";
 import PageHeader from "../components/pageHeader";
@@ -10,27 +9,11 @@ import Service from "../components/service";
 import Appointment from "../components/appointment";
 
 function ServicePage() {
-  const [loading, setLoading] = useState(true);
-
-  const breadcrumb = [
-    { name: "Home", link: "#" },
-    { name: "Page", link: "#" },
-    { name: "Services", active: true },
-  ];
-
-  // Simulate loading, [Can be removed later]
-  React.useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="App">
-      404
-      <Spinner show={loading} />
       <Topbar />
       <Navbar />
-      <PageHeader title="Services" breadcrumb={breadcrumb} />
+      <PageHeader title="Services" />
       <Service />
       <Appointment />
       <Footer />

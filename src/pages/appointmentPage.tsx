@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "../App.css";
-import Spinner from "../components/spinner";
 import Topbar from "../components/topbar";
 import Navbar from "../components/navbar";
 import PageHeader from "../components/pageHeader";
@@ -9,27 +8,11 @@ import BackToTop from "../components/backToTop";
 import Appointment from "../components/appointment";
 
 function AppointmentPage() {
-  const [loading, setLoading] = useState(true);
-
-  const breadcrumb = [
-    { name: "Home", link: "#" },
-    { name: "Pages", link: "#" },
-    { name: "Appointment", active: true },
-  ];
-
-  // Simulate loading, [Can be removed later]
-  React.useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="App">
-      404
-      <Spinner show={loading} />
       <Topbar />
       <Navbar />
-      <PageHeader title="Appointment" breadcrumb={breadcrumb} />
+      <PageHeader title="Appointment" />
       <Appointment />
       <Footer />
       <BackToTop />
