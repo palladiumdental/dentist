@@ -1,4 +1,5 @@
 import React from "react";
+import Localize from "./localize";
 
 const services = [
   {
@@ -55,7 +56,7 @@ const Service: React.FC = () => {
           style={{ maxWidth: "600px" }}
         >
           <p className="d-inline-block border rounded-pill py-1 px-4">
-            Services
+            <Localize text="services" isFirstLetterCapital={true} />
           </p>
           <h1>Health Care Solutions</h1>
         </div>

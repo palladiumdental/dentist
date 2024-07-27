@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MAIN_ROUTE } from "../constants/constants";
+import Localize from "./localize";
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Footer: React.FC = () => {
         <div className="row g-5">
           <div className="col-lg-3 col-md-6">
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
-              Address
+              <Localize text="address" isFirstLetterCapital={true} />
             </h5>
             <p className="mb-2" style={{ textAlign: "left" }}>
               <i className="fa fa-map-marker-alt me-3"></i>123 Street, New York,
@@ -53,7 +54,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
-              Services
+              <Localize text="services" isFirstLetterCapital={true} />
             </h5>
             <Link className="btn btn-link" to="">
               Cardiology
@@ -76,19 +77,19 @@ const Footer: React.FC = () => {
               Quick Links
             </h5>
             <Link className="btn btn-link" to={`${MAIN_ROUTE}/service`}>
-              Services
+              <Localize text="services" isFirstLetterCapital={true} />
             </Link>
             <Link className="btn btn-link" to={`${MAIN_ROUTE}/price`}>
-              Prices
+              <Localize text="prices" isFirstLetterCapital={true} />
             </Link>
             <Link className="btn btn-link" to={`${MAIN_ROUTE}/promotion`}>
-              Promotions
+              <Localize text="promotions" isFirstLetterCapital={true} />
             </Link>
             <Link className="btn btn-link" to={`${MAIN_ROUTE}/about`}>
-              About Us
+              <Localize text="about Us" isFirstLetterCapital={true} />
             </Link>
             <Link className="btn btn-link" to={`${MAIN_ROUTE}/contact`}>
-              Contact
+              <Localize text="contact us" isFirstLetterCapital={true} />
             </Link>
           </div>
         </div>

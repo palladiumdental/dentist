@@ -1,4 +1,5 @@
 import React from "react";
+import Localize from "./localize";
 
 interface PageHeaderProps {
   title: string;
@@ -12,7 +13,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
     >
       <div className="container py-5">
         <h1 className="display-3 text-white mb-3 animated slideInDown">
-          {title}
+          <Localize text={title} isFirstLetterCapital={true} />
         </h1>
       </div>
     </div>

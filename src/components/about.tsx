@@ -3,6 +3,7 @@ import about1 from "../assets/about-1.jpg";
 import about2 from "../assets/about-2.jpg";
 import { Link } from "react-router-dom";
 import { MAIN_ROUTE } from "../constants/constants";
+import Localize from "./localize";
 
 const About: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ const About: React.FC = () => {
           </div>
           <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
             <p className="d-inline-block border rounded-pill py-1 px-4">
-              About Us
+              <Localize text="about Us" isFirstLetterCapital={true} />
             </p>
             <h1 className="mb-4">
               Why You Should Trust Us? Get To Know About Us!

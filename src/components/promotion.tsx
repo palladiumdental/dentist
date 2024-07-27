@@ -1,5 +1,6 @@
 import React from "react";
 import promotion from "../assets/feature.jpg";
+import Localize from "./localize";
 
 const Promotion: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Promotion: React.FC = () => {
           >
             <div className="p-lg-5 ps-lg-0">
               <p className="d-inline-block border rounded-pill text-light py-1 px-4">
-                Promotions
+                <Localize text="promotions" isFirstLetterCapital={true} />
               </p>
               <h1 className="text-white mb-4">Why Choose Us</h1>
               <p className="text-white mb-4 pb-2">

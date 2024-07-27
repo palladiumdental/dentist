@@ -2,11 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CustomNavLink from "./customNavLink";
 import { MAIN_ROUTE } from "../constants/constants";
-import { useTranslation } from "react-i18next";
+import Localize from "./localize";
 
 const Navbar: React.FC = () => {
-  const { t, i18n } = useTranslation();
-
   return (
     <nav
       className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn"
@@ -22,25 +20,27 @@ const Navbar: React.FC = () => {
       </Link>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav ms-auto p-4 p-lg-0">
-          <CustomNavLink redirectTo={MAIN_ROUTE}>{t("home")}</CustomNavLink>
+          <CustomNavLink redirectTo={MAIN_ROUTE}>
+            <Localize text="home" />
+          </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/service`}>
-            {t("services")}
+            <Localize text="services" />
           </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/price`}>
-            {t("prices")}
+            <Localize text="prices" />
           </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/promotion`}>
-            {t("promotions")}
+            <Localize text="promotions" />
           </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/about`}>
-            {t("about us")}
+            <Localize text="about us" />
           </CustomNavLink>
         </div>
         <Link
           to={`${MAIN_ROUTE}/contact`}
           className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
         >
-          {t("contact")}
+          <Localize text="contact us" isFirstLetterCapital={true} />
           <i className="fa fa-arrow-right ms-3"></i>
         </Link>
       </div>
