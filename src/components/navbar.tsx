@@ -35,15 +35,13 @@ const Navbar: React.FC = () => {
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/about`}>
             {t("about us")}
           </CustomNavLink>
-          <CustomNavLink redirectTo={`${MAIN_ROUTE}/contact`}>
-            {t("contact")}
-          </CustomNavLink>
         </div>
         <Link
-          to={`${MAIN_ROUTE}/appointment`}
+          to={`${MAIN_ROUTE}/contact`}
           className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
         >
-          Appointment<i className="fa fa-arrow-right ms-3"></i>
+          {t("contact")}
+          <i className="fa fa-arrow-right ms-3"></i>
         </Link>
       </div>
     </nav>

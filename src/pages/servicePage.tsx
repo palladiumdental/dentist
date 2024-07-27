@@ -6,7 +6,7 @@ import PageHeader from "../components/pageHeader";
 import Footer from "../components/footer";
 import BackToTop from "../components/backToTop";
 import Service from "../components/service";
-import Appointment from "../components/appointment";
+import Contact from "../components/contact";
 
 function ServicePage() {
   return (
@@ -15,7 +15,7 @@ function ServicePage() {
       <Navbar />
       <PageHeader title="Services" />
       <Service />
-      <Appointment />
+      <Contact />
       <Footer />
       <BackToTop />
     </div>
