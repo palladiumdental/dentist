@@ -1,7 +1,18 @@
 import React from "react";
 import Localize from "./localize";
+import useEmailForm from "../hooks/useEmail";
 
 const Contact: React.FC = () => {
+  const { handleChange, handleSubmit } = useEmailForm(
+    {
+      subject: "",
+      text: "",
+      name: "",
+      email: "",
+    },
+    "contact"
+  );
+
   return (
     <div className="container-xxl py-5">
       <div className="container">
@@ -62,7 +73,7 @@ const Contact: React.FC = () => {
                 and paste the files, add a little code and you're done.{" "}
                 <a href="https://htmlcodex.com/contact-form">Download Now</a>.
               </p>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="row g-3">
                   <div className="col-md-6">
                     <div className="form-floating">
@@ -71,6 +82,8 @@ const Contact: React.FC = () => {
                         className="form-control"
                         id="name"
                         placeholder="Your Name"
+                        name="name"
+                        onChange={handleChange}
                       />
                       <label htmlFor="name">Your Name</label>
                     </div>
@@ -82,6 +95,8 @@ const Contact: React.FC = () => {
                         className="form-control"
                         id="email"
                         placeholder="Your Email"
+                        name="email"
+                        onChange={handleChange}
                       />
                       <label htmlFor="email">Your Email</label>
                     </div>
@@ -93,6 +108,8 @@ const Contact: React.FC = () => {
                         className="form-control"
                         id="subject"
                         placeholder="Subject"
+                        name="subject"
+                        onChange={handleChange}
                       />
                       <label htmlFor="subject">Subject</label>
                     </div>
@@ -103,7 +120,9 @@ const Contact: React.FC = () => {
                         className="form-control"
                         placeholder="Leave a message here"
                         id="message"
+                        name="text"
                         style={{ height: "100px" }}
+                        onChange={handleChange}
                       ></textarea>
                       <label htmlFor="message">Message</label>
                     </div>
@@ -113,7 +132,7 @@ const Contact: React.FC = () => {
                       className="btn btn-primary w-100 py-3"
                       type="submit"
                     >
-                      Send Message
+                      Send Message111
                     </button>
                   </div>
                 </div>
