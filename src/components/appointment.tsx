@@ -1,21 +1,37 @@
 import React from "react";
+import useEmailForm from "../hooks/useEmail";
 
 const Appointment: React.FC = () => {
+  const { handleChange, handleSubmit } = useEmailForm(
+    {
+      firstName: "",
+      lastName: "",
+      email: "",
+      mobile: "",
+      dentalIntervention: "",
+      oralHygieneIntervention: "",
+      date: "",
+      time: "",
+      text: "",
+    },
+    "appointment"
+  );
+
   return (
     <div className="container-xxl py-5">
       <div className="container">
         <div className="row g-5">
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-            <p className="d-inline-block border rounded-pill py-1 px-4">
+            <p className="d-inline-block border rounded-pill py-1 px-4 mb-4">
               Appointment
             </p>
             <h1 className="mb-4">Make An Appointment To Visit Our Doctor</h1>
-            <p className="mb-4">
+            <p className="mb-5">
               Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
               diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
               lorem sit clita duo justo magna dolore erat amet
             </p>
-            <div className="bg-light rounded d-flex align-items-center p-5 mb-4">
+            <div className="bg-light rounded d-flex align-items-center p-5 mb-5">
               <div
                 className="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
                 style={{ width: "55px", height: "55px" }}
@@ -42,22 +58,26 @@ const Appointment: React.FC = () => {
           </div>
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
             <div className="bg-light rounded h-100 d-flex align-items-center p-5">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="row g-3">
                   <div className="col-12 col-sm-6">
                     <input
                       type="text"
                       className="form-control border-0"
-                      placeholder="Your Name"
+                      placeholder="First Name"
                       style={{ height: "55px" }}
+                      name="firstName"
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="col-12 col-sm-6">
                     <input
-                      type="email"
+                      type="text"
                       className="form-control border-0"
-                      placeholder="Your Email"
+                      placeholder="Last Name"
                       style={{ height: "55px" }}
+                      name="lastName"
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="col-12 col-sm-6">
@@ -66,14 +86,45 @@ const Appointment: React.FC = () => {
                       className="form-control border-0"
                       placeholder="Your Mobile"
                       style={{ height: "55px" }}
+                      name="mobile"
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="col-12 col-sm-6">
+                    <input
+                      type="email"
+                      className="form-control border-0"
+                      placeholder="Your Email"
+                      style={{ height: "55px" }}
+                      name="email"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col-12">
                     <select
                       className="form-select border-0"
                       style={{ height: "55px" }}
+                      name="dentalIntervention"
+                      onChange={handleChange}
                     >
-                      <option defaultValue="1">Choose Doctor</option>
+                      <option defaultValue="1">
+                        What dental intervention do you think you need?
+                      </option>
+                      <option value="1">Doctor 1</option>
+                      <option value="2">Doctor 2</option>
+                      <option value="3">Doctor 3</option>
+                    </select>
+                  </div>
+                  <div className="col-12">
+                    <select
+                      className="form-select border-0"
+                      style={{ height: "55px" }}
+                      name="oralHygieneIntervention"
+                      onChange={handleChange}
+                    >
+                      <option defaultValue="1">
+                        What oral hygiene intervention do you think you need?
+                      </option>
                       <option value="1">Doctor 1</option>
                       <option value="2">Doctor 2</option>
                       <option value="3">Doctor 3</option>
@@ -88,6 +139,8 @@ const Appointment: React.FC = () => {
                         data-target="#date"
                         data-toggle="datetimepicker"
                         style={{ height: "55px" }}
+                        name="date"
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -100,6 +153,8 @@ const Appointment: React.FC = () => {
                         data-target="#time"
                         data-toggle="datetimepicker"
                         style={{ height: "55px" }}
+                        name="time"
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -108,6 +163,8 @@ const Appointment: React.FC = () => {
                       className="form-control border-0"
                       rows={5}
                       placeholder="Describe your problem"
+                      name="text"
+                      onChange={handleChange}
                     ></textarea>
                   </div>
                   <div className="col-12">
