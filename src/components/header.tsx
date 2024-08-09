@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 
 const Header: React.FC = () => {
   return (
@@ -20,13 +20,19 @@ const Header: React.FC = () => {
         </div>
         <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
           <Swiper
+            slidesPerView={1}
             spaceBetween={30}
             effect={"fade"}
+            loop={true}
             navigation={true}
             pagination={{
               clickable: true,
             }}
-            modules={[EffectFade, Navigation, Pagination]}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay, EffectFade, Navigation, Pagination]}
             className="mySwiper"
           >
             <SwiperSlide>
