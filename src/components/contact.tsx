@@ -132,7 +132,7 @@ const Contact: React.FC = () => {
                       className="btn btn-primary w-100 py-3"
                       type="submit"
                     >
-                      Send Message111
+                      Send Message
                     </button>
                   </div>
                 </div>
