@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MAIN_ROUTE } from "../constants/constants";
 import Localize from "./localize";
+import { ADDRESS, PHONE_NUMBER, EMAIL } from "../constants/constants";
 
 const Footer: React.FC = () => {
   return (
@@ -16,14 +17,16 @@ const Footer: React.FC = () => {
               <Localize text="address" isFirstLetterCapital={true} />
             </h5>
             <p className="mb-2" style={{ textAlign: "left" }}>
-              <i className="fa fa-map-marker-alt me-3"></i>123 Street, New York,
-              USA
+              <i className="fa fa-map-marker-alt me-3"></i>
+              {ADDRESS}
             </p>
             <p className="mb-2" style={{ textAlign: "left" }}>
-              <i className="fa fa-phone-alt me-3"></i>+012 345 67890
+              <i className="fa fa-phone-alt me-3"></i>
+              {PHONE_NUMBER}
             </p>
             <p className="mb-2" style={{ textAlign: "left" }}>
-              <i className="fa fa-envelope me-3"></i>info@example.com
+              <i className="fa fa-envelope me-3"></i>
+              {EMAIL}
             </p>
             <div className="d-flex pt-2">
               <a

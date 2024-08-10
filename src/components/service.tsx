@@ -1,50 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Localize from "./localize";
-
-const services = [
-  {
-    icon: "fa-heartbeat",
-    title: "Cardiology",
-    description:
-      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
-    delay: "0.1s",
-  },
-  {
-    icon: "fa-x-ray",
-    title: "Pulmonary",
-    description:
-      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
-    delay: "0.3s",
-  },
-  {
-    icon: "fa-brain",
-    title: "Neurology",
-    description:
-      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
-    delay: "0.5s",
-  },
-  {
-    icon: "fa-wheelchair",
-    title: "Orthopedics",
-    description:
-      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
-    delay: "0.1s",
-  },
-  {
-    icon: "fa-tooth",
-    title: "Dental Surgery",
-    description:
-      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
-    delay: "0.3s",
-  },
-  {
-    icon: "fa-vials",
-    title: "Laboratory",
-    description:
-      "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
-    delay: "0.5s",
-  },
-];
+import { SERVICES } from "../constants/services";
+import { MAIN_ROUTE } from "../constants/constants";
 
 const Service: React.FC = () => {
   return (
@@ -60,8 +18,8 @@ const Service: React.FC = () => {
           </p>
           <h1>Health Care Solutions</h1>
         </div>
-        <div className="row g-4">
-          {services.map((service, index) => (
+        <div className="row g-4 justify-content-center align-items-center">
+          {SERVICES.map((service, index) => (
             <div
               key={index}
               className="col-lg-4 col-md-6 wow fadeInUp"
@@ -76,9 +34,9 @@ const Service: React.FC = () => {
                 </div>
                 <h4 className="mb-3">{service.title}</h4>
                 <p className="mb-4">{service.description}</p>
-                <a className="btn" href="">
+                <Link className="btn" to={`${MAIN_ROUTE}/${service.title}`}>
                   <i className="fa fa-plus text-primary me-3"></i>Read More
-                </a>
+                </Link>
               </div>
             </div>
           ))}

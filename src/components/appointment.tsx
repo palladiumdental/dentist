@@ -1,5 +1,7 @@
 import React from "react";
 import useEmailForm from "../hooks/useEmail";
+import Localize from "./localize";
+import { PHONE_NUMBER, EMAIL } from "../constants/constants";
 
 const Appointment: React.FC = () => {
   const { handleChange, handleSubmit } = useEmailForm(
@@ -23,7 +25,7 @@ const Appointment: React.FC = () => {
         <div className="row g-5">
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
             <p className="d-inline-block border rounded-pill py-1 px-4 mb-4">
-              Appointment
+              <Localize text="appointment" isFirstLetterCapital={true} />
             </p>
             <h1 className="mb-4">Make An Appointment To Visit Our Doctor</h1>
             <p className="mb-5">
@@ -40,7 +42,7 @@ const Appointment: React.FC = () => {
               </div>
               <div className="ms-4">
                 <p className="mb-2">Call Us Now</p>
-                <h5 className="mb-0">+012 345 6789</h5>
+                <h5 className="mb-0">{PHONE_NUMBER}</h5>
               </div>
             </div>
             <div className="bg-light rounded d-flex align-items-center p-5">
@@ -52,7 +54,7 @@ const Appointment: React.FC = () => {
               </div>
               <div className="ms-4">
                 <p className="mb-2">Mail Us Now</p>
-                <h5 className="mb-0">info@example.com</h5>
+                <h5 className="mb-0">{EMAIL}</h5>
               </div>
             </div>
           </div>
