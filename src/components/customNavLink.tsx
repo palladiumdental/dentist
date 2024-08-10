@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const CustomNavLink = ({ children, redirectTo }: any) => {
+type CustomNavLinkProps = {
+  children: React.ReactNode;
+  redirectTo: string;
+};
+
+const CustomNavLink: React.FC<CustomNavLinkProps> = ({
+  children,
+  redirectTo,
+}) => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
 

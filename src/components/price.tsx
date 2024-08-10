@@ -1,15 +1,8 @@
 import React from "react";
 import "../styles/price.css";
+import { PRICES, PriceType } from "../constants/prices";
 
 const Price: React.FC = () => {
-  const prices = [
-    { service: "Teeth Cleaning", price: "$50" },
-    { service: "Cavity Filling", price: "$75" },
-    { service: "Root Canal", price: "$300" },
-    { service: "Tooth Extraction", price: "$150" },
-    { service: "Dental Implants", price: "$2000" },
-  ];
-
   return (
     <div className="container-xxl py-5">
       <div className="container">
@@ -36,7 +29,7 @@ const Price: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {prices.map((item, index) => (
+                  {PRICES.map((item: PriceType, index: number) => (
                     <tr key={index}>
                       <td>{item.service}</td>
                       <td>{item.price}</td>

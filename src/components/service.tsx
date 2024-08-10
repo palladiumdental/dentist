@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Localize from "./localize";
-import { SERVICES } from "../constants/services";
+import { SERVICES, ServiceType } from "../constants/services";
 import { MAIN_ROUTE } from "../constants/constants";
 
 const Service: React.FC = () => {
@@ -19,7 +19,7 @@ const Service: React.FC = () => {
           <h1>Health Care Solutions</h1>
         </div>
         <div className="row g-4 justify-content-center align-items-center">
-          {SERVICES.map((service, index) => (
+          {SERVICES.map((service: ServiceType, index: number) => (
             <div
               key={index}
               className="col-lg-4 col-md-6 wow fadeInUp"

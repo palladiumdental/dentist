@@ -1,4 +1,17 @@
-export const applicationTemplate = (data: any) => {
+export type AppointmentTemplateType = {
+  form: "appointment";
+  firstName: string;
+  lastName: string;
+  email: string;
+  mobile: string;
+  oralHygieneIntervention: string;
+  dentalIntervention: string;
+  date: string;
+  time: string;
+  text: string;
+};
+
+export const appointmentTemplate = (data: AppointmentTemplateType) => {
   const {
     firstName,
     lastName,

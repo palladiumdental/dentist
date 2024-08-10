@@ -1,9 +1,9 @@
 import React from "react";
 import Localize from "./localize";
 
-interface PageHeaderProps {
+type PageHeaderProps = {
   title: string;
-}
+};
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
   return (

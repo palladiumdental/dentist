@@ -4,15 +4,13 @@ import useEmailForm from "../hooks/useEmail";
 import { ADDRESS, PHONE_NUMBER, EMAIL } from "../constants/constants";
 
 const Contact: React.FC = () => {
-  const { handleChange, handleSubmit } = useEmailForm(
-    {
-      subject: "",
-      text: "",
-      name: "",
-      email: "",
-    },
-    "contact"
-  );
+  const { handleChange, handleSubmit } = useEmailForm({
+    form: "contact",
+    subject: "",
+    text: "",
+    name: "",
+    email: "",
+  });
 
   return (
     <div className="container-xxl py-5">

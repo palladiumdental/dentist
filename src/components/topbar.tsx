@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import { ADDRESS, PHONE_NUMBER, WORKING_HOURS } from "../constants/constants";
 
 const Topbar: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
-  const changeLanguage = (event: any) => {
+  const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
     i18n.changeLanguage(event.target.value);
   };
 

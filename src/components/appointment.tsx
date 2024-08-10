@@ -4,20 +4,18 @@ import Localize from "./localize";
 import { PHONE_NUMBER, EMAIL } from "../constants/constants";
 
 const Appointment: React.FC = () => {
-  const { handleChange, handleSubmit } = useEmailForm(
-    {
-      firstName: "",
-      lastName: "",
-      email: "",
-      mobile: "",
-      dentalIntervention: "",
-      oralHygieneIntervention: "",
-      date: "",
-      time: "",
-      text: "",
-    },
-    "appointment"
-  );
+  const { handleChange, handleSubmit } = useEmailForm({
+    form: "appointment",
+    firstName: "",
+    lastName: "",
+    email: "",
+    mobile: "",
+    dentalIntervention: "",
+    oralHygieneIntervention: "",
+    date: "",
+    time: "",
+    text: "",
+  });
 
   return (
     <div className="container-xxl py-5">

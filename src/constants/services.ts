@@ -1,4 +1,11 @@
-export const SERVICES = [
+export type ServiceType = {
+  icon: string;
+  title: string;
+  description: string;
+  delay: string;
+};
+
+export const SERVICES: ServiceType[] = [
   {
     icon: "fa-heartbeat",
     title: "Cardiology",

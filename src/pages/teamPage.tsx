@@ -4,9 +4,10 @@ import SecondaryWrapper from "../components/secondaryWrapper";
 
 function TeamPage() {
   return (
-    <SecondaryWrapper title="Doctors">
-      <Team />
-    </SecondaryWrapper>
+    <></>
+    // <SecondaryWrapper title="Doctors">
+    //   <Team />
+    // </SecondaryWrapper>
   );
 }
 

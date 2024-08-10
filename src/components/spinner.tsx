@@ -1,8 +1,8 @@
 import React from "react";
 
-interface SpinnerProps {
+type SpinnerProps = {
   show: boolean;
-}
+};
 
 const Spinner: React.FC<SpinnerProps> = ({ show }) => {
   if (!show) return null;
