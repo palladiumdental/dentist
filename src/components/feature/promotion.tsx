@@ -1,6 +1,6 @@
 import React from "react";
-import promotion from "../assets/feature.jpg";
-import Localize from "./localize";
+import promotion from "../../assets/feature.jpg";
+import Localize from "../ui/localize";
 
 const Promotion: React.FC = () => {
   return (

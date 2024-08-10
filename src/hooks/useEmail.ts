@@ -8,8 +8,7 @@ import {
   appointmentTemplate,
   AppointmentTemplateType,
 } from "../emailTemplates/appointmentTemplate";
-
-const RECEIVER_EMAIL = "baharmailservice@gmail.com";
+import { MAIL_SERVICE_API, EMAIL_RECEIVER } from "../constants/mailService";
 
 type EmailFormType = ContactTemplateType | AppointmentTemplateType;
 
@@ -31,8 +30,8 @@ const useEmailForm = (initialState: EmailFormType) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/send-email", {
-        to: RECEIVER_EMAIL,
+      await axios.post(MAIL_SERVICE_API, {
+        to: EMAIL_RECEIVER,
         subject: `${emailData.form.toUpperCase()} FORM:  ${
           emailData.form === "contact"
             ? emailData.name + ": " + emailData.subject

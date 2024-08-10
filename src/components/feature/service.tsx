@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Localize from "./localize";
-import { SERVICES, ServiceType } from "../constants/services";
-import { MAIN_ROUTE } from "../constants/constants";
+import Localize from "../ui/localize";
+import { SERVICES, ServiceType } from "../../constants/services";
+import { MAIN_ROUTE } from "../../constants/website";
 
 const Service: React.FC = () => {
   return (

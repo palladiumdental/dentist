@@ -1,6 +1,6 @@
 import React from "react";
 import MainWrapper from "./mainWrapper";
-import PageHeader from "./pageHeader";
+import PageHeader from "../feature/pageHeader";
 
 type SecondaryWrapperProps = {
   children: React.ReactNode;

@@ -1,7 +1,7 @@
 import React from "react";
-import Localize from "./localize";
-import useEmailForm from "../hooks/useEmail";
-import { ADDRESS, PHONE_NUMBER, EMAIL } from "../constants/constants";
+import Localize from "../ui/localize";
+import useEmailForm from "../../hooks/useEmail";
+import { ADDRESS, PHONE_NUMBER, EMAIL } from "../../constants/constants";
 
 const Contact: React.FC = () => {
   const { handleChange, handleSubmit } = useEmailForm({

@@ -1,6 +1,6 @@
 import React from "react";
-import Contact from "../components/contact";
-import SecondaryWrapper from "../components/secondaryWrapper";
+import Contact from "../components/feature/contact";
+import SecondaryWrapper from "../components/ui/secondaryWrapper";
 
 function ContactPage() {
   return (

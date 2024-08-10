@@ -1,6 +1,6 @@
 import React from "react";
-import Appointment from "../components/appointment";
-import SecondaryWrapper from "../components/secondaryWrapper";
+import Appointment from "../components/feature/appointment";
+import SecondaryWrapper from "../components/ui/secondaryWrapper";
 
 function AppointmentPage() {
   return (

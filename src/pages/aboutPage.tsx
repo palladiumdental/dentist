@@ -1,7 +1,7 @@
 import React from "react";
-import About from "../components/about";
-import Promotion from "../components/promotion";
-import SecondaryWrapper from "../components/secondaryWrapper";
+import About from "../components/feature/about";
+import Promotion from "../components/feature/promotion";
+import SecondaryWrapper from "../components/ui/secondaryWrapper";
 
 function AboutPage() {
   return (

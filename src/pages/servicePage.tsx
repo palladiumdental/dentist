@@ -1,7 +1,7 @@
 import React from "react";
-import Service from "../components/service";
-import Contact from "../components/contact";
-import SecondaryWrapper from "../components/secondaryWrapper";
+import Service from "../components/feature/service";
+import Contact from "../components/feature/contact";
+import SecondaryWrapper from "../components/ui/secondaryWrapper";
 
 function ServicePage() {
   return (

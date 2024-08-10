@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import HomePage from "../pages/homePage";
-import AboutPage from "../pages/aboutPage";
-import ContactPage from "../pages/contactPage";
-import _404 from "../pages/404";
-import PromotionPage from "../pages/promotionPage";
-import ServicePage from "../pages/servicePage";
-import PricePage from "../pages/pricePage";
-import AppointmentPage from "../pages/appointmentPage";
-import { MAIN_ROUTE } from "../constants/constants";
+import HomePage from "../../pages/homePage";
+import AboutPage from "../../pages/aboutPage";
+import ContactPage from "../../pages/contactPage";
+import _404 from "../../pages/404";
+import PromotionPage from "../../pages/promotionPage";
+import ServicePage from "../../pages/servicePage";
+import PricePage from "../../pages/pricePage";
+import AppointmentPage from "../../pages/appointmentPage";
+import { MAIN_ROUTE } from "../../constants/website";
 
 const MainRouter: React.FC = () => {
   return (

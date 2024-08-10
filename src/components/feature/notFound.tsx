@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MAIN_ROUTE } from "../constants/constants";
+import { MAIN_ROUTE } from "../../constants/website";
 
 const NotFound: React.FC = () => {
   return (

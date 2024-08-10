@@ -1,6 +1,6 @@
 import React from "react";
-import NotFound from "../components/notFound";
-import SecondaryWrapper from "../components/secondaryWrapper";
+import NotFound from "../components/feature/notFound";
+import SecondaryWrapper from "../components/ui/secondaryWrapper";
 
 function _404() {
   return (

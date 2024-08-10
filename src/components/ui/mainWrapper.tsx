@@ -1,8 +1,8 @@
 import React from "react";
-import Topbar from "../components/topbar";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import BackToTop from "../components/backToTop";
+import Topbar from "../feature/topbar";
+import Navbar from "../feature/navbar";
+import Footer from "../feature/footer";
+import BackToTop from "./backToTop";
 
 type MainWrapperProps = {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
 import React from "react";
-import Localize from "./localize";
+import Localize from "../ui/localize";
 
 type PageHeaderProps = {
   title: string;

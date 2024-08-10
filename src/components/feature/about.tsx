@@ -1,9 +1,9 @@
 import React from "react";
-import about1 from "../assets/about-1.jpg";
-import about2 from "../assets/about-2.jpg";
+import about1 from "../../assets/about-1.jpg";
+import about2 from "../../assets/about-2.jpg";
 import { Link } from "react-router-dom";
-import { MAIN_ROUTE } from "../constants/constants";
-import Localize from "./localize";
+import { MAIN_ROUTE } from "../../constants/website";
+import Localize from "../ui/localize";
 
 const About: React.FC = () => {
   return (

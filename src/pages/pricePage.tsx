@@ -1,6 +1,6 @@
 import React from "react";
-import Price from "../components/price";
-import SecondaryWrapper from "../components/secondaryWrapper";
+import Price from "../components/feature/price";
+import SecondaryWrapper from "../components/ui/secondaryWrapper";
 
 function PricePage() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/price.css";
-import { PRICES, PriceType } from "../constants/prices";
+import "../../styles/price.css";
+import { PRICES, PriceType } from "../../constants/prices";
 
 const Price: React.FC = () => {
   return (

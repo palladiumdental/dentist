@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MAIN_ROUTE } from "../constants/constants";
-import Localize from "./localize";
-import { ADDRESS, PHONE_NUMBER, EMAIL } from "../constants/constants";
+import { MAIN_ROUTE } from "../../constants/website";
+import Localize from "../ui/localize";
+import { ADDRESS, PHONE_NUMBER, EMAIL } from "../../constants/constants";
 
 const Footer: React.FC = () => {
   return (

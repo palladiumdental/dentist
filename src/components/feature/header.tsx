@@ -1,8 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import carousel1 from "../assets/carousel-1.jpg";
-import carousel2 from "../assets/carousel-2.jpg";
-import carousel3 from "../assets/carousel-3.jpg";
+import carousel1 from "../../assets/carousel-1.jpg";
+import carousel2 from "../../assets/carousel-2.jpg";
+import carousel3 from "../../assets/carousel-3.jpg";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CustomNavLink from "./customNavLink";
-import { MAIN_ROUTE } from "../constants/constants";
-import Localize from "./localize";
+import CustomNavLink from "../ui/customNavLink";
+import { MAIN_ROUTE } from "../../constants/website";
+import Localize from "../ui/localize";
 
 const Navbar: React.FC = () => {
   return (

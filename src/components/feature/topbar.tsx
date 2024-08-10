@@ -1,6 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ADDRESS, PHONE_NUMBER, WORKING_HOURS } from "../constants/constants";
+import {
+  ADDRESS,
+  PHONE_NUMBER,
+  WORKING_HOURS,
+} from "../../constants/constants";
 
 const Topbar: React.FC = () => {
   const { i18n } = useTranslation();
