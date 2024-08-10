@@ -2,6 +2,11 @@ import React from "react";
 import useEmailForm from "../../hooks/useEmail";
 import Localize from "../ui/localize";
 import { PHONE_NUMBER, EMAIL } from "../../constants/constants";
+import Select from "../ui/select";
+import {
+  DENTAL_INTERVENTION,
+  ORAL_HYGIENE_INTERVENTION,
+} from "../../constants/lists";
 
 const Appointment: React.FC = () => {
   const { handleChange, handleSubmit } = useEmailForm({
@@ -101,34 +106,20 @@ const Appointment: React.FC = () => {
                     />
                   </div>
                   <div className="col-12">
-                    <select
-                      className="form-select border-0"
-                      style={{ height: "55px" }}
+                    <Select
                       name="dentalIntervention"
-                      onChange={handleChange}
-                    >
-                      <option defaultValue="1">
-                        What dental intervention do you think you need?
-                      </option>
-                      <option value="1">Doctor 1</option>
-                      <option value="2">Doctor 2</option>
-                      <option value="3">Doctor 3</option>
-                    </select>
+                      handleChange={handleChange}
+                      defaultOption="What dental intervention do you think you need?"
+                      options={DENTAL_INTERVENTION}
+                    />
                   </div>
                   <div className="col-12">
-                    <select
-                      className="form-select border-0"
-                      style={{ height: "55px" }}
+                    <Select
                       name="oralHygieneIntervention"
-                      onChange={handleChange}
-                    >
-                      <option defaultValue="1">
-                        What oral hygiene intervention do you think you need?
-                      </option>
-                      <option value="1">Doctor 1</option>
-                      <option value="2">Doctor 2</option>
-                      <option value="3">Doctor 3</option>
-                    </select>
+                      handleChange={handleChange}
+                      defaultOption="What oral hygiene intervention do you think you need?"
+                      options={ORAL_HYGIENE_INTERVENTION}
+                    />
                   </div>
                   <div className="col-12 col-sm-6">
                     <div className="date" id="date" data-target-input="nearest">

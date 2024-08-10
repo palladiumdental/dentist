@@ -6,5 +6,17 @@
   "about us": "Rólunk",
   "contact us": "Kapcsolat",
   "address": "Cím",
-  "appointment": "Időpontfoglalás"
+  "appointment": "Időpontfoglalás",
+  "Diagnostics": "Konzultáció/kontroll",
+  "Dental Fillings": "Góc vizsgálat",
+  "Prosthetics": "Gyermekfogászat",
+  "Dental Extractions": "Gyökérkezelés",
+  "Root Canal Treatments": "Fogtömés",
+  "Pediatric Dentistry": "Fogpótlás",
+  "Implants": "Implantáció",
+  "Other": "Egyéb",
+  "Dental Hygenic/Consultations": "Szájhigiénés tanácsadás/konzultáció",
+  "Professional Teeth Cleaning": "Fogkőeltávolítás",
+  "Teeth Whitening": "Fogfehérítés",
+  "Deep Teeth Cleaning": "Mélytisztítás"
 }
