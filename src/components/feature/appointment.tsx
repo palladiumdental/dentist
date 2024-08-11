@@ -124,11 +124,10 @@ const Appointment: React.FC = () => {
                   <div className="col-12 col-sm-6">
                     <div className="date" id="date" data-target-input="nearest">
                       <input
-                        type="text"
+                        type="date"
                         className="form-control border-0 datetimepicker-input"
                         placeholder="Choose Date"
-                        data-target="#date"
-                        data-toggle="datetimepicker"
+                        data-target="_dates"
                         style={{ height: "55px" }}
                         name="date"
                         onChange={handleChange}
@@ -138,11 +137,10 @@ const Appointment: React.FC = () => {
                   <div className="col-12 col-sm-6">
                     <div className="time" id="time" data-target-input="nearest">
                       <input
-                        type="text"
+                        type="time"
                         className="form-control border-0 datetimepicker-input"
                         placeholder="Choose Time"
-                        data-target="#time"
-                        data-toggle="datetimepicker"
+                        data-target="use24Hours"
                         style={{ height: "55px" }}
                         name="time"
                         onChange={handleChange}
