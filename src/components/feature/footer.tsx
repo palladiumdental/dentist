@@ -29,19 +29,19 @@ const Footer: React.FC = () => {
               {EMAIL}
             </p>
             <div className="d-flex pt-2">
-              <a
+              {/* <a
                 className="btn btn-outline-light btn-social rounded-circle"
                 href=""
               >
                 <i className="fab fa-twitter"></i>
-              </a>
+              </a> */}
               <a
                 className="btn btn-outline-light btn-social rounded-circle"
                 href=""
               >
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a
+              {/* <a
                 className="btn btn-outline-light btn-social rounded-circle"
                 href=""
               >
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                 href=""
               >
                 <i className="fab fa-linkedin-in"></i>
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="col-lg-3 col-md-6">

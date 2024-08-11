@@ -6,7 +6,8 @@ export const DENTAL_INTERVENTION = [
   "Root Canal Treatments",
   "Pediatric Dentistry",
   "Implants",
-  "Other",
+  "Paradontology",
+  "Others",
 ];
 
 export const ORAL_HYGIENE_INTERVENTION = [

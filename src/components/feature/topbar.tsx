@@ -53,7 +53,7 @@ const Topbar: React.FC = () => {
             >
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a
+            {/* <a
               className="btn btn-sm-square rounded-circle bg-white text-primary me-1"
               href="#"
             >
@@ -70,7 +70,7 @@ const Topbar: React.FC = () => {
               href="#"
             >
               <i className="fab fa-instagram"></i>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
