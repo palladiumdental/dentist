@@ -11,7 +11,8 @@ type SecondaryWrapperProps = {
     | "Contact Us"
     | "Price"
     | "Promotion"
-    | "Services";
+    | "Services"
+    | "Edit Price List";
 };
 
 const SecondaryWrapper: React.FC<SecondaryWrapperProps> = ({

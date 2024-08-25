@@ -7,6 +7,7 @@ import PromotionPage from "../../pages/promotionPage";
 import ServicePage from "../../pages/servicePage";
 import PricePage from "../../pages/pricePage";
 import AppointmentPage from "../../pages/appointmentPage";
+import EditPriceListPage from "../../pages/editPriceListPage";
 import { MAIN_ROUTE } from "../../constants/website";
 
 const MainRouter: React.FC = () => {
@@ -20,6 +21,10 @@ const MainRouter: React.FC = () => {
       <Route path={`${MAIN_ROUTE}/_404`} element={<_404 />} />
       <Route path={`${MAIN_ROUTE}/promotion`} element={<PromotionPage />} />
       <Route path={`${MAIN_ROUTE}/appointment`} element={<AppointmentPage />} />
+      <Route
+        path={`${MAIN_ROUTE}/edit-price-list`}
+        element={<EditPriceListPage />}
+      />
     </Routes>
   );
 };

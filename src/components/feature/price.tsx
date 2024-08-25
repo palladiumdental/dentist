@@ -1,8 +1,14 @@
 import React from "react";
 import "../../styles/price.css";
-import { PRICES, PriceType } from "../../constants/prices";
+import { TPriceType } from "../../types/price";
+import { useGetData } from "../../firebase/crud";
+import Spinner from "../ui/spinner";
 
 const Price: React.FC = () => {
+  const { data, loading } = useGetData<TPriceType>("prices");
+
+  if (loading) return <Spinner show={loading} />;
+
   return (
     <div className="container-xxl py-5">
       <div className="container">
@@ -14,6 +20,7 @@ const Price: React.FC = () => {
           <p className="d-inline-block border rounded-pill py-1 px-4">Price</p>
           <h1>Dental Price List</h1>
         </div>
+
         <div className="wow fadeInUp" data-wow-delay="0.1s">
           <div className="service-item bg-light rounded h-100 p-5">
             <div className="custom-table-container">
@@ -29,7 +36,7 @@ const Price: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {PRICES.map((item: PriceType, index: number) => (
+                  {data.map((item: TPriceType, index: number) => (
                     <tr key={index}>
                       <td>{item.service}</td>
                       <td>{item.price}</td>
