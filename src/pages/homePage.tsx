@@ -12,7 +12,7 @@ function HomePage() {
     <MainWrapper>
       <Header />
       <About />
-      <Service />
+      {/* <Service /> */}
       <Price />
       <Promotion />
       <Contact />

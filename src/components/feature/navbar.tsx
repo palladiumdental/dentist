@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CustomNavLink from "../ui/customNavLink";
 import { MAIN_ROUTE } from "../../constants/website";
 import Localize from "../ui/localize";
+import { CATEGORY, SERVICES } from "../../constants/services";
 
 const Navbar: React.FC = () => {
   return (
@@ -31,7 +32,11 @@ const Navbar: React.FC = () => {
           <CustomNavLink redirectTo={MAIN_ROUTE}>
             <Localize text="home" />
           </CustomNavLink>
-          <CustomNavLink redirectTo={`${MAIN_ROUTE}/service`}>
+          <CustomNavLink
+            redirectTo={`${MAIN_ROUTE}/service`}
+            dropdownItems={CATEGORY}
+            subDropdownItems={SERVICES}
+          >
             <Localize text="services" />
           </CustomNavLink>
           <CustomNavLink redirectTo={`${MAIN_ROUTE}/price`}>

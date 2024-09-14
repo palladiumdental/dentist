@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Localize from "../ui/localize";
-import { SERVICES, ServiceType } from "../../constants/services";
+import { ServiceType, CategorizedServiceType } from "../../constants/services";
 import { MAIN_ROUTE } from "../../constants/website";
 
-const Service: React.FC = () => {
+const Service: React.FC<CategorizedServiceType> = ({ services, category }) => {
   return (
     <div className="container-xxl py-5">
       <div className="container">
@@ -16,10 +16,10 @@ const Service: React.FC = () => {
           <p className="d-inline-block border rounded-pill py-1 px-4">
             <Localize text="services" isFirstLetterCapital={true} />
           </p>
-          <h1>Health Care Solutions</h1>
+          <h1>{category.title}</h1>
         </div>
         <div className="row g-4 justify-content-center align-items-center">
-          {SERVICES.map((service: ServiceType, index: number) => (
+          {services.map((service: ServiceType, index: number) => (
             <div
               key={index}
               className="col-lg-4 col-md-6 wow fadeInUp"
@@ -34,7 +34,10 @@ const Service: React.FC = () => {
                 </div>
                 <h4 className="mb-3">{service.title}</h4>
                 <p className="mb-4">{service.description}</p>
-                <Link className="btn" to={`${MAIN_ROUTE}/${service.title}`}>
+                <Link
+                  className="btn"
+                  to={`${MAIN_ROUTE}/service/${category.route}/${service.route}`}
+                >
                   <i className="fa fa-plus text-primary me-3"></i>Read More
                 </Link>
               </div>
