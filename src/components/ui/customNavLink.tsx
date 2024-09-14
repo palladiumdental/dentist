@@ -38,14 +38,19 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
           style={{
             display: "flex",
             flexDirection: "row",
+            flexWrap: "wrap",
             backgroundColor: "#EFF5FF",
+            textAlign: "center",
           }}
         >
           {dropdownItems?.map(({ route, title }) => (
             <div
+              key={route}
+              className="col-12 col-lg-4"
               style={{
                 display: "flex",
                 flexDirection: "column",
+                padding: "5px",
               }}
             >
               <h5
@@ -73,9 +78,10 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
                 .map((subb: any) =>
                   subb.services.map((s: any) => (
                     <h6
+                      key={s.route}
                       className="dropdown-header"
                       style={{
-                        whiteSpace: "normal",
+                        whiteSpace: "normal", // Wrap normally for sub-items
                         wordWrap: "break-word",
                       }}
                     >
