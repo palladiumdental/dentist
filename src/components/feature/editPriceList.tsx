@@ -18,19 +18,31 @@ const EditPriceList: React.FC = () => {
     const updatedPriceList = data.map((item) => ({
       ...item,
       isEditing: false,
-      serviceEdit: item.service,
-      priceEdit: item.price,
+      // serviceEdit: item.service,
+      // priceEdit: item.price,
     }));
     setPriceList(updatedPriceList);
   }, [data]);
 
   const handleAddNewRow = () => {
     setNewRow(true);
+    handleCancelAllEdits();
   };
 
   const hideNewRow = () => {
     setNewRow(false);
     setNewService({ service: "", price: "" });
+  };
+
+  const handleCancelAllEdits = () => {
+    setPriceList((prevList) =>
+      prevList.map((item) => ({
+        ...item,
+        isEditing: false,
+        // serviceEdit: item.service,
+        // priceEdit: item.price,
+      }))
+    );
   };
 
   const handleSaveNewRow = () => {
@@ -40,7 +52,15 @@ const EditPriceList: React.FC = () => {
     }
   };
 
+  const handleDeleteRow = (id: any) => {
+    hideNewRow();
+    handleCancelAllEdits();
+    deleteData(id, "prices");
+  };
+
   const handleEditRow = (id: any) => {
+    hideNewRow();
+    handleCancelAllEdits();
     setPriceList((prevList) =>
       prevList.map((item) =>
         item.id === id ? { ...item, isEditing: true } : item
@@ -119,7 +139,7 @@ const EditPriceList: React.FC = () => {
                     </td>
                     <td className="text-center">
                       <button
-                        className="btn btn-danger btn-sm"
+                        className="btn btn-success btn-sm"
                         style={{
                           background: "transparent",
                           border: "transparent",
@@ -158,11 +178,11 @@ const EditPriceList: React.FC = () => {
                           background: "transparent",
                           border: "transparent",
                         }}
+                        onClick={() => handleEditRow(service.id)}
                       >
                         <i
                           className="fas fa-pencil-alt"
                           style={{ color: "#FFC107" }}
-                          onClick={() => handleEditRow(service.id)}
                         ></i>
                       </button>
                       <button
@@ -171,7 +191,7 @@ const EditPriceList: React.FC = () => {
                           background: "transparent",
                           border: "transparent",
                         }}
-                        onClick={() => deleteData(service.id, "prices")}
+                        onClick={() => handleDeleteRow(service.id)}
                       >
                         <i
                           className="fas fa-trash"
@@ -215,14 +235,14 @@ const EditPriceList: React.FC = () => {
                 </td>
                 <td className="text-center">
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-success btn-sm"
                     style={{
                       background: "transparent",
                       border: "transparent",
                     }}
                     onClick={handleSaveNewRow}
                   >
-                    <i className="fa fa-plus" style={{ color: "#27C46B" }}></i>
+                    <i className="fa fa-check" style={{ color: "#27C46B" }}></i>
                   </button>
 
                   <button
@@ -231,10 +251,10 @@ const EditPriceList: React.FC = () => {
                       background: "transparent",
                       border: "transparent",
                     }}
-                    onClick={() => hideNewRow()}
+                    onClick={hideNewRow}
                   >
                     <i
-                      className="fas fa-trash"
+                      className="fas fa-times"
                       style={{ color: "#E34724" }}
                     ></i>
                   </button>
