@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { database } from "./config";
 import {
   collection,
-  getDocs,
   addDoc,
   doc,
   deleteDoc,
   updateDoc,
+  onSnapshot,
+  QuerySnapshot,
 } from "firebase/firestore";
 
 type TCollectionName = "prices";
@@ -18,24 +19,29 @@ export const useGetData = <T>(collectionName: TCollectionName) => {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        setLoading(true); // Start loading
-        const docs = await getDocs(value);
-        setData(docs.docs.map((doc) => ({ ...(doc.data() as T), id: doc.id })));
-      } catch (err) {
-        setError(err as Error); // Catch any errors
-      } finally {
-        setLoading(false); // End loading
+    const unsubscribe = onSnapshot(
+      value,
+      (snapshot: QuerySnapshot) => {
+        const items = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as T[];
+        setData(items);
+        setLoading(false);
+      },
+      (err) => {
+        setError(err);
+        setLoading(false);
       }
-    };
-    getData();
+    );
+
+    return () => unsubscribe();
   }, [collectionName]);
 
   return { data, loading, error };
 };
 
-export const useAddData = async <T>(
+export const addData = async <T>(
   collectionName: TCollectionName,
   data: any
 ) => {
@@ -53,7 +59,7 @@ export const useAddData = async <T>(
   }
 };
 
-export const useDeleteData = async (
+export const deleteData = async (
   id: string,
   collectionName: TCollectionName
 ) => {
@@ -66,7 +72,7 @@ export const useDeleteData = async (
   }
 };
 
-export const useEditData = async (
+export const editData = async (
   id: string,
   collectionName: TCollectionName,
   data: any
