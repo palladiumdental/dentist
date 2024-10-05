@@ -3,7 +3,11 @@ import { TPriceType } from "../../types/price";
 import { useGetData, addData, deleteData, editData } from "../../firebase/crud";
 import Spinner from "../ui/spinner";
 
-type TEditableService = TPriceType & { isEditing?: boolean };
+type TEditableService = TPriceType & {
+  isEditing?: boolean;
+  serviceEdit?: string;
+  priceEdit?: string;
+};
 
 const EditPriceList: React.FC = () => {
   const { data, loading, error } = useGetData<TPriceType>("prices");
@@ -15,11 +19,11 @@ const EditPriceList: React.FC = () => {
   });
 
   React.useEffect(() => {
-    const updatedPriceList = data.map((item) => ({
+    const updatedPriceList = data.map((item: TPriceType) => ({
       ...item,
       isEditing: false,
-      // serviceEdit: item.service,
-      // priceEdit: item.price,
+      serviceEdit: item.service,
+      priceEdit: item.price,
     }));
     setPriceList(updatedPriceList);
   }, [data]);
@@ -35,12 +39,12 @@ const EditPriceList: React.FC = () => {
   };
 
   const handleCancelAllEdits = () => {
-    setPriceList((prevList) =>
-      prevList.map((item) => ({
+    setPriceList((prevList: TEditableService[]) =>
+      prevList.map((item: TEditableService) => ({
         ...item,
         isEditing: false,
-        // serviceEdit: item.service,
-        // priceEdit: item.price,
+        serviceEdit: item.service,
+        priceEdit: item.price,
       }))
     );
   };
@@ -52,13 +56,13 @@ const EditPriceList: React.FC = () => {
     }
   };
 
-  const handleDeleteRow = (id: any) => {
+  const handleDeleteRow = (id: string) => {
     hideNewRow();
     handleCancelAllEdits();
     deleteData(id, "prices");
   };
 
-  const handleEditRow = (id: any) => {
+  const handleEditRow = (id: string) => {
     hideNewRow();
     handleCancelAllEdits();
     setPriceList((prevList) =>
@@ -68,22 +72,39 @@ const EditPriceList: React.FC = () => {
     );
   };
 
-  const handleCancelEdit = (id: any) => {
-    setPriceList((prevList) =>
-      prevList.map((item) =>
+  const handleCancelEdit = (id: string) => {
+    setPriceList((prevList: TEditableService[]) =>
+      prevList.map((item: TEditableService) =>
         item.id === id ? { ...item, isEditing: false } : item
       )
     );
   };
 
-  const handleSaveEditRow = (id: any, service: any) => {
-    editData(id, "prices", service);
-
-    setPriceList((prevList) =>
-      prevList.map((item) =>
-        item.id === id ? { ...item, isEditing: false } : item
-      )
-    );
+  const handleSaveEditRow = async (id: string) => {
+    const editedItem = priceList.find((item) => item.id === id);
+    if (editedItem) {
+      const updatedData = {
+        service: editedItem.serviceEdit || "",
+        price: editedItem.priceEdit || "",
+      };
+      try {
+        await editData(id, "prices", updatedData);
+        setPriceList((prevList: TEditableService[]) =>
+          prevList.map((item: any) =>
+            item.id === id
+              ? {
+                  ...item,
+                  isEditing: false,
+                  service: editedItem.serviceEdit,
+                  price: editedItem.priceEdit,
+                }
+              : item
+          )
+        );
+      } catch (error) {
+        console.error("Error updating data:", error);
+      }
+    }
   };
 
   if (loading) return <Spinner show={loading} />;
@@ -125,16 +146,34 @@ const EditPriceList: React.FC = () => {
                       <input
                         type="text"
                         className="form-control"
-                        defaultValue={service.service}
-                        onChange={(e) => (service.service = e.target.value)}
+                        value={service.serviceEdit}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          setPriceList((prevList) =>
+                            prevList.map((item) =>
+                              item.id === service.id
+                                ? { ...item, serviceEdit: value }
+                                : item
+                            )
+                          );
+                        }}
                       />
                     </td>
                     <td>
                       <input
                         type="text"
                         className="form-control"
-                        defaultValue={service.price}
-                        onChange={(e) => (service.price = e.target.value)}
+                        value={service.priceEdit}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          setPriceList((prevList) =>
+                            prevList.map((item) =>
+                              item.id === service.id
+                                ? { ...item, priceEdit: value }
+                                : item
+                            )
+                          );
+                        }}
                       />
                     </td>
                     <td className="text-center">
@@ -144,7 +183,7 @@ const EditPriceList: React.FC = () => {
                           background: "transparent",
                           border: "transparent",
                         }}
-                        onClick={() => handleSaveEditRow(service.id, service)}
+                        onClick={() => handleSaveEditRow(service.id)}
                       >
                         <i
                           className="fa fa-check"
