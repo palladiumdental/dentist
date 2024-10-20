@@ -1,3 +1,6 @@
+import React from "react";
+import TeethWhitening from "../components/staticContents/teethWhitening";
+
 export type CategorizedServiceType = {
   category: CategoryType;
   services: ServiceType[];
@@ -9,6 +12,8 @@ export type ServiceType = {
   route: string;
   description: string;
   delay: string;
+  enComponent?: React.FC;
+  huComponent?: React.FC;
 };
 
 export type CategoryType = {
@@ -38,6 +43,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "A modern alternative to traditional metal fillings, offering a natural-looking solution for restoring decayed teeth.",
         delay: "0.1s",
+        enComponent: TeethWhitening,
+        huComponent: TeethWhitening,
       },
       {
         icon: "fa-vials",
