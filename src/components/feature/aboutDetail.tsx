@@ -1,11 +1,9 @@
 import React from "react";
 import about1 from "../../assets/about-1.jpg";
 import about2 from "../../assets/about-2.jpg";
-import { Link } from "react-router-dom";
-import { MAIN_ROUTE } from "../../constants/website";
 import Localize from "../ui/localize";
 
-const About: React.FC = () => {
+const AboutDetail: React.FC = () => {
   return (
     <div className="container-xxl py-5">
       <div className="container">
@@ -33,26 +31,17 @@ const About: React.FC = () => {
               <Localize text="a2" isFirstLetterCapital={true} />
             </h1>
             <p>
-              <Localize text="a7" />
+              <Localize text="a3" />
             </p>
-            <p>
-              <i className="far fa-check-circle text-primary me-3"></i>
-              <Localize text="a8" isFirstLetterCapital={true} />
+            <p className="mb-4">
+              <Localize text="a4" />
             </p>
-            <p>
-              <i className="far fa-check-circle text-primary me-3"></i>
-              <Localize text="a9" isFirstLetterCapital={true} />
+            <p className="mb-4">
+              <Localize text="a5" />
             </p>
-            <p>
-              <i className="far fa-check-circle text-primary me-3"></i>
-              <Localize text="a10" isFirstLetterCapital={true} />
+            <p className="mb-4">
+              <Localize text="a6" />
             </p>
-            <Link
-              className="btn btn-primary rounded-pill py-3 px-5 mt-3"
-              to={`${MAIN_ROUTE}/about`}
-            >
-              <Localize text="a11" isFirstLetterCapital={true} />
-            </Link>
           </div>
         </div>
       </div>
@@ -60,4 +49,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default AboutDetail;

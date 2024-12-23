@@ -1,12 +1,12 @@
 import React from "react";
-import About from "../components/feature/about";
+import AboutDetail from "../components/feature/aboutDetail";
 import Promotion from "../components/feature/promotion";
 import SecondaryWrapper from "../components/ui/secondaryWrapper";
 
 function AboutPage() {
   return (
     <SecondaryWrapper title="About us">
-      <About />
+      <AboutDetail />
       <Promotion />
     </SecondaryWrapper>
   );
