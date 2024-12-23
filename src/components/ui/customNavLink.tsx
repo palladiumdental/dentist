@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Localize from "./localize";
 
 type CustomNavLinkProps = {
   dropdownItems?: { route: string; title: string }[];
@@ -70,7 +71,7 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
                     wordWrap: "break-word",
                   }}
                 >
-                  {title}
+                  <Localize text={title} />
                 </Link>
               </h5>
               {subDropdownItems
@@ -94,7 +95,7 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
                           wordWrap: "break-word",
                         }}
                       >
-                        {s.title}
+                        <Localize text={s.title} />
                       </Link>
                     </h6>
                   ))

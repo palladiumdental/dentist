@@ -1,18 +1,18 @@
 export const DENTAL_INTERVENTION = [
-  "Diagnostics",
-  "Dental Fillings",
-  "Prosthetics",
-  "Dental Extractions",
-  "Root Canal Treatments",
-  "Pediatric Dentistry",
-  "Implants",
-  "Paradontology",
-  "Others",
+  "diagnostics",
+  "dental fillings",
+  "prosthetics",
+  "tooth extraction",
+  "root canal treatments",
+  "pediatric dentistry",
+  "implants",
+  "paradontology",
+  "others",
 ];
 
 export const ORAL_HYGIENE_INTERVENTION = [
-  "Dental Hygenic/Consultations",
-  "Professional Teeth Cleaning",
-  "Teeth Whitening",
-  "Deep Teeth Cleaning",
+  "dental hygenic/consultations",
+  "professional teeth cleaning",
+  "teeth whitening",
+  "deep teeth cleaning",
 ];

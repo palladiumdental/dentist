@@ -59,40 +59,36 @@ export const SERVICES: CategorizedServiceType[] = [
     services: [
       {
         icon: "fa-heartbeat",
-        title: "Aesthetic Fillings",
+        title: "aesthetic fillings",
         route: "aesthetic_fillings",
-        description:
-          "A modern alternative to traditional metal fillings, offering a natural-looking solution for restoring decayed teeth.",
+        description: "a18",
         delay: "0.1s",
         enComponent: AestheticFillingsEn,
         huComponent: AestheticFillingsHu,
       },
       {
         icon: "fa-vials",
-        title: "Pediatric Dentistry",
+        title: "pediatric dentistry",
         route: "pediatric_dentistry",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a19",
         delay: "0.5s",
         enComponent: PediatricDentistryEn,
         huComponent: PediatricDentistryHu,
       },
       {
         icon: "fa-vials",
-        title: "Root Canal Treatment",
+        title: "root canal treatments",
         route: "root_canal_treatment",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a20",
         delay: "0.5s",
         enComponent: RootCanalTreatmentEn,
         huComponent: RootCanalTreatmentHu,
       },
       {
         icon: "fa-vials",
-        title: "Tooth Extraction",
+        title: "tooth extraction",
         route: "tooth_extraction",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a21",
         delay: "0.5s",
         enComponent: ToothExtractionEn,
         huComponent: ToothExtractionHu,
@@ -104,20 +100,18 @@ export const SERVICES: CategorizedServiceType[] = [
     services: [
       {
         icon: "fa-x-ray",
-        title: "At-Home Teeth Whitening",
+        title: "at-home teeth whitening",
         route: "at_home_teeth_whitening",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a22",
         delay: "0.3s",
         enComponent: TeethWhiteningEn,
         huComponent: TeethWhiteningHU,
       },
       {
         icon: "fa-vials",
-        title: "Teeth Cleaning and Tartar Removal",
+        title: "teeth cleaning and tartar removal",
         route: "teeth_cleaning_and_tartar_removal",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a23",
         delay: "0.5s",
         enComponent: TeethCleaningAndTartarRemovalEn,
         huComponent: TeethCleaningAndTartarRemovalHU,
@@ -129,10 +123,9 @@ export const SERVICES: CategorizedServiceType[] = [
     services: [
       {
         icon: "fa-tooth",
-        title: "Metal-Ceramic Crowns",
+        title: "metal-ceramic crowns",
         route: "metal_ceramic_crowns",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a24",
         delay: "0.3s",
         enComponent: MetalCeramicCrownsEn,
         huComponent: MetalCeramicCrownsHu,
@@ -140,10 +133,9 @@ export const SERVICES: CategorizedServiceType[] = [
 
       {
         icon: "fa-vials",
-        title: "Removable Dentures",
+        title: "removable dentures",
         route: "removable_dentures",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a25",
         delay: "0.5s",
         enComponent: RemovableDenturesEn,
         huComponent: RemovableDenturesHu,
@@ -151,10 +143,9 @@ export const SERVICES: CategorizedServiceType[] = [
 
       {
         icon: "fa-vials",
-        title: "Zirconium Crowns",
+        title: "zirconium crowns",
         route: "zirconium_crowns",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a26",
         delay: "0.5s",
         enComponent: ZirconiumCrownsEn,
         huComponent: ZirconiumCrownsHu,
@@ -166,10 +157,9 @@ export const SERVICES: CategorizedServiceType[] = [
     services: [
       {
         icon: "fa-brain",
-        title: "Immediate Loading Implants",
+        title: "immediate loading implants",
         route: "immediate_loading_implants",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a27",
         delay: "0.5s",
         enComponent: ImmediateLoadingImplantsEn,
         huComponent: ImmediateLoadingImplantsHu,
@@ -181,10 +171,9 @@ export const SERVICES: CategorizedServiceType[] = [
     services: [
       {
         icon: "fa-wheelchair",
-        title: "Invisible Aligner",
+        title: "invisible aligner",
         route: "clear_aligner",
-        description:
-          "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
+        description: "a28",
         delay: "0.1s",
         enComponent: InvisibleAlignerEn,
         huComponent: InvisibleAlignerHu,

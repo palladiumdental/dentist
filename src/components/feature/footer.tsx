@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
-              Quick Links
+              <Localize text="quick links" isFirstLetterCapital={true} />
             </h5>
             <Link className="btn btn-link" to={`${MAIN_ROUTE}/service`}>
               <Localize text="services" isFirstLetterCapital={true} />

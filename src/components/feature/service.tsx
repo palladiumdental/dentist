@@ -20,7 +20,7 @@ const Service: React.FC<CategorizedServiceType> = ({ services, category }) => {
             <Localize text={category.title} isFirstLetterCapital={true} />
           </h1>
         </div>
-        <div className="row g-4 justify-content-center align-items-center">
+        <div className="row g-4 justify-content-center align-items-center d-flex align-items-stretch">
           {services.map((service: ServiceType, index: number) => (
             <div
               key={index}
@@ -34,13 +34,18 @@ const Service: React.FC<CategorizedServiceType> = ({ services, category }) => {
                 >
                   <i className={`fa ${service.icon} text-primary fs-4`}></i>
                 </div>
-                <h4 className="mb-3">{service.title}</h4>
-                <p className="mb-4">{service.description}</p>
+                <h4 className="mb-3">
+                  <Localize text={service.title} isFirstLetterCapital={true} />
+                </h4>
+                <p className="mb-4">
+                  <Localize text={service.description} />
+                </p>
                 <Link
                   className="btn"
                   to={`${MAIN_ROUTE}/service/${category.route}/${service.route}`}
                 >
-                  <i className="fa fa-plus text-primary me-3"></i>Read More
+                  <i className="fa fa-plus text-primary me-3"></i>
+                  <Localize text="a11" isFirstLetterCapital={true} />
                 </Link>
               </div>
             </div>

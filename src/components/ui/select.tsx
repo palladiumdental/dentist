@@ -1,4 +1,5 @@
 import React from "react";
+import Localize from "./localize";
 
 type SelectProps = {
   classNames?: string;
@@ -24,7 +25,9 @@ const Select: React.FC<SelectProps> = ({
     >
       <option defaultValue="1">{defaultOption}</option>
       {options.map((option) => (
-        <option value={option}>{option}</option>
+        <option value={option}>
+          <Localize text={option} isFirstLetterCapital={true} />
+        </option>
       ))}
     </select>
   );
