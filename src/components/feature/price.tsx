@@ -4,9 +4,13 @@ import { TPriceType } from "../../types/price";
 import { useGetData } from "../../firebase/crud";
 import Spinner from "../ui/spinner";
 import Localize from "../ui/localize";
+import { useTranslation } from "react-i18next";
 
 const Price: React.FC = () => {
+  const { i18n } = useTranslation();
   const { data, loading } = useGetData<TPriceType>("prices");
+
+  const isCurrentLanguageEn = i18n.language === "en";
 
   if (loading) return <Spinner show={loading} />;
 
@@ -47,7 +51,9 @@ const Price: React.FC = () => {
                 <tbody>
                   {data.map((item: TPriceType, index: number) => (
                     <tr key={index}>
-                      <td>{item.service}</td>
+                      <td>
+                        {isCurrentLanguageEn ? item.enService : item.huService}
+                      </td>
                       <td>{item.price}</td>
                     </tr>
                   ))}

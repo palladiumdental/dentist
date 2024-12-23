@@ -7,7 +7,8 @@ import { useTranslation } from "react-i18next";
 
 type TEditableService = TPriceType & {
   isEditing?: boolean;
-  serviceEdit?: string;
+  enServiceEdit?: string;
+  huServiceEdit?: string;
   priceEdit?: string;
 };
 
@@ -17,7 +18,8 @@ const EditPriceList: React.FC = () => {
   const [priceList, setPriceList] = useState<TEditableService[]>(data || []);
   const [newRow, setNewRow] = useState(false);
   const [newService, setNewService] = useState({
-    service: "",
+    enService: "",
+    huService: "",
     price: "",
   });
 
@@ -27,7 +29,8 @@ const EditPriceList: React.FC = () => {
     const updatedPriceList = data.map((item: TPriceType) => ({
       ...item,
       isEditing: false,
-      serviceEdit: item.service,
+      enServiceEdit: item.enService,
+      huServiceEdit: item.huService,
       priceEdit: item.price,
     }));
     setPriceList(updatedPriceList);
@@ -40,7 +43,7 @@ const EditPriceList: React.FC = () => {
 
   const hideNewRow = () => {
     setNewRow(false);
-    setNewService({ service: "", price: "" });
+    setNewService({ enService: "", huService: "", price: "" });
   };
 
   const handleCancelAllEdits = () => {
@@ -48,14 +51,15 @@ const EditPriceList: React.FC = () => {
       prevList.map((item: TEditableService) => ({
         ...item,
         isEditing: false,
-        serviceEdit: item.service,
+        enServiceEdit: item.enService,
+        huServiceEdit: item.huService,
         priceEdit: item.price,
       }))
     );
   };
 
   const handleSaveNewRow = () => {
-    if (newService.service && newService.price) {
+    if (newService.enService && newService.huService && newService.price) {
       addData("prices", newService);
       hideNewRow();
     }
@@ -89,7 +93,8 @@ const EditPriceList: React.FC = () => {
     const editedItem = priceList.find((item) => item.id === id);
     if (editedItem) {
       const updatedData = {
-        service: editedItem.serviceEdit || "",
+        enService: editedItem.enServiceEdit || "",
+        huService: editedItem.huServiceEdit || "",
         price: editedItem.priceEdit || "",
       };
       try {
@@ -100,7 +105,8 @@ const EditPriceList: React.FC = () => {
               ? {
                   ...item,
                   isEditing: false,
-                  service: editedItem.serviceEdit,
+                  enService: editedItem.enServiceEdit,
+                  huService: editedItem.huServiceEdit,
                   price: editedItem.priceEdit,
                 }
               : item
@@ -141,7 +147,16 @@ const EditPriceList: React.FC = () => {
           <thead>
             <tr>
               <th>
-                <Localize text="service" isFirstLetterCapital={true} />
+                <Localize
+                  text="service text in english"
+                  isFirstLetterCapital={true}
+                />
+              </th>
+              <th>
+                <Localize
+                  text="service text in hungarian"
+                  isFirstLetterCapital={true}
+                />
               </th>
               <th>
                 <Localize text="price" isFirstLetterCapital={true} />
@@ -160,13 +175,30 @@ const EditPriceList: React.FC = () => {
                       <input
                         type="text"
                         className="form-control"
-                        value={service.serviceEdit}
+                        value={service.enServiceEdit}
                         onChange={(e) => {
                           const value = e.target.value;
                           setPriceList((prevList) =>
                             prevList.map((item) =>
                               item.id === service.id
-                                ? { ...item, serviceEdit: value }
+                                ? { ...item, enServiceEdit: value }
+                                : item
+                            )
+                          );
+                        }}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={service.huServiceEdit}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          setPriceList((prevList) =>
+                            prevList.map((item) =>
+                              item.id === service.id
+                                ? { ...item, huServiceEdit: value }
                                 : item
                             )
                           );
@@ -222,7 +254,8 @@ const EditPriceList: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    <td>{service.service}</td>
+                    <td>{service.enService}</td>
+                    <td>{service.huService}</td>
                     <td>{service.price}</td>
                     <td className="text-center">
                       <button
@@ -262,16 +295,34 @@ const EditPriceList: React.FC = () => {
                   <input
                     type="text"
                     className="form-control"
-                    value={newService.service}
+                    value={newService.enService}
                     placeholder={
                       isCurrentLanguageEn
-                        ? "Enter new service"
-                        : "Új szolgáltatás megadása"
+                        ? "Enter new service in english"
+                        : "Új szolgáltatás megadása angolul"
                     }
                     onChange={(e) =>
                       setNewService({
                         ...newService,
-                        service: e.target.value,
+                        enService: e.target.value,
+                      })
+                    }
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={newService.huService}
+                    placeholder={
+                      isCurrentLanguageEn
+                        ? "Enter new service in hungarian"
+                        : "Új szolgáltatás megadása magyarul"
+                    }
+                    onChange={(e) =>
+                      setNewService({
+                        ...newService,
+                        huService: e.target.value,
                       })
                     }
                   />

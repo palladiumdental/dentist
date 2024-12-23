@@ -49,7 +49,8 @@ export const addData = async <T>(
 
   try {
     const docRef = await addDoc(value, {
-      service: data["service"],
+      enService: data["enService"],
+      huService: data["huService"],
       price: data["price"],
     });
     return docRef.id;
@@ -80,7 +81,8 @@ export const editData = async (
   try {
     const updateData = doc(database, collectionName, id);
     await updateDoc(updateData, {
-      service: data["service"],
+      enService: data["enService"],
+      huService: data["huService"],
       price: data["price"],
     });
   } catch (error) {
