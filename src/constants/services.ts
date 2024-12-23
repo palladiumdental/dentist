@@ -1,5 +1,26 @@
 import React from "react";
-import TeethWhitening from "../components/staticContents/teethWhitening";
+import TeethWhiteningEn from "../components/staticContents/en/teethWhitening";
+import TeethWhiteningHU from "../components/staticContents/hu/teethWhitening";
+import AestheticFillingsEn from "../components/staticContents/en/aestheticFillings";
+import AestheticFillingsHu from "../components/staticContents/hu/aestheticFillings";
+import ImmediateLoadingImplantsEn from "../components/staticContents/en/immediateLoadingImplants";
+import ImmediateLoadingImplantsHu from "../components/staticContents/hu/immediateLoadingImplants";
+import InvisibleAlignerEn from "../components/staticContents/en/invisibleAligner";
+import InvisibleAlignerHu from "../components/staticContents/hu/invisibleAligner";
+import MetalCeramicCrownsEn from "../components/staticContents/en/metalCeramicCrowns";
+import MetalCeramicCrownsHu from "../components/staticContents/hu/metalCeramicCrowns";
+import PediatricDentistryEn from "../components/staticContents/en/pediatricDentistry";
+import PediatricDentistryHu from "../components/staticContents/hu/pediatricDentistry";
+import RemovableDenturesEn from "../components/staticContents/en/removableDentures";
+import RemovableDenturesHu from "../components/staticContents/hu/removableDentures";
+import RootCanalTreatmentEn from "../components/staticContents/en/rootCanalTreatment";
+import RootCanalTreatmentHu from "../components/staticContents/hu/rootCanalTreatment";
+import TeethCleaningAndTartarRemovalEn from "../components/staticContents/en/teethCleaningAndTartarRemoval";
+import TeethCleaningAndTartarRemovalHU from "../components/staticContents/hu/teethCleaningAndTartarRemoval";
+import ToothExtractionEn from "../components/staticContents/en/ToothExtraction";
+import ToothExtractionHu from "../components/staticContents/hu/ToothExtraction";
+import ZirconiumCrownsEn from "../components/staticContents/en/zirconiumCrowns";
+import ZirconiumCrownsHu from "../components/staticContents/hu/zirconiumCrowns";
 
 export type CategorizedServiceType = {
   category: CategoryType;
@@ -43,8 +64,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "A modern alternative to traditional metal fillings, offering a natural-looking solution for restoring decayed teeth.",
         delay: "0.1s",
-        enComponent: TeethWhitening,
-        huComponent: TeethWhitening,
+        enComponent: AestheticFillingsEn,
+        huComponent: AestheticFillingsHu,
       },
       {
         icon: "fa-vials",
@@ -53,6 +74,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.5s",
+        enComponent: PediatricDentistryEn,
+        huComponent: PediatricDentistryHu,
       },
       {
         icon: "fa-vials",
@@ -61,6 +84,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.5s",
+        enComponent: RootCanalTreatmentEn,
+        huComponent: RootCanalTreatmentHu,
       },
       {
         icon: "fa-vials",
@@ -69,6 +94,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.5s",
+        enComponent: ToothExtractionEn,
+        huComponent: ToothExtractionHu,
       },
     ],
   },
@@ -82,6 +109,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.3s",
+        enComponent: TeethWhiteningEn,
+        huComponent: TeethWhiteningHU,
       },
       {
         icon: "fa-vials",
@@ -90,6 +119,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.5s",
+        enComponent: TeethCleaningAndTartarRemovalEn,
+        huComponent: TeethCleaningAndTartarRemovalHU,
       },
     ],
   },
@@ -103,6 +134,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.3s",
+        enComponent: MetalCeramicCrownsEn,
+        huComponent: MetalCeramicCrownsHu,
       },
 
       {
@@ -112,6 +145,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.5s",
+        enComponent: RemovableDenturesEn,
+        huComponent: RemovableDenturesHu,
       },
 
       {
@@ -121,6 +156,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.5s",
+        enComponent: ZirconiumCrownsEn,
+        huComponent: ZirconiumCrownsHu,
       },
     ],
   },
@@ -134,6 +171,8 @@ export const SERVICES: CategorizedServiceType[] = [
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.5s",
+        enComponent: ImmediateLoadingImplantsEn,
+        huComponent: ImmediateLoadingImplantsHu,
       },
     ],
   },
@@ -142,11 +181,13 @@ export const SERVICES: CategorizedServiceType[] = [
     services: [
       {
         icon: "fa-wheelchair",
-        title: "Clear Aligner",
+        title: "Invisible Aligner",
         route: "clear_aligner",
         description:
           "Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.",
         delay: "0.1s",
+        enComponent: InvisibleAlignerEn,
+        huComponent: InvisibleAlignerHu,
       },
     ],
   },

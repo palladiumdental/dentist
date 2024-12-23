@@ -2,7 +2,7 @@ import React from "react";
 
 type content = {
   title?: string;
-  description?: string;
+  description?: string | React.ReactNode;
 };
 
 type ContentWrapperProps = {
@@ -29,6 +29,10 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
   } else {
     return (
       <section className="pf-details section">
+        <div>
+          <h1 className="mb-4">{mainContent?.title}</h1>
+          <p className="text-start">{mainContent?.description}</p>
+        </div>
         <div className="container-xxl py-5">
           <div className="container">
             <div className="row g-5">
@@ -52,25 +56,27 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
                 </div>
               </div>
               <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <h1 className="mb-4">{mainContent?.title}</h1>
-                <p>{mainContent?.description}</p>
                 {subContents?.map((content, index) =>
-                  index < 3 ? (
+                  index < 2 ? (
                     <>
-                      <h3>{content.title}</h3>
-                      <p className="mb-4">{content.description}</p>
+                      <h3 className="text-start">{content.title}</h3>
+                      <p className="mb-4 text-start">{content.description}</p>
                     </>
                   ) : null
                 )}
               </div>
-              {subContents?.map((content, index) =>
-                index > 2 ? (
-                  <>
-                    <h3>{content.title}</h3>
-                    <p>{content.description}</p>
-                  </>
-                ) : null
-              )}
+              <div className="fadeIn" data-wow-delay="0.5s">
+                {subContents?.map((content, index) =>
+                  index > 1 ? (
+                    <>
+                      <h3 className="text-start" style={{ marginTop: "50px" }}>
+                        {content.title}
+                      </h3>
+                      <p className="text-start">{content.description}</p>
+                    </>
+                  ) : null
+                )}
+              </div>
             </div>
           </div>
         </div>
