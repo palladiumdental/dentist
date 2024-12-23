@@ -16,7 +16,9 @@ const Service: React.FC<CategorizedServiceType> = ({ services, category }) => {
           <p className="d-inline-block border rounded-pill py-1 px-4">
             <Localize text="services" isFirstLetterCapital={true} />
           </p>
-          <h1>{category.title}</h1>
+          <h1>
+            <Localize text={category.title} isFirstLetterCapital={true} />
+          </h1>
         </div>
         <div className="row g-4 justify-content-center align-items-center">
           {services.map((service: ServiceType, index: number) => (

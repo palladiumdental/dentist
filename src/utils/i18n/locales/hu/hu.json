@@ -13,7 +13,7 @@
   "Dental Extractions": "Foghuzás",
   "Root Canal Treatments": "Gyökérkezelés",
   "Pediatric Dentistry": "Gyermekfogászat",
-  "Implants": "Implantáció",
+  "implants": "Implantáció",
   "Paradontology": "Parodontológia",
   "Others": "Egyéb",
   "Dental Hygenic/Consultations": "Szájhigiénés tanácsadás/konzultáció",
@@ -38,5 +38,9 @@
   "a15": "Írjon Nekünk Most",
   "a16": "Az Ön Neve",
   "a17": "Az Ön E-mail",
-  "subject": "Tárgy"
+  "subject": "Tárgy",
+  "everyday dental treatments": "Mindennapi Fogászati Kezelések",
+  "cosmetic dentistry": "Esztétikai Fogászat",
+  "prosthesis": "Protézis",
+  "orthodontics": "Fogszabályozás"
 }

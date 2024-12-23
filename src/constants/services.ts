@@ -43,11 +43,11 @@ export type CategoryType = {
 };
 
 export const CATEGORY: CategoryType[] = [
-  { route: "everyday_dental_treatments", title: "Everyday Dental Treatments" },
-  { route: "cosmetic_dentistry", title: "Cosmetic Dentistry" },
-  { route: "prosthesis", title: "Prosthesis" },
-  { route: "implants", title: "Implants" },
-  { route: "orthodontics", title: "Orthodontics" },
+  { route: "everyday_dental_treatments", title: "everyday dental treatments" },
+  { route: "cosmetic_dentistry", title: "cosmetic dentistry" },
+  { route: "prosthesis", title: "prosthesis" },
+  { route: "implants", title: "implants" },
+  { route: "orthodontics", title: "orthodontics" },
 ];
 
 export const SERVICES: CategorizedServiceType[] = [

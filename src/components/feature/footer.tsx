@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MAIN_ROUTE } from "../../constants/website";
 import Localize from "../ui/localize";
 import { ADDRESS, PHONE_NUMBER, EMAIL } from "../../constants/constants";
+import { CATEGORY } from "../../constants/services";
 
 const Footer: React.FC = () => {
   return (
@@ -59,21 +60,14 @@ const Footer: React.FC = () => {
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
               <Localize text="services" isFirstLetterCapital={true} />
             </h5>
-            <Link className="btn btn-link" to="">
-              Cardiology
-            </Link>
-            <Link className="btn btn-link" to="">
-              Pulmonary
-            </Link>
-            <Link className="btn btn-link" to="">
-              Neurology
-            </Link>
-            <Link className="btn btn-link" to="">
-              Orthopedics
-            </Link>
-            <Link className="btn btn-link" to="">
-              Laboratory
-            </Link>
+            {CATEGORY.map((category, index) => (
+              <Link
+                className="btn btn-link"
+                to={`${MAIN_ROUTE}/service/${category.route}`}
+              >
+                <Localize text={category.title} isFirstLetterCapital={true} />
+              </Link>
+            ))}
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>

@@ -13,7 +13,7 @@
   "Dental Extractions": "Dental Extractions",
   "Root Canal Treatments": "Root Canal Treatments",
   "Pediatric Dentistry": "Pediatric Dentistry",
-  "Implants": "Implants",
+  "implants": "Implants",
   "Paradontology": "Paradontology",
   "Others": "Others",
   "Dental Hygenic/Consultations": "Dental Hygenic/Consultations",
@@ -38,5 +38,9 @@
   "a15": "Mail Us Now",
   "a16": "Your Name",
   "a17": "Your Email",
-  "subject": "Subject"
+  "subject": "Subject",
+  "everyday dental treatments": "Everyday Dental Treatments",
+  "cosmetic dentistry": "Cosmetic Dentistry",
+  "prosthesis": "Prosthesis",
+  "orthodontics": "Orthodontics"
 }
