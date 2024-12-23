@@ -1,7 +1,9 @@
 {
   "services": "Services",
+  "service": "Service",
   "home": "Home",
   "prices": "Prices",
+  "price": "Price",
   "promotions": "Promotions",
   "about us": "About us",
   "contact us": "Contact us",
@@ -64,5 +66,9 @@
   "a27": "They restore your smile quickly by placing permanent restorations on the same day as implant surgery.",
   "a28": "Clear, removable trays that discreetly and comfortably straighten teeth without brackets or wires.",
   "a29": "Make An Appointment To Visit The Doctor!",
-  "a30": "Book Appointment"
+  "a30": "Book Appointment",
+  "a31": "Dental Price List",
+  "a32": "Edit Price List",
+  "add new": "Add New",
+  "actions": "Actions"
 }

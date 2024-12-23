@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { TPriceType } from "../../types/price";
 import { useGetData, addData, deleteData, editData } from "../../firebase/crud";
 import Spinner from "../ui/spinner";
+import Localize from "../ui/localize";
+import { useTranslation } from "react-i18next";
 
 type TEditableService = TPriceType & {
   isEditing?: boolean;
@@ -10,6 +12,7 @@ type TEditableService = TPriceType & {
 };
 
 const EditPriceList: React.FC = () => {
+  const { i18n } = useTranslation();
   const { data, loading, error } = useGetData<TPriceType>("prices");
   const [priceList, setPriceList] = useState<TEditableService[]>(data || []);
   const [newRow, setNewRow] = useState(false);
@@ -17,6 +20,8 @@ const EditPriceList: React.FC = () => {
     service: "",
     price: "",
   });
+
+  const isCurrentLanguageEn = i18n.language === "en";
 
   React.useEffect(() => {
     const updatedPriceList = data.map((item: TPriceType) => ({
@@ -116,7 +121,9 @@ const EditPriceList: React.FC = () => {
         <div className="table-title">
           <div className="row">
             <div className="col-sm-8" style={{ textAlign: "left" }}>
-              <h2>Edit Price List</h2>
+              <h2>
+                <Localize text="a32" isFirstLetterCapital={true} />
+              </h2>
             </div>
             <div className="col-sm-4" style={{ textAlign: "right" }}>
               <button
@@ -124,7 +131,8 @@ const EditPriceList: React.FC = () => {
                 onClick={handleAddNewRow}
                 disabled={newRow}
               >
-                <i className="fa fa-plus me-2"></i> Add New
+                <i className="fa fa-plus me-2"></i>{" "}
+                <Localize text="add new" isFirstLetterCapital={true} />
               </button>
             </div>
           </div>
@@ -132,9 +140,15 @@ const EditPriceList: React.FC = () => {
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th>Service</th>
-              <th>Price</th>
-              <th>Actions</th>
+              <th>
+                <Localize text="service" isFirstLetterCapital={true} />
+              </th>
+              <th>
+                <Localize text="price" isFirstLetterCapital={true} />
+              </th>
+              <th>
+                <Localize text="actions" isFirstLetterCapital={true} />
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -249,7 +263,11 @@ const EditPriceList: React.FC = () => {
                     type="text"
                     className="form-control"
                     value={newService.service}
-                    placeholder="Enter new service"
+                    placeholder={
+                      isCurrentLanguageEn
+                        ? "Enter new service"
+                        : "Új szolgáltatás megadása"
+                    }
                     onChange={(e) =>
                       setNewService({
                         ...newService,
@@ -263,7 +281,9 @@ const EditPriceList: React.FC = () => {
                     type="text"
                     className="form-control"
                     value={newService.price}
-                    placeholder="Enter price"
+                    placeholder={
+                      isCurrentLanguageEn ? "Enter price" : "Ár megadása"
+                    }
                     onChange={(e) =>
                       setNewService({
                         ...newService,

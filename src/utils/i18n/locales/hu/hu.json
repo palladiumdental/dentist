@@ -1,7 +1,9 @@
 {
   "services": "szolgáltatások",
+  "service": "Szolgáltatás",
   "home": "Főoldal",
   "prices": "Árak",
+  "price": "Ar",
   "promotions": "Akcióink",
   "about us": "Rólunk",
   "contact us": "Kapcsolat",
@@ -64,5 +66,9 @@
   "a27": "Gyorsan visszaállítják mosolyát, mivel a végleges pótlásokat az implantáció napján helyezik fel.",
   "a28": "Átlátszó, kivehető sínek, amelyek diszkréten és kényelmesen egyenesítik ki a fogakat konzolok és drótok nélkül.",
   "a29": "Foglaljon Időpontot az Orvoshoz!",
-  "a30": "Időpontfoglalás"
+  "a30": "Időpontfoglalás",
+  "a31": "Fogászati Árlista",
+  "a32": "Árlista Szerkesztése",
+  "add new": "Új Hozzáadása",
+  "actions": "Műveletek"
 }

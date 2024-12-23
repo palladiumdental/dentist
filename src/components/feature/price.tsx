@@ -3,6 +3,7 @@ import "../../styles/price.css";
 import { TPriceType } from "../../types/price";
 import { useGetData } from "../../firebase/crud";
 import Spinner from "../ui/spinner";
+import Localize from "../ui/localize";
 
 const Price: React.FC = () => {
   const { data, loading } = useGetData<TPriceType>("prices");
@@ -17,8 +18,12 @@ const Price: React.FC = () => {
           data-wow-delay="0.1s"
           style={{ maxWidth: "600px" }}
         >
-          <p className="d-inline-block border rounded-pill py-1 px-4">Price</p>
-          <h1>Dental Price List</h1>
+          <p className="d-inline-block border rounded-pill py-1 px-4">
+            <Localize text="price" isFirstLetterCapital={true} />
+          </p>
+          <h1>
+            <Localize text="a31" isFirstLetterCapital={true} />
+          </h1>
         </div>
 
         <div className="wow fadeInUp" data-wow-delay="0.1s">
@@ -28,10 +33,14 @@ const Price: React.FC = () => {
                 <thead className="thead-dark">
                   <tr>
                     <th scope="col">
-                      <h5>Service</h5>
+                      <h5>
+                        <Localize text="service" isFirstLetterCapital={true} />
+                      </h5>
                     </th>
                     <th scope="col">
-                      <h5>Price</h5>
+                      <h5>
+                        <Localize text="price" isFirstLetterCapital={true} />
+                      </h5>
                     </th>
                   </tr>
                 </thead>
