@@ -41,7 +41,9 @@ const Contact: React.FC = () => {
                 <i className="fa fa-phone-alt text-primary"></i>
               </div>
               <div className="ms-4">
-                <p className="mb-2">Call Us Now</p>
+                <p className="mb-2">
+                  <Localize text="a14" isFirstLetterCapital={true} />
+                </p>
                 <h5 className="mb-0">{PHONE_NUMBER}</h5>
               </div>
             </div>
@@ -55,7 +57,9 @@ const Contact: React.FC = () => {
                 <i className="fa fa-envelope-open text-primary"></i>
               </div>
               <div className="ms-4">
-                <p className="mb-2">Mail Us Now</p>
+                <p className="mb-2">
+                  <Localize text="a15" isFirstLetterCapital={true} />
+                </p>
                 <h5 className="mb-0">{EMAIL}</h5>
               </div>
             </div>
@@ -65,13 +69,9 @@ const Contact: React.FC = () => {
               <p className="d-inline-block border rounded-pill py-1 px-4">
                 <Localize text="contact us" isFirstLetterCapital={true} />
               </p>
-              <h1 className="mb-4">Have Any Query? Please Contact Us!</h1>
-              <p className="mb-4">
-                The contact form is currently inactive. Get a functional and
-                working contact form with Ajax & PHP in a few minutes. Just copy
-                and paste the files, add a little code and you're done.{" "}
-                <a href="https://htmlcodex.com/contact-form">Download Now</a>.
-              </p>
+              <h1 className="mb-4">
+                <Localize text="a12" isFirstLetterCapital={true} />
+              </h1>
               <form onSubmit={handleSubmit}>
                 <div className="row g-3">
                   <div className="col-md-6">
@@ -84,7 +84,9 @@ const Contact: React.FC = () => {
                         name="name"
                         onChange={handleChange}
                       />
-                      <label htmlFor="name">Your Name</label>
+                      <label htmlFor="name">
+                        <Localize text="a16" isFirstLetterCapital={true} />
+                      </label>
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -97,7 +99,9 @@ const Contact: React.FC = () => {
                         name="email"
                         onChange={handleChange}
                       />
-                      <label htmlFor="email">Your Email</label>
+                      <label htmlFor="email">
+                        <Localize text="a17" isFirstLetterCapital={true} />
+                      </label>
                     </div>
                   </div>
                   <div className="col-12">
@@ -110,7 +114,9 @@ const Contact: React.FC = () => {
                         name="subject"
                         onChange={handleChange}
                       />
-                      <label htmlFor="subject">Subject</label>
+                      <label htmlFor="subject">
+                        <Localize text="subject" isFirstLetterCapital={true} />
+                      </label>
                     </div>
                   </div>
                   <div className="col-12">
@@ -123,7 +129,9 @@ const Contact: React.FC = () => {
                         style={{ height: "100px" }}
                         onChange={handleChange}
                       ></textarea>
-                      <label htmlFor="message">Message</label>
+                      <label htmlFor="message">
+                        <Localize text="message" isFirstLetterCapital={true} />
+                      </label>
                     </div>
                   </div>
                   <div className="col-12">
@@ -131,7 +139,7 @@ const Contact: React.FC = () => {
                       className="btn btn-primary w-100 py-3"
                       type="submit"
                     >
-                      Send Message
+                      <Localize text="a13" isFirstLetterCapital={true} />
                     </button>
                   </div>
                 </div>
@@ -144,7 +152,6 @@ const Contact: React.FC = () => {
                 title="Google Map"
                 className="rounded w-100 h-100"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                frameBorder="0"
                 allowFullScreen
                 aria-hidden="false"
                 tabIndex={0}
