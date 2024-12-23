@@ -2,8 +2,10 @@ import React from "react";
 import Localize from "../ui/localize";
 import useEmailForm from "../../hooks/useEmail";
 import { ADDRESS, PHONE_NUMBER, EMAIL } from "../../constants/constants";
+import { useTranslation } from "react-i18next";
 
 const Contact: React.FC = () => {
+  const { i18n } = useTranslation();
   const { handleChange, handleSubmit } = useEmailForm({
     form: "contact",
     subject: "",
@@ -11,6 +13,8 @@ const Contact: React.FC = () => {
     name: "",
     email: "",
   });
+
+  const isCurrentLanguageEn = i18n.language === "en";
 
   return (
     <div className="container-xxl py-5">
@@ -80,7 +84,9 @@ const Contact: React.FC = () => {
                         type="text"
                         className="form-control"
                         id="name"
-                        placeholder="Your Name"
+                        placeholder={
+                          isCurrentLanguageEn ? "Your Name" : "Az Ön Neve"
+                        }
                         name="name"
                         onChange={handleChange}
                       />
@@ -95,7 +101,9 @@ const Contact: React.FC = () => {
                         type="email"
                         className="form-control"
                         id="email"
-                        placeholder="Your Email"
+                        placeholder={
+                          isCurrentLanguageEn ? "Your Email" : "Az Ön E-mail"
+                        }
                         name="email"
                         onChange={handleChange}
                       />
@@ -110,7 +118,7 @@ const Contact: React.FC = () => {
                         type="text"
                         className="form-control"
                         id="subject"
-                        placeholder="Subject"
+                        placeholder={isCurrentLanguageEn ? "Subject" : "Tárgy"}
                         name="subject"
                         onChange={handleChange}
                       />
@@ -123,7 +131,11 @@ const Contact: React.FC = () => {
                     <div className="form-floating">
                       <textarea
                         className="form-control"
-                        placeholder="Leave a message here"
+                        placeholder={
+                          isCurrentLanguageEn
+                            ? "Leave a message here"
+                            : "Hagyjon üzenetet itt"
+                        }
                         id="message"
                         name="text"
                         style={{ height: "100px" }}

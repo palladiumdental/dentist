@@ -7,8 +7,10 @@ import {
   DENTAL_INTERVENTION,
   ORAL_HYGIENE_INTERVENTION,
 } from "../../constants/lists";
+import { useTranslation } from "react-i18next";
 
 const Appointment: React.FC = () => {
+  const { i18n } = useTranslation();
   const { handleChange, handleSubmit } = useEmailForm({
     form: "appointment",
     firstName: "",
@@ -22,6 +24,8 @@ const Appointment: React.FC = () => {
     text: "",
   });
 
+  const isCurrentLanguageEn = i18n.language === "en";
+
   return (
     <div className="container-xxl py-5">
       <div className="container">
@@ -30,12 +34,9 @@ const Appointment: React.FC = () => {
             <p className="d-inline-block border rounded-pill py-1 px-4 mb-4">
               <Localize text="appointment" isFirstLetterCapital={true} />
             </p>
-            <h1 className="mb-4">Make An Appointment To Visit Our Doctor</h1>
-            <p className="mb-5">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-              diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
-              lorem sit clita duo justo magna dolore erat amet
-            </p>
+            <h1 className="mb-4">
+              <Localize text="a29" isFirstLetterCapital={true} />
+            </h1>
             <div className="bg-light rounded d-flex align-items-center p-5 mb-5">
               <div
                 className="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
@@ -44,7 +45,9 @@ const Appointment: React.FC = () => {
                 <i className="fa fa-phone-alt text-primary"></i>
               </div>
               <div className="ms-4">
-                <p className="mb-2">Call Us Now</p>
+                <p className="mb-2">
+                  <Localize text="a14" isFirstLetterCapital={true} />
+                </p>
                 <h5 className="mb-0">{PHONE_NUMBER}</h5>
               </div>
             </div>
@@ -56,7 +59,9 @@ const Appointment: React.FC = () => {
                 <i className="fa fa-envelope-open text-primary"></i>
               </div>
               <div className="ms-4">
-                <p className="mb-2">Mail Us Now</p>
+                <p className="mb-2">
+                  <Localize text="a15" isFirstLetterCapital={true} />
+                </p>
                 <h5 className="mb-0">{EMAIL}</h5>
               </div>
             </div>
@@ -69,7 +74,9 @@ const Appointment: React.FC = () => {
                     <input
                       type="text"
                       className="form-control border-0"
-                      placeholder="First Name"
+                      placeholder={
+                        isCurrentLanguageEn ? "First Name" : "Keresztnév"
+                      }
                       style={{ height: "55px" }}
                       name="firstName"
                       onChange={handleChange}
@@ -79,7 +86,9 @@ const Appointment: React.FC = () => {
                     <input
                       type="text"
                       className="form-control border-0"
-                      placeholder="Last Name"
+                      placeholder={
+                        isCurrentLanguageEn ? "Last Name" : "Vezetéknév"
+                      }
                       style={{ height: "55px" }}
                       name="lastName"
                       onChange={handleChange}
@@ -89,7 +98,11 @@ const Appointment: React.FC = () => {
                     <input
                       type="text"
                       className="form-control border-0"
-                      placeholder="Your Mobile"
+                      placeholder={
+                        isCurrentLanguageEn
+                          ? "Your Mobile"
+                          : "Az Ön Telefonszáma"
+                      }
                       style={{ height: "55px" }}
                       name="mobile"
                       onChange={handleChange}
@@ -99,7 +112,9 @@ const Appointment: React.FC = () => {
                     <input
                       type="email"
                       className="form-control border-0"
-                      placeholder="Your Email"
+                      placeholder={
+                        isCurrentLanguageEn ? "Your Email" : "Az Ön E-mail"
+                      }
                       style={{ height: "55px" }}
                       name="email"
                       onChange={handleChange}
@@ -109,7 +124,11 @@ const Appointment: React.FC = () => {
                     <Select
                       name="dentalIntervention"
                       handleChange={handleChange}
-                      defaultOption="What dental intervention do you think you need?"
+                      defaultOption={
+                        isCurrentLanguageEn
+                          ? "What dental intervention do you think you need?"
+                          : "Milyen fogászati beavatkozásra van szüksége?"
+                      }
                       options={DENTAL_INTERVENTION}
                     />
                   </div>
@@ -117,7 +136,11 @@ const Appointment: React.FC = () => {
                     <Select
                       name="oralHygieneIntervention"
                       handleChange={handleChange}
-                      defaultOption="What oral hygiene intervention do you think you need?"
+                      defaultOption={
+                        isCurrentLanguageEn
+                          ? "What oral hygiene intervention do you think you need?"
+                          : "Milyen szájhigiéniai beavatkozásra van szüksége?"
+                      }
                       options={ORAL_HYGIENE_INTERVENTION}
                     />
                   </div>
@@ -126,7 +149,11 @@ const Appointment: React.FC = () => {
                       <input
                         type="date"
                         className="form-control border-0 datetimepicker-input"
-                        placeholder="Choose Date"
+                        placeholder={
+                          isCurrentLanguageEn
+                            ? "Choose Date"
+                            : "Válasszon Dátumot"
+                        }
                         data-target="_dates"
                         style={{ height: "55px" }}
                         name="date"
@@ -139,7 +166,11 @@ const Appointment: React.FC = () => {
                       <input
                         type="time"
                         className="form-control border-0 datetimepicker-input"
-                        placeholder="Choose Time"
+                        placeholder={
+                          isCurrentLanguageEn
+                            ? "Choose Time"
+                            : "Válasszon Időpontot"
+                        }
                         data-target="use24Hours"
                         style={{ height: "55px" }}
                         name="time"
@@ -151,7 +182,11 @@ const Appointment: React.FC = () => {
                     <textarea
                       className="form-control border-0"
                       rows={5}
-                      placeholder="Describe your problem"
+                      placeholder={
+                        isCurrentLanguageEn
+                          ? "Describe your problem"
+                          : "Írja le problémáját"
+                      }
                       name="text"
                       onChange={handleChange}
                     ></textarea>
@@ -161,7 +196,7 @@ const Appointment: React.FC = () => {
                       className="btn btn-primary w-100 py-3"
                       type="submit"
                     >
-                      Book Appointment
+                      <Localize text="a30" isFirstLetterCapital={true} />
                     </button>
                   </div>
                 </div>
