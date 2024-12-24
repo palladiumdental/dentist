@@ -9,6 +9,7 @@
   overflow: hidden; /* Ensures rounded corners are visible */
   border-collapse: separate; /* Makes sure borders stay separate */
   border-spacing: 0;
+  margin-bottom: 0px !important;
 }
 
 .custom-table th,

@@ -25,29 +25,37 @@ const Promotion: React.FC = () => {
               </p>
               <h1 className="text-white mb-4">
                 <Localize
-                  text="limited time offer"
+                  text={
+                    promotions.length === 0
+                      ? "no promotion is available at this time"
+                      : "limited time offer"
+                  }
                   isFirstLetterCapital={true}
                 />
               </h1>
-              <div className="custom-table-container">
-                <table className="table table-striped table-bordered custom-table">
-                  <tbody>
-                    {promotions.map((item: TPriceType, index: number) => (
-                      <tr key={index}>
-                        <td style={{ textAlign: "start" }}>
-                          {isCurrentLanguageEn
-                            ? item.enService
-                            : item.huService}
-                        </td>
-                        <td style={{ textAlign: "end" }}>
-                          <p className="old-price">{item.price} HUF</p>
-                          <p className="new-price">{item.promotionPrice} HUF</p>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              {promotions.length > 0 && (
+                <div className="custom-table-container">
+                  <table className="table table-striped table-bordered custom-table">
+                    <tbody>
+                      {promotions.map((item: TPriceType, index: number) => (
+                        <tr key={index}>
+                          <td style={{ textAlign: "start" }}>
+                            {isCurrentLanguageEn
+                              ? item.enService
+                              : item.huService}
+                          </td>
+                          <td style={{ textAlign: "end" }}>
+                            <p className="old-price">{item.price} HUF</p>
+                            <p className="new-price">
+                              {item.promotionPrice} HUF
+                            </p>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           </div>
         </div>

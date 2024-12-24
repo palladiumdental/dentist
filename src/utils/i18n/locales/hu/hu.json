@@ -75,5 +75,6 @@
   "service text in hungarian": "Szerviz Szöveg Magyarul",
   "on promotion": "Akcióban",
   "promotion price": "Akciós Ár",
-  "limited time offer": "Időszakos Ajánlat"
+  "limited time offer": "Időszakos Ajánlat",
+  "no promotion is available at this time": "Jelenleg Nincs Elérhető Akció"
 }
