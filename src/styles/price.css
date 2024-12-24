@@ -6,20 +6,21 @@
 }
 
 .custom-table {
-  border-radius: 15px;
   overflow: hidden; /* Ensures rounded corners are visible */
   border-collapse: separate; /* Makes sure borders stay separate */
+  border-spacing: 0;
 }
 
 .custom-table th,
 .custom-table td {
-  border: 1px solid #dee2e6;
+  border: 1px;
 }
 
 .old-price {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
   text-decoration-color: #0463fa;
+  margin-bottom: 5px !important;
 }
 
 .new-price {
@@ -27,6 +28,9 @@
   padding: 2px 5px;
   margin-left: 5px;
   color: white;
+  width: fit-content;
+  display: inline-table;
+  margin-bottom: 5px !important;
 }
 
 .promotion-wrapper {
@@ -34,10 +38,7 @@
 }
 
 .promotion {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 5px;
+  margin-bottom: 5px;
   color: #0463fa;
   font-weight: bold;
   font-size: small;

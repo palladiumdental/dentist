@@ -34,7 +34,7 @@ const Price: React.FC = () => {
           <div className="service-item bg-light rounded h-100 p-5">
             <div className="custom-table-container">
               <table className="table table-striped table-bordered custom-table">
-                <thead className="thead-dark">
+                {/* <thead className="thead-dark">
                   <tr>
                     <th scope="col">
                       <h5>
@@ -47,31 +47,32 @@ const Price: React.FC = () => {
                       </h5>
                     </th>
                   </tr>
-                </thead>
+                </thead> */}
                 <tbody>
                   {data.map((item: TPriceType, index: number) => (
                     <tr key={index}>
                       <td
                         className={item.onPromotion ? "promotion-wrapper" : ""}
+                        style={{ textAlign: "start" }}
                       >
                         {item.onPromotion && (
-                          <span className={"promotion"}>
+                          <p className={"promotion"}>
                             <Localize
                               text="promotions"
                               isFirstLetterCapital={true}
                             />
-                          </span>
+                          </p>
                         )}
                         {isCurrentLanguageEn ? item.enService : item.huService}
                       </td>
-                      <td>
-                        <span className={item.onPromotion ? "old-price" : ""}>
+                      <td style={{ textAlign: "end" }}>
+                        <p className={item.onPromotion ? "old-price" : ""}>
                           {item.price} HUF
-                        </span>
+                        </p>
                         {item.onPromotion && (
-                          <span className={item.onPromotion ? "new-price" : ""}>
+                          <p className={item.onPromotion ? "new-price" : ""}>
                             {item.promotionPrice} HUF
-                          </span>
+                          </p>
                         )}
                       </td>
                     </tr>

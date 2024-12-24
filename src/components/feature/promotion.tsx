@@ -31,36 +31,17 @@ const Promotion: React.FC = () => {
               </h1>
               <div className="custom-table-container">
                 <table className="table table-striped table-bordered custom-table">
-                  <thead className="thead-dark">
-                    <tr>
-                      <th scope="col">
-                        <h5>
-                          <Localize
-                            text="service"
-                            isFirstLetterCapital={true}
-                          />
-                        </h5>
-                      </th>
-                      <th scope="col">
-                        <h5>
-                          <Localize text="price" isFirstLetterCapital={true} />
-                        </h5>
-                      </th>
-                    </tr>
-                  </thead>
                   <tbody>
                     {promotions.map((item: TPriceType, index: number) => (
                       <tr key={index}>
-                        <td>
+                        <td style={{ textAlign: "start" }}>
                           {isCurrentLanguageEn
                             ? item.enService
                             : item.huService}
                         </td>
-                        <td>
-                          <span className="old-price">{item.price} HUF</span>
-                          <span className="new-price">
-                            {item.promotionPrice} HUF
-                          </span>
+                        <td style={{ textAlign: "end" }}>
+                          <p className="old-price">{item.price} HUF</p>
+                          <p className="new-price">{item.promotionPrice} HUF</p>
                         </td>
                       </tr>
                     ))}
