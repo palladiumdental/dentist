@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
         className="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
         <h1 className="m-0 text-primary">
-          <i className="far fa-hospital me-3"></i>Klinik
+          <i className="far fa-hospital me-3"></i>MultiDent
         </h1>
       </Link>
       <button
