@@ -198,7 +198,7 @@ const EditPriceList: React.FC = () => {
                     <td>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control text-start"
                         value={service.enServiceEdit}
                         onChange={(e) => {
                           const value = e.target.value;
@@ -215,7 +215,7 @@ const EditPriceList: React.FC = () => {
                     <td>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control text-start"
                         value={service.huServiceEdit}
                         onChange={(e) => {
                           const value = e.target.value;
@@ -232,7 +232,7 @@ const EditPriceList: React.FC = () => {
                     <td>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control text-start"
                         value={service.priceEdit}
                         onChange={(e) => {
                           const value = e.target.value;
@@ -268,7 +268,7 @@ const EditPriceList: React.FC = () => {
                     <td>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control text-start"
                         value={service.promotionPriceEdit}
                         onChange={(e) => {
                           const value = e.target.value;
@@ -293,7 +293,10 @@ const EditPriceList: React.FC = () => {
                       >
                         <i
                           className="fa fa-check"
-                          style={{ color: "#27C46B" }}
+                          style={{
+                            color: "#27C46B",
+                            textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                          }}
                         ></i>
                       </button>
 
@@ -307,16 +310,19 @@ const EditPriceList: React.FC = () => {
                       >
                         <i
                           className="fas fa-times"
-                          style={{ color: "#E34724" }}
+                          style={{
+                            color: "#E34724",
+                            textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                          }}
                         ></i>
                       </button>
                     </td>
                   </>
                 ) : (
                   <>
-                    <td>{service.enService}</td>
-                    <td>{service.huService}</td>
-                    <td>{service.price}</td>
+                    <td className="text-start">{service.enService}</td>
+                    <td className="text-start">{service.huService}</td>
+                    <td className="text-start">{service.price}</td>
                     <td>
                       {service.onPromotion ? (
                         <i
@@ -324,12 +330,13 @@ const EditPriceList: React.FC = () => {
                           style={{ color: "#27C46B" }}
                         ></i>
                       ) : (
-                        <i style={{ color: "#E34724", fontWeight: "bold" }}>
-                          X
-                        </i>
+                        <i
+                          className="fa fa-times"
+                          style={{ color: "#E34724" }}
+                        ></i>
                       )}
                     </td>
-                    <td>{service.promotionPrice}</td>
+                    <td className="text-start">{service.promotionPrice}</td>
                     <td className="text-center">
                       <button
                         className="btn btn-warning btn-sm me-2"
@@ -341,7 +348,10 @@ const EditPriceList: React.FC = () => {
                       >
                         <i
                           className="fas fa-pencil-alt"
-                          style={{ color: "#FFC107" }}
+                          style={{
+                            color: "#FFC107",
+                            textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                          }}
                         ></i>
                       </button>
                       <button
@@ -354,7 +364,10 @@ const EditPriceList: React.FC = () => {
                       >
                         <i
                           className="fas fa-trash"
-                          style={{ color: "#E34724" }}
+                          style={{
+                            color: "#E34724",
+                            textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                          }}
                         ></i>
                       </button>
                     </td>
@@ -367,13 +380,9 @@ const EditPriceList: React.FC = () => {
                 <td>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control text-start"
                     value={newService.enService}
-                    placeholder={
-                      isCurrentLanguageEn
-                        ? "Enter new service in english"
-                        : "Új szolgáltatás megadása angolul"
-                    }
+                    placeholder={isCurrentLanguageEn ? "English" : "Angolul"}
                     onChange={(e) =>
                       setNewService({
                         ...newService,
@@ -385,13 +394,9 @@ const EditPriceList: React.FC = () => {
                 <td>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control text-start"
                     value={newService.huService}
-                    placeholder={
-                      isCurrentLanguageEn
-                        ? "Enter new service in hungarian"
-                        : "Új szolgáltatás megadása magyarul"
-                    }
+                    placeholder={isCurrentLanguageEn ? "Hungarian" : "Magyarul"}
                     onChange={(e) =>
                       setNewService({
                         ...newService,
@@ -403,11 +408,9 @@ const EditPriceList: React.FC = () => {
                 <td>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control text-start"
                     value={newService.price}
-                    placeholder={
-                      isCurrentLanguageEn ? "Enter price" : "Ár megadása"
-                    }
+                    placeholder={isCurrentLanguageEn ? "Price" : "Ár"}
                     onChange={(e) =>
                       setNewService({
                         ...newService,
@@ -432,12 +435,10 @@ const EditPriceList: React.FC = () => {
                 <td>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control text-start"
                     value={newService.promotionPrice}
                     placeholder={
-                      isCurrentLanguageEn
-                        ? "Enter promotion price"
-                        : "Adja meg az akciós árat"
+                      isCurrentLanguageEn ? "Promotion price" : "Akciós ár"
                     }
                     onChange={(e) =>
                       setNewService({
@@ -456,7 +457,13 @@ const EditPriceList: React.FC = () => {
                     }}
                     onClick={handleSaveNewRow}
                   >
-                    <i className="fa fa-check" style={{ color: "#27C46B" }}></i>
+                    <i
+                      className="fa fa-check"
+                      style={{
+                        color: "#27C46B",
+                        textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                      }}
+                    ></i>
                   </button>
 
                   <button
@@ -469,7 +476,10 @@ const EditPriceList: React.FC = () => {
                   >
                     <i
                       className="fas fa-times"
-                      style={{ color: "#E34724" }}
+                      style={{
+                        color: "#E34724",
+                        textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                      }}
                     ></i>
                   </button>
                 </td>
