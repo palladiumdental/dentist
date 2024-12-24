@@ -94,12 +94,21 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="copyright">
           <div className="row">
-            <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <div className="col-md-4 text-center text-md-start mb-3 mb-md-0">
               &copy; {/* <a className="border-bottom" href="#"> */}
-              MultiDent
+              2025 MultiDent
               {/* </a> */}, All Right Reserved.
             </div>
-            <div className="col-md-6 text-center text-md-end">
+            <div className="col-md-4 text-center text-md-center mb-3 mb-md-0">
+              Site created by{" "}
+              <a
+                className="border-bottom"
+                href="https://github.com/bahar-sadeghzadeh"
+              >
+                BS
+              </a>
+            </div>
+            <div className="col-md-4 text-center text-md-end">
               Designed By{" "}
               <a className="border-bottom" href="https://htmlcodex.com">
                 HTML Codex
