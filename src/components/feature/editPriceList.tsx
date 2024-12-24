@@ -4,7 +4,6 @@ import { useGetData, addData, deleteData, editData } from "../../firebase/crud";
 import Spinner from "../ui/spinner";
 import Localize from "../ui/localize";
 import { useTranslation } from "react-i18next";
-import { on } from "events";
 
 type TEditableService = TPriceType & {
   isEditing?: boolean;
@@ -252,16 +251,18 @@ const EditPriceList: React.FC = () => {
                         type="checkbox"
                         className="form-check-input"
                         checked={service.onPromotionEdit}
-                        onChange={(e) => {
-                          const value = e.target.value;
+                        onChange={(e) =>
                           setPriceList((prevList) =>
                             prevList.map((item) =>
                               item.id === service.id
-                                ? { ...item, onPromotionEdit: Boolean(value) }
+                                ? {
+                                    ...item,
+                                    onPromotionEdit: e.target.checked,
+                                  }
                                 : item
                             )
-                          );
-                        }}
+                          )
+                        }
                       />
                     </td>
                     <td>
@@ -420,12 +421,12 @@ const EditPriceList: React.FC = () => {
                     type="checkbox"
                     className="form-check-input"
                     checked={newService.onPromotion}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setNewService({
                         ...newService,
-                        onPromotion: Boolean(e.target.value),
-                      })
-                    }
+                        onPromotion: e.target.checked,
+                      });
+                    }}
                   />
                 </td>
                 <td>
