@@ -5,6 +5,7 @@ import { useGetData } from "../../firebase/crud";
 import Spinner from "../ui/spinner";
 import Localize from "../ui/localize";
 import { useTranslation } from "react-i18next";
+import { formatNumberWithSeparators } from "../../helpers/numbersFns";
 
 const Price: React.FC = () => {
   const { i18n } = useTranslation();
@@ -67,11 +68,14 @@ const Price: React.FC = () => {
                       </td>
                       <td style={{ textAlign: "end" }}>
                         <p className={item.onPromotion ? "old-price" : ""}>
-                          {item.price} HUF
+                          {formatNumberWithSeparators(parseInt(item.price))} HUF
                         </p>
                         {item.onPromotion && (
                           <p className={item.onPromotion ? "new-price" : ""}>
-                            {item.promotionPrice} HUF
+                            {formatNumberWithSeparators(
+                              parseInt(item.promotionPrice)
+                            )}{" "}
+                            HUF
                           </p>
                         )}
                       </td>
