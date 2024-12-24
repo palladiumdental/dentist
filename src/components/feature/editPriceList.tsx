@@ -4,12 +4,15 @@ import { useGetData, addData, deleteData, editData } from "../../firebase/crud";
 import Spinner from "../ui/spinner";
 import Localize from "../ui/localize";
 import { useTranslation } from "react-i18next";
+import { on } from "events";
 
 type TEditableService = TPriceType & {
   isEditing?: boolean;
   enServiceEdit?: string;
   huServiceEdit?: string;
   priceEdit?: string;
+  onPromotionEdit?: boolean;
+  promotionPriceEdit?: string;
 };
 
 const EditPriceList: React.FC = () => {
@@ -21,6 +24,8 @@ const EditPriceList: React.FC = () => {
     enService: "",
     huService: "",
     price: "",
+    onPromotion: false,
+    promotionPrice: "",
   });
 
   const isCurrentLanguageEn = i18n.language === "en";
@@ -32,6 +37,8 @@ const EditPriceList: React.FC = () => {
       enServiceEdit: item.enService,
       huServiceEdit: item.huService,
       priceEdit: item.price,
+      onPromotionEdit: item.onPromotion,
+      promotionPriceEdit: item.promotionPrice,
     }));
     setPriceList(updatedPriceList);
   }, [data]);
@@ -43,7 +50,13 @@ const EditPriceList: React.FC = () => {
 
   const hideNewRow = () => {
     setNewRow(false);
-    setNewService({ enService: "", huService: "", price: "" });
+    setNewService({
+      enService: "",
+      huService: "",
+      price: "",
+      onPromotion: false,
+      promotionPrice: "",
+    });
   };
 
   const handleCancelAllEdits = () => {
@@ -54,6 +67,8 @@ const EditPriceList: React.FC = () => {
         enServiceEdit: item.enService,
         huServiceEdit: item.huService,
         priceEdit: item.price,
+        onPromotionEdit: item.onPromotion,
+        promotionPriceEdit: item.promotionPrice,
       }))
     );
   };
@@ -96,6 +111,8 @@ const EditPriceList: React.FC = () => {
         enService: editedItem.enServiceEdit || "",
         huService: editedItem.huServiceEdit || "",
         price: editedItem.priceEdit || "",
+        onPromotion: editedItem.onPromotionEdit || false,
+        promotionPrice: editedItem.promotionPriceEdit || "",
       };
       try {
         await editData(id, "prices", updatedData);
@@ -108,6 +125,8 @@ const EditPriceList: React.FC = () => {
                   enService: editedItem.enServiceEdit,
                   huService: editedItem.huServiceEdit,
                   price: editedItem.priceEdit,
+                  onPromotion: editedItem.onPromotionEdit,
+                  promotionPrice: editedItem.promotionPriceEdit,
                 }
               : item
           )
@@ -160,6 +179,12 @@ const EditPriceList: React.FC = () => {
               </th>
               <th>
                 <Localize text="price" isFirstLetterCapital={true} />
+              </th>
+              <th>
+                <Localize text="on promotion" isFirstLetterCapital={true} />
+              </th>
+              <th>
+                <Localize text="promotion price" isFirstLetterCapital={true} />
               </th>
               <th>
                 <Localize text="actions" isFirstLetterCapital={true} />
@@ -222,6 +247,40 @@ const EditPriceList: React.FC = () => {
                         }}
                       />
                     </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        checked={service.onPromotionEdit}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          setPriceList((prevList) =>
+                            prevList.map((item) =>
+                              item.id === service.id
+                                ? { ...item, onPromotionEdit: Boolean(value) }
+                                : item
+                            )
+                          );
+                        }}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={service.promotionPriceEdit}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          setPriceList((prevList) =>
+                            prevList.map((item) =>
+                              item.id === service.id
+                                ? { ...item, promotionPriceEdit: value }
+                                : item
+                            )
+                          );
+                        }}
+                      />
+                    </td>
                     <td className="text-center">
                       <button
                         className="btn btn-success btn-sm"
@@ -257,6 +316,19 @@ const EditPriceList: React.FC = () => {
                     <td>{service.enService}</td>
                     <td>{service.huService}</td>
                     <td>{service.price}</td>
+                    <td>
+                      {service.onPromotion ? (
+                        <i
+                          className="fa fa-check"
+                          style={{ color: "#27C46B" }}
+                        ></i>
+                      ) : (
+                        <i style={{ color: "#E34724", fontWeight: "bold" }}>
+                          X
+                        </i>
+                      )}
+                    </td>
+                    <td>{service.promotionPrice}</td>
                     <td className="text-center">
                       <button
                         className="btn btn-warning btn-sm me-2"
@@ -334,6 +406,37 @@ const EditPriceList: React.FC = () => {
                     value={newService.price}
                     placeholder={
                       isCurrentLanguageEn ? "Enter price" : "Ár megadása"
+                    }
+                    onChange={(e) =>
+                      setNewService({
+                        ...newService,
+                        price: e.target.value,
+                      })
+                    }
+                  />
+                </td>
+                <td>
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    checked={newService.onPromotion}
+                    onChange={(e) =>
+                      setNewService({
+                        ...newService,
+                        onPromotion: Boolean(e.target.value),
+                      })
+                    }
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={newService.promotionPrice}
+                    placeholder={
+                      isCurrentLanguageEn
+                        ? "Enter promotion price"
+                        : "Adja meg az akciós árat"
                     }
                     onChange={(e) =>
                       setNewService({

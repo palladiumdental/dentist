@@ -13,7 +13,7 @@ function HomePage() {
       <Header />
       <About />
       {/* <Service /> */}
-      <Price />
+      {/* <Price /> */}
       <Promotion />
       <Contact />
     </MainWrapper>

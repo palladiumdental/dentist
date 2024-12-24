@@ -52,6 +52,8 @@ export const addData = async <T>(
       enService: data["enService"],
       huService: data["huService"],
       price: data["price"],
+      onPromotion: data["onPromotion"],
+      promotionPrice: data["promotionPrice"],
     });
     return docRef.id;
   } catch (error) {
@@ -84,6 +86,8 @@ export const editData = async (
       enService: data["enService"],
       huService: data["huService"],
       price: data["price"],
+      onPromotion: data["onPromotion"],
+      promotionPrice: data["promotionPrice"],
     });
   } catch (error) {
     console.error("Error updating document: ", error);

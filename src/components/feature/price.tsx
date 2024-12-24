@@ -51,10 +51,29 @@ const Price: React.FC = () => {
                 <tbody>
                   {data.map((item: TPriceType, index: number) => (
                     <tr key={index}>
-                      <td>
+                      <td
+                        className={item.onPromotion ? "promotion-wrapper" : ""}
+                      >
+                        {item.onPromotion && (
+                          <span className={"promotion"}>
+                            <Localize
+                              text="promotions"
+                              isFirstLetterCapital={true}
+                            />
+                          </span>
+                        )}
                         {isCurrentLanguageEn ? item.enService : item.huService}
                       </td>
-                      <td>{item.price}</td>
+                      <td>
+                        <span className={item.onPromotion ? "old-price" : ""}>
+                          {item.price} HUF
+                        </span>
+                        {item.onPromotion && (
+                          <span className={item.onPromotion ? "new-price" : ""}>
+                            {item.promotionPrice} HUF
+                          </span>
+                        )}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

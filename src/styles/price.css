@@ -15,3 +15,41 @@
 .custom-table td {
   border: 1px solid #dee2e6;
 }
+
+.old-price {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #0463fa;
+}
+
+.new-price {
+  background-color: #0463fa;
+  padding: 2px 5px;
+  margin-left: 5px;
+  color: white;
+}
+
+.promotion-wrapper {
+  position: relative;
+}
+
+.promotion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 5px;
+  color: #0463fa;
+  font-weight: bold;
+  font-size: small;
+  animation: blink 3s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  } /* Fully visible */
+  50% {
+    opacity: 0;
+  } /* Hidden */
+}

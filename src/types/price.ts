@@ -3,4 +3,6 @@ export type TPriceType = {
   enService: string;
   huService: string;
   price: string;
+  onPromotion: boolean;
+  promotionPrice: string;
 };
