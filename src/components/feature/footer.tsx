@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
           <div className="row">
             <div className="col-md-4 text-center text-md-start mb-3 mb-md-0">
               &copy; {/* <a className="border-bottom" href="#"> */}
-              2025 MultiDent
+              2025 Palladium Dent
               {/* </a> */}, All Right Reserved.
             </div>
             <div className="col-md-4 text-center text-md-center mb-3 mb-md-0">
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
                 className="border-bottom"
                 href="https://github.com/bahar-sadeghzadeh"
               >
-                BS
+                <b>BS</b>
               </a>
             </div>
             <div className="col-md-4 text-center text-md-end">
