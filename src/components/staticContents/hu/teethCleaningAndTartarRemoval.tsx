@@ -1,7 +1,7 @@
 import React from "react";
 import ContentWrapper from "../contentWrapper";
-import about1 from "../../../assets/about-1.jpg";
-import about2 from "../../../assets/about-2.jpg";
+import about1 from "../../../assets/teethCleaningAndTartarRemoval1.png";
+import about2 from "../../../assets/teethCleaningAndTartarRemoval2.png";
 
 const TeethCleaningAndTartarRemovalHu: React.FC = () => {
   const mainContent = {
