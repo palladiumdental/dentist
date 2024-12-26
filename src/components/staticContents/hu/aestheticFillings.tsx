@@ -1,7 +1,7 @@
 import React from "react";
 import ContentWrapper from "../contentWrapper";
-import about1 from "../../../assets/aestheticFillings1.png";
-import about2 from "../../../assets/aestheticFillings2.png";
+import about1 from "../../../assets/about-1.jpg";
+import about2 from "../../../assets/about-2.jpg";
 
 const AestheticFillingsHu: React.FC = () => {
   const mainContent = {

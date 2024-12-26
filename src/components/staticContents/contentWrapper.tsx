@@ -11,7 +11,6 @@ type ContentWrapperProps = {
   subContents?: content[];
   firstImage?: any;
   secondImage?: any;
-  moveSecondSubDown?: boolean;
 };
 
 const ContentWrapper: React.FC<ContentWrapperProps> = ({
@@ -20,7 +19,6 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
   subContents,
   firstImage,
   secondImage,
-  moveSecondSubDown,
 }) => {
   if (children) {
     return (
@@ -59,7 +57,7 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
               </div>
               <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                 {subContents?.map((content, index) =>
-                  (moveSecondSubDown ? index === 1 : index < 2) ? (
+                  index < 2 ? (
                     <>
                       <h3 className="text-start">{content.title}</h3>
                       <p className="mb-4 text-start">{content.description}</p>
@@ -69,7 +67,7 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
               </div>
               <div className="fadeIn" data-wow-delay="0.5s">
                 {subContents?.map((content, index) =>
-                  (moveSecondSubDown ? index !== 1 : index > 1) ? (
+                  index > 1 ? (
                     <>
                       <h3 className="text-start" style={{ marginTop: "50px" }}>
                         {content.title}
