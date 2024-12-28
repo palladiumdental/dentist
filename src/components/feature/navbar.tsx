@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
       data-wow-delay="0.1s"
     >
       <Link
-        to={MAIN_ROUTE}
+        to={`${MAIN_ROUTE}/`}
         className="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
         <h1 className="m-0 text-primary">
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav ms-auto p-4 p-lg-0">
-          <CustomNavLink redirectTo={MAIN_ROUTE}>
+          <CustomNavLink redirectTo={`${MAIN_ROUTE}/`}>
             <Localize text="home" />
           </CustomNavLink>
           <CustomNavLink

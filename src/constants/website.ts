@@ -1,1 +1,1 @@
-export const MAIN_ROUTE = "/dentist";
+export const MAIN_ROUTE = "";

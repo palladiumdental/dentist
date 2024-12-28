@@ -28,7 +28,7 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
     <Link
       to={redirectTo}
       className={`nav-item nav-link ${
-        activeLink.split("/")[2] === redirectTo.split("/")[2] && "active"
+        activeLink.split("/")[1] === redirectTo.split("/")[1] && "active"
       } ${isDropdown && "dropdown-toggle"}`}
       onClick={() => handleLinkClick(redirectTo)}
     >
