@@ -55,3 +55,7 @@
     opacity: 0;
   } /* Hidden */
 }
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #eff5ff;
+}
