@@ -1,2 +1,3 @@
-export const MAIL_SERVICE_API = "http://localhost:3001/send-email";
+export const MAIL_SERVICE_API =
+  "https://mail-service-baharfs-projects.vercel.app/api/sendEmail";
 export const EMAIL_RECEIVER = "baharmailservice@gmail.com";

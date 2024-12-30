@@ -29,8 +29,11 @@ const useEmailForm = (initialState: EmailFormType) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await axios.post(MAIL_SERVICE_API, {
+
+    axios({
+      method: "post",
+      url: MAIL_SERVICE_API,
+      data: {
         to: EMAIL_RECEIVER,
         subject: `${emailData.form.toUpperCase()} FORM:  ${
           emailData.form === "contact"
@@ -41,10 +44,12 @@ const useEmailForm = (initialState: EmailFormType) => {
           emailData.form === "contact"
             ? contactTemplate(emailData)
             : appointmentTemplate(emailData),
+      },
+    })
+      .then(() => {})
+      .catch((error) => {
+        console.error("There was an error sending the email!", error);
       });
-    } catch (error) {
-      console.error("There was an error sending the email!", error);
-    }
   };
 
   return {
