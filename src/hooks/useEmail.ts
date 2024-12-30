@@ -8,7 +8,6 @@ import {
   appointmentTemplate,
   AppointmentTemplateType,
 } from "../emailTemplates/appointmentTemplate";
-import { MAIL_SERVICE_API, EMAIL_RECEIVER } from "../constants/mailService";
 
 type EmailFormType = ContactTemplateType | AppointmentTemplateType;
 
@@ -32,9 +31,12 @@ const useEmailForm = (initialState: EmailFormType) => {
 
     axios({
       method: "post",
-      url: MAIL_SERVICE_API,
+      url: process.env.REACT_APP_MAIL_SERVICE_API,
+      headers: {
+        "Content-Type": "application/json",
+      },
       data: {
-        to: EMAIL_RECEIVER,
+        to: process.env.REACT_APP_EMAIL_RECEIVER,
         subject: `${emailData.form.toUpperCase()} FORM:  ${
           emailData.form === "contact"
             ? emailData.name + ": " + emailData.subject
