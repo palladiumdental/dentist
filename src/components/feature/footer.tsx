@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MAIN_ROUTE } from "../../constants/website";
 import Localize from "../ui/localize";
 import { ADDRESS, PHONE_NUMBER, EMAIL } from "../../constants/constants";
 import { CATEGORY } from "../../constants/services";
@@ -61,10 +60,7 @@ const Footer: React.FC = () => {
               <Localize text="services" isFirstLetterCapital={true} />
             </h5>
             {CATEGORY.map((category, index) => (
-              <Link
-                className="btn btn-link"
-                to={`${MAIN_ROUTE}/service/${category.route}`}
-              >
+              <Link className="btn btn-link" to={`/service/${category.route}`}>
                 <Localize text={category.title} isFirstLetterCapital={true} />
               </Link>
             ))}
@@ -73,19 +69,19 @@ const Footer: React.FC = () => {
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
               <Localize text="quick links" isFirstLetterCapital={true} />
             </h5>
-            <Link className="btn btn-link" to={`${MAIN_ROUTE}/service`}>
+            <Link className="btn btn-link" to="/service">
               <Localize text="services" isFirstLetterCapital={true} />
             </Link>
-            <Link className="btn btn-link" to={`${MAIN_ROUTE}/price`}>
+            <Link className="btn btn-link" to="/price">
               <Localize text="prices" isFirstLetterCapital={true} />
             </Link>
-            <Link className="btn btn-link" to={`${MAIN_ROUTE}/promotion`}>
+            <Link className="btn btn-link" to="/promotion">
               <Localize text="promotions" isFirstLetterCapital={true} />
             </Link>
-            <Link className="btn btn-link" to={`${MAIN_ROUTE}/about`}>
+            <Link className="btn btn-link" to="/about">
               <Localize text="about Us" isFirstLetterCapital={true} />
             </Link>
-            <Link className="btn btn-link" to={`${MAIN_ROUTE}/contact`}>
+            <Link className="btn btn-link" to="/contact">
               <Localize text="contact us" isFirstLetterCapital={true} />
             </Link>
           </div>

@@ -26,6 +26,10 @@ const useEmailForm = (initialState: EmailFormType) => {
     });
   };
 
+  const resetForm = () => {
+    setEmailData(initialState);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -52,6 +56,9 @@ const useEmailForm = (initialState: EmailFormType) => {
       .catch((error) => {
         console.error("There was an error sending the email!", error);
       });
+
+    // Clear the form after submission
+    resetForm();
   };
 
   return {

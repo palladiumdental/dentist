@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Localize from "../ui/localize";
 import { ServiceType, CategorizedServiceType } from "../../constants/services";
-import { MAIN_ROUTE } from "../../constants/website";
 
 const Service: React.FC<CategorizedServiceType> = ({ services, category }) => {
   return (
@@ -42,7 +41,7 @@ const Service: React.FC<CategorizedServiceType> = ({ services, category }) => {
                 </p>
                 <Link
                   className="btn"
-                  to={`${MAIN_ROUTE}/service/${category.route}/${service.route}`}
+                  to={`/service/${category.route}/${service.route}`}
                 >
                   <i className="fa fa-plus text-primary me-3"></i>
                   <Localize text="a11" isFirstLetterCapital={true} />

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CustomNavLink from "../ui/customNavLink";
-import { MAIN_ROUTE } from "../../constants/website";
 import Localize from "../ui/localize";
 import { CATEGORY, SERVICES } from "../../constants/services";
 
@@ -12,7 +11,7 @@ const Navbar: React.FC = () => {
       data-wow-delay="0.1s"
     >
       <Link
-        to={`${MAIN_ROUTE}/`}
+        to="/"
         className="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
         <h1 className="m-0 text-primary">
@@ -29,30 +28,30 @@ const Navbar: React.FC = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav ms-auto p-4 p-lg-0">
-          <CustomNavLink redirectTo={`${MAIN_ROUTE}/`}>
+          <CustomNavLink redirectTo="/">
             <Localize text="home" />
           </CustomNavLink>
           <CustomNavLink
-            redirectTo={`${MAIN_ROUTE}/service`}
+            redirectTo="/service"
             dropdownItems={CATEGORY}
             subDropdownItems={SERVICES}
           >
             <Localize text="services" />
           </CustomNavLink>
-          <CustomNavLink redirectTo={`${MAIN_ROUTE}/price`}>
+          <CustomNavLink redirectTo="/price">
             <Localize text="prices" />
           </CustomNavLink>
-          <CustomNavLink redirectTo={`${MAIN_ROUTE}/promotion`}>
+          <CustomNavLink redirectTo="/promotion">
             <Localize text="promotions" />
           </CustomNavLink>
-          <CustomNavLink redirectTo={`${MAIN_ROUTE}/about`}>
+          <CustomNavLink redirectTo="/about">
             <Localize text="about us" />
           </CustomNavLink>
-          <CustomNavLink redirectTo={`${MAIN_ROUTE}/contact`}>
+          <CustomNavLink redirectTo="/contact">
             <Localize text="contact us" />
           </CustomNavLink>
           <Link
-            to={`${MAIN_ROUTE}/appointment`}
+            to="/appointment"
             className="btn btn-primary rounded-0 py-4 px-lg-5"
           >
             <Localize text="appointment" isFirstLetterCapital={true} />

@@ -7,6 +7,7 @@ type SelectProps = {
   name: string;
   defaultOption: string;
   options: string[];
+  value: string;
 };
 
 const Select: React.FC<SelectProps> = ({
@@ -15,6 +16,7 @@ const Select: React.FC<SelectProps> = ({
   name,
   defaultOption,
   options,
+  value,
 }) => {
   return (
     <select
@@ -22,6 +24,7 @@ const Select: React.FC<SelectProps> = ({
       style={{ height: "55px" }}
       name={name}
       onChange={handleChange}
+      value={value}
     >
       <option defaultValue="1">{defaultOption}</option>
       {options.map((option) => (
