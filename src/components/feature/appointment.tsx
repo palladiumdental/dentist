@@ -1,32 +1,9 @@
 import React from "react";
-import useEmailForm from "../../hooks/useEmail";
 import Localize from "../ui/localize";
 import { PHONE_NUMBER, EMAIL } from "../../constants/constants";
-import Select from "../ui/select";
-import {
-  DENTAL_INTERVENTION,
-  ORAL_HYGIENE_INTERVENTION,
-} from "../../constants/lists";
-import { useTranslation } from "react-i18next";
 import AppointmentForm from "./appointmentForm";
 
 const Appointment: React.FC = () => {
-  const { i18n } = useTranslation();
-  const { handleChange, handleSubmit } = useEmailForm({
-    form: "appointment",
-    firstName: "",
-    lastName: "",
-    email: "",
-    mobile: "",
-    dentalIntervention: "",
-    oralHygieneIntervention: "",
-    date: "",
-    time: "",
-    text: "",
-  });
-
-  const isCurrentLanguageEn = i18n.language === "en";
-
   return (
     <div className="container-xxl py-5">
       <div className="container">

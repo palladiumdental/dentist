@@ -1,22 +1,9 @@
 import React from "react";
 import Localize from "../ui/localize";
-import useEmailForm from "../../hooks/useEmail";
 import { ADDRESS, PHONE_NUMBER, EMAIL } from "../../constants/constants";
-import { useTranslation } from "react-i18next";
 import ContactForm from "./contactForm";
 
 const Contact: React.FC = () => {
-  const { i18n } = useTranslation();
-  const { handleChange, handleSubmit } = useEmailForm({
-    form: "contact",
-    subject: "",
-    text: "",
-    name: "",
-    email: "",
-  });
-
-  const isCurrentLanguageEn = i18n.language === "en";
-
   return (
     <div className="container-xxl py-5">
       <div className="container">
