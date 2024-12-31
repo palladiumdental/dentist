@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
   ADDRESS,
@@ -10,8 +10,16 @@ const Topbar: React.FC = () => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(event.target.value);
+    const selectedLanguage = event.target.value;
+    i18n.changeLanguage(selectedLanguage); // Change language
+    localStorage.setItem("language", selectedLanguage);
   };
+
+  useEffect(() => {
+    // Load the saved language from localStorage, default to 'hu'
+    const savedLanguage = localStorage.getItem("language") || "hu";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
   return (
     <div
