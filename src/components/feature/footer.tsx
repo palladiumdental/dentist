@@ -60,7 +60,11 @@ const Footer: React.FC = () => {
               <Localize text="services" isFirstLetterCapital={true} />
             </h5>
             {CATEGORY.map((category, index) => (
-              <Link className="btn btn-link" to={`/service/${category.route}`}>
+              <Link
+                key={`index-${category.route}`}
+                className="btn btn-link"
+                to={`/service/${category.route}`}
+              >
                 <Localize text={category.title} isFirstLetterCapital={true} />
               </Link>
             ))}

@@ -61,8 +61,12 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
                 {subContents?.map((content, index) =>
                   (moveSecondSubDown ? index === 1 : index < 2) ? (
                     <>
-                      <h3 className="text-start">{content.title}</h3>
-                      <p className="mb-4 text-start">{content.description}</p>
+                      <h3 key={`h3-${index}`} className="text-start">
+                        {content.title}
+                      </h3>
+                      <div key={`p-${index}`} className="mb-4 text-start">
+                        {content.description}
+                      </div>
                     </>
                   ) : null
                 )}
@@ -71,10 +75,16 @@ const ContentWrapper: React.FC<ContentWrapperProps> = ({
                 {subContents?.map((content, index) =>
                   (moveSecondSubDown ? index !== 1 : index > 1) ? (
                     <>
-                      <h3 className="text-start" style={{ marginTop: "50px" }}>
+                      <h3
+                        key={`h3-2-${index}`}
+                        className="text-start"
+                        style={{ marginTop: "50px" }}
+                      >
                         {content.title}
                       </h3>
-                      <p className="text-start">{content.description}</p>
+                      <div key={`p-2-${index}`} className="text-start">
+                        {content.description}
+                      </div>
                     </>
                   ) : null
                 )}

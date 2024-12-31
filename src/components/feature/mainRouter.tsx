@@ -32,6 +32,7 @@ const MainRouter: React.FC = () => {
       <Route path="/service" element={<ServicePage />} />
       {CATEGORY.map((category: CategoryType) => (
         <Route
+          key={category.route}
           path={`/service/${category.route}`}
           element={<ServicePage category={category} />}
         />
@@ -39,6 +40,7 @@ const MainRouter: React.FC = () => {
       {SERVICES.map((service: CategorizedServiceType) =>
         service.services.map((s: ServiceType) => (
           <Route
+            key={s.route}
             path={`/service/${service.category.route}/${s.route}`}
             element={<IndividualServicePage service={s} />}
           />

@@ -26,22 +26,24 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
   const isDropdown = dropdownItems && dropdownItems.length > 0;
 
   return (
-    <Link
-      to={isDropdown ? "#" : redirectTo}
-      className={`nav-item nav-link ${
-        activeLink.split("/")[1] === redirectTo.split("/")[1] && "active"
-      } ${isDropdown && "dropdown-toggle"}`}
-      onClick={() => {
-        if (!isDropdown) {
-          handleLinkClick(redirectTo);
-        }
-        if (isDropdown) {
-          setIsDropdownOpen(!isDropdownOpen);
-        }
-      }}
-      onMouseEnter={() => setIsDropdownOpen(true)}
-    >
-      {children}
+    <div className="nav-item">
+      <Link
+        to={isDropdown ? "#" : redirectTo}
+        className={`nav-item nav-link ${
+          activeLink.split("/")[1] === redirectTo.split("/")[1] && "active"
+        } ${isDropdown && "dropdown-toggle"}`}
+        onClick={() => {
+          if (!isDropdown) {
+            handleLinkClick(redirectTo);
+          }
+          if (isDropdown) {
+            setIsDropdownOpen(!isDropdownOpen);
+          }
+        }}
+        onMouseEnter={() => setIsDropdownOpen(true)}
+      >
+        {children}
+      </Link>
       {isDropdown && isDropdownOpen && (
         <div
           className="dropdown-menu rounded-0 rounded-bottom m-0"
@@ -68,7 +70,6 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
                 style={{
                   whiteSpace: "normal",
                   wordWrap: "break-word",
-                  height: "65px",
                 }}
               >
                 <Link
@@ -121,7 +122,7 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
           ))}
         </div>
       )}
-    </Link>
+    </div>
   );
 };
 
