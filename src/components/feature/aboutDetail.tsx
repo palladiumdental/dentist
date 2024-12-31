@@ -23,7 +23,10 @@ const AboutDetail: React.FC = () => {
               />
             </div>
           </div>
-          <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+          <div
+            className="col-lg-6 wow fadeIn justify-content-start text-start"
+            data-wow-delay="0.5s"
+          >
             <p className="d-inline-block border rounded-pill py-1 px-4">
               <Localize text="about Us" isFirstLetterCapital={true} />
             </p>

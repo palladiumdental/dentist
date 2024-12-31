@@ -1,6 +1,6 @@
 import React from "react";
 import Localize from "../ui/localize";
-import { PHONE_NUMBER, EMAIL } from "../../constants/constants";
+import { PHONE_NUMBER, EMAIL, ADDRESS } from "../../constants/constants";
 import AppointmentForm from "./appointmentForm";
 
 const Appointment: React.FC = () => {
@@ -15,7 +15,21 @@ const Appointment: React.FC = () => {
             <h1 className="mb-4">
               <Localize text="a29" isFirstLetterCapital={true} />
             </h1>
-            <div className="bg-light rounded d-flex align-items-center p-5 mb-5">
+            <div className="bg-light rounded d-flex align-items-center p-5 mb-5 justify-content-start text-start">
+              <div
+                className="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
+                style={{ width: "55px", height: "55px" }}
+              >
+                <i className="fa fa-map-marker-alt text-primary"></i>
+              </div>
+              <div className="ms-4">
+                <p className="mb-2">
+                  <Localize text="address" isFirstLetterCapital={true} />
+                </p>
+                <h5 className="mb-0">{ADDRESS}</h5>
+              </div>
+            </div>
+            <div className="bg-light rounded d-flex align-items-center p-5 mb-5 justify-content-start text-start">
               <div
                 className="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
                 style={{ width: "55px", height: "55px" }}
@@ -29,7 +43,7 @@ const Appointment: React.FC = () => {
                 <h5 className="mb-0">{PHONE_NUMBER}</h5>
               </div>
             </div>
-            <div className="bg-light rounded d-flex align-items-center p-5">
+            <div className="bg-light rounded d-flex align-items-center p-5 justify-content-start text-start">
               <div
                 className="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white"
                 style={{ width: "55px", height: "55px" }}

@@ -28,20 +28,20 @@ const Footer: React.FC = () => {
               <i className="fa fa-envelope me-3"></i>
               {EMAIL}
             </p>
-            <div className="d-flex pt-2">
-              {/* <a
+            {/* <div className="d-flex pt-2"> */}
+            {/* <a
                 className="btn btn-outline-light btn-social rounded-circle"
                 href=""
               >
                 <i className="fab fa-twitter"></i>
               </a> */}
-              <a
+            {/* <a
                 className="btn btn-outline-light btn-social rounded-circle"
                 href=""
               >
                 <i className="fab fa-facebook-f"></i>
-              </a>
-              {/* <a
+              </a> */}
+            {/* <a
                 className="btn btn-outline-light btn-social rounded-circle"
                 href=""
               >
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
               >
                 <i className="fab fa-linkedin-in"></i>
               </a> */}
-            </div>
+            {/* </div> */}
           </div>
           <div className="col-lg-3 col-md-6">
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>

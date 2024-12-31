@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  ADDRESS,
-  PHONE_NUMBER,
-  WORKING_HOURS,
-} from "../../constants/constants";
+import { ADDRESS, PHONE_NUMBER } from "../../constants/constants";
 
 const Topbar: React.FC = () => {
   const { i18n } = useTranslation();
@@ -32,10 +28,10 @@ const Topbar: React.FC = () => {
             <small className="fa fa-map-marker-alt text-primary me-2"></small>
             <small>{ADDRESS}</small>
           </div>
-          <div className="h-100 d-inline-flex align-items-center py-3">
+          {/* <div className="h-100 d-inline-flex align-items-center py-3">
             <small className="far fa-clock text-primary me-2"></small>
             <small>{WORKING_HOURS}</small>
-          </div>
+          </div> */}
         </div>
         <div className="col-lg-5 px-5 text-end">
           <div className="h-100 d-inline-flex align-items-center py-3 me-4">
@@ -54,14 +50,14 @@ const Topbar: React.FC = () => {
             <small className="fa fa-phone-alt text-primary me-2"></small>
             <small>{PHONE_NUMBER}</small>
           </div>
-          <div className="h-100 d-inline-flex align-items-center">
-            <a
+          {/* <div className="h-100 d-inline-flex align-items-center"> */}
+          {/* <a
               className="btn btn-sm-square rounded-circle bg-white text-primary me-1"
               href="#"
             >
               <i className="fab fa-facebook-f"></i>
-            </a>
-            {/* <a
+            </a> */}
+          {/* <a
               className="btn btn-sm-square rounded-circle bg-white text-primary me-1"
               href="#"
             >
@@ -79,7 +75,7 @@ const Topbar: React.FC = () => {
             >
               <i className="fab fa-instagram"></i>
             </a> */}
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </div>
