@@ -17,6 +17,7 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
 }) => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleLinkClick = (path: string) => {
     setActiveLink(path);
@@ -26,14 +27,22 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
 
   return (
     <Link
-      to={redirectTo}
+      to={isDropdown ? "#" : redirectTo}
       className={`nav-item nav-link ${
         activeLink.split("/")[1] === redirectTo.split("/")[1] && "active"
       } ${isDropdown && "dropdown-toggle"}`}
-      onClick={() => handleLinkClick(redirectTo)}
+      onClick={() => {
+        if (!isDropdown) {
+          handleLinkClick(redirectTo);
+        }
+        if (isDropdown) {
+          setIsDropdownOpen(!isDropdownOpen);
+        }
+      }}
+      onMouseEnter={() => setIsDropdownOpen(true)}
     >
       {children}
-      {isDropdown && (
+      {isDropdown && isDropdownOpen && (
         <div
           className="dropdown-menu rounded-0 rounded-bottom m-0"
           style={{
@@ -65,7 +74,11 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
                 <Link
                   to={`${redirectTo}/${route}`}
                   className="dropdown-header"
-                  onClick={() => handleLinkClick(redirectTo)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleLinkClick(redirectTo);
+                    setIsDropdownOpen(false);
+                  }}
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word",
@@ -89,7 +102,11 @@ const CustomNavLink: React.FC<CustomNavLinkProps> = ({
                       <Link
                         to={`${redirectTo}/${route}/${s.route}`}
                         className="dropdown-item"
-                        onClick={() => handleLinkClick(redirectTo)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleLinkClick(redirectTo);
+                          setIsDropdownOpen(false);
+                        }}
                         style={{
                           whiteSpace: "normal",
                           wordWrap: "break-word",
