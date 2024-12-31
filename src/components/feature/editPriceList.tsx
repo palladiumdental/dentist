@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TPriceType } from "../../types/price";
 import { useGetData, addData, deleteData, editData } from "../../firebase/crud";
 import Spinner from "../ui/spinner";
@@ -28,6 +28,12 @@ const EditPriceList: React.FC = () => {
     onPromotion: false,
     promotionPrice: "",
   });
+
+  useEffect(() => {
+    // Load the saved language from localStorage, default to 'hu'
+    const savedLanguage = localStorage.getItem("language") || "hu";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
   const isCurrentLanguageEn = i18n.language === "en";
 

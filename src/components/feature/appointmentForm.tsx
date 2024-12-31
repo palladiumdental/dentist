@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useEmailForm from "../../hooks/useEmail";
 import Localize from "../ui/localize";
 import Select from "../ui/select";
@@ -23,6 +23,12 @@ const AppointmentForm: React.FC = () => {
     time: "",
     text: "",
   });
+
+  useEffect(() => {
+    // Load the saved language from localStorage, default to 'hu'
+    const savedLanguage = localStorage.getItem("language") || "hu";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
   const isCurrentLanguageEn = i18n.language === "en";
 

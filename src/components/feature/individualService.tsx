@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ServiceType } from "../../constants/services";
 import { useTranslation } from "react-i18next";
 
@@ -8,8 +8,14 @@ type IndividualServiceProps = {
 
 const IndividualService: React.FC<IndividualServiceProps> = ({ service }) => {
   const { i18n } = useTranslation();
-  const currentLanguage = i18n.language;
 
+  useEffect(() => {
+    // Load the saved language from localStorage, default to 'hu'
+    const savedLanguage = localStorage.getItem("language") || "hu";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
+
+  const currentLanguage = i18n.language;
   const ServiceComponent =
     currentLanguage === "en" ? service.enComponent : service.huComponent;
 

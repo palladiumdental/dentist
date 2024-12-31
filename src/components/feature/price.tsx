@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/price.css";
 import { TPriceType } from "../../types/price";
 import { useGetData } from "../../firebase/crud";
@@ -11,6 +11,12 @@ import Error from "../../components/feature/error";
 const Price: React.FC = () => {
   const { i18n } = useTranslation();
   const { data, loading, error } = useGetData<TPriceType>("prices");
+
+  useEffect(() => {
+    // Load the saved language from localStorage, default to 'hu'
+    const savedLanguage = localStorage.getItem("language") || "hu";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
   const isCurrentLanguageEn = i18n.language === "en";
 

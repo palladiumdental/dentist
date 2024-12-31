@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Localize from "../ui/localize";
 import useEmailForm from "../../hooks/useEmail";
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,12 @@ const ContactForm: React.FC = () => {
     name: "",
     email: "",
   });
+
+  useEffect(() => {
+    // Load the saved language from localStorage, default to 'hu'
+    const savedLanguage = localStorage.getItem("language") || "hu";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
   const isCurrentLanguageEn = i18n.language === "en";
 
