@@ -1,4 +1,3 @@
-import React from "react";
 import NotFound from "../components/feature/notFound";
 import SecondaryWrapper from "../components/ui/secondaryWrapper";
 

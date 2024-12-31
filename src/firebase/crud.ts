@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { database } from "./config";
 import {
   collection,
@@ -12,13 +12,22 @@ import {
 
 type TCollectionName = "prices";
 
+const cache: Record<string, any[]> = {};
+
 export const useGetData = <T>(collectionName: TCollectionName) => {
   const value = collection(database, collectionName);
-  const [data, setData] = useState<T[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState<T[]>(cache[collectionName] || []); // Initialize with cached data if available
+  const [loading, setLoading] = useState<boolean>(!cache[collectionName]); // Skip loading if data is cached
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
+    // If data is already cached, no need to fetch again
+    if (cache[collectionName]) {
+      setData(cache[collectionName]);
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onSnapshot(
       value,
       (snapshot: QuerySnapshot) => {
@@ -26,7 +35,10 @@ export const useGetData = <T>(collectionName: TCollectionName) => {
           id: doc.id,
           ...doc.data(),
         })) as T[];
+
+        // Update state and cache
         setData(items);
+        cache[collectionName] = items; // Store data in cache
         setLoading(false);
       },
       (err) => {

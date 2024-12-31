@@ -9,8 +9,16 @@ const Spinner: React.FC<SpinnerProps> = ({ show }) => {
 
   return (
     <div
-      id="spinner"
-      className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+      className="spinner-container d-flex align-items-center justify-content-center"
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent background
+        zIndex: 10,
+      }}
     >
       <div
         className="spinner-grow text-primary"

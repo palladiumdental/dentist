@@ -76,5 +76,10 @@
   "on promotion": "Akcióban",
   "promotion price": "Akciós Ár",
   "limited time offer": "Időszakos Ajánlat",
-  "no promotion is available at this time": "Jelenleg Nincs Elérhető Akció"
+  "no promotion is available at this time": "Jelenleg Nincs Elérhető Akció",
+  "page not found": "Oldal Nincs Töltve",
+  "a33": "Sajnáljuk, a keresett oldal nem található a weboldalunkon! Talán látogasson el a kezdőlapunkra, vagy próbálja meg használni a keresőt?",
+  "go back to home": "Vissza a Kezdőlapra",
+  "unexpected error": "Váratlan hiba",
+  "a34": "Sajnáljuk, váratlan hiba történt. Kérjük, próbálja meg később újra."
 }

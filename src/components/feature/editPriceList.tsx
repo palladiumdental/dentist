@@ -5,6 +5,7 @@ import Spinner from "../ui/spinner";
 import Localize from "../ui/localize";
 import { useTranslation } from "react-i18next";
 import { formatNumberWithSeparators } from "../../helpers/numbersFns";
+import Error from "../../components/feature/error";
 
 type TEditableService = TPriceType & {
   isEditing?: boolean;
@@ -98,11 +99,14 @@ const EditPriceList: React.FC = () => {
       );
       return false;
     }
-    alert(
-      isCurrentLanguageEn
-        ? "Please make sure Promotion Price is filled in!"
-        : "Kérjük, győződjön meg róla, hogy az Akciós Ár mező ki van töltve!"
-    );
+    if (newService.onPromotion && !newService.promotionPrice) {
+      alert(
+        isCurrentLanguageEn
+          ? "Please make sure Promotion Price is filled in!"
+          : "Kérjük, győződjön meg róla, hogy az Akciós Ár mező ki van töltve!"
+      );
+      return false;
+    }
     return true;
   };
 
@@ -208,135 +212,293 @@ const EditPriceList: React.FC = () => {
     }
   };
 
-  if (loading) return <Spinner show={loading} />;
-  if (error) return <p>Error loading data: {error.message}</p>;
+  if (error) return <Error />;
 
   return (
-    <div className="container">
-      <div className="table-wrapper">
-        <div className="table-title">
-          <div className="row">
-            <div className="col-sm-8" style={{ textAlign: "left" }}>
-              <h2>
-                <Localize text="a32" isFirstLetterCapital={true} />
-              </h2>
+    <div style={{ position: "relative" }}>
+      {loading && <Spinner show={loading} />}
+      {!loading && (
+        <div className="container">
+          <div className="table-wrapper">
+            <div className="table-title">
+              <div className="row">
+                <div className="col-sm-8" style={{ textAlign: "left" }}>
+                  <h2>
+                    <Localize text="a32" isFirstLetterCapital={true} />
+                  </h2>
+                </div>
+                <div className="col-sm-4" style={{ textAlign: "right" }}>
+                  <button
+                    className="btn btn-primary rounded-pill add-new  align-items-center"
+                    onClick={handleAddNewRow}
+                    disabled={newRow}
+                  >
+                    <i className="fa fa-plus me-2"></i>{" "}
+                    <Localize text="add new" isFirstLetterCapital={true} />
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="col-sm-4" style={{ textAlign: "right" }}>
-              <button
-                className="btn btn-primary rounded-pill add-new  align-items-center"
-                onClick={handleAddNewRow}
-                disabled={newRow}
-              >
-                <i className="fa fa-plus me-2"></i>{" "}
-                <Localize text="add new" isFirstLetterCapital={true} />
-              </button>
-            </div>
-          </div>
-        </div>
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th>
-                <Localize
-                  text="service text in english"
-                  isFirstLetterCapital={true}
-                />
-              </th>
-              <th>
-                <Localize
-                  text="service text in hungarian"
-                  isFirstLetterCapital={true}
-                />
-              </th>
-              <th>
-                <Localize text="price" isFirstLetterCapital={true} />
-                (HUF)
-              </th>
-              <th>
-                <Localize text="on promotion" isFirstLetterCapital={true} />
-              </th>
-              <th>
-                <Localize text="promotion price" isFirstLetterCapital={true} />{" "}
-                (HUF)
-              </th>
-              <th>
-                <Localize text="actions" isFirstLetterCapital={true} />
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {priceList.map((service: TEditableService) => (
-              <tr key={service.id}>
-                {/* Edit section */}
-                {service.isEditing ? (
-                  <>
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th>
+                    <Localize
+                      text="service text in english"
+                      isFirstLetterCapital={true}
+                    />
+                  </th>
+                  <th>
+                    <Localize
+                      text="service text in hungarian"
+                      isFirstLetterCapital={true}
+                    />
+                  </th>
+                  <th>
+                    <Localize text="price" isFirstLetterCapital={true} />
+                    (HUF)
+                  </th>
+                  <th>
+                    <Localize text="on promotion" isFirstLetterCapital={true} />
+                  </th>
+                  <th>
+                    <Localize
+                      text="promotion price"
+                      isFirstLetterCapital={true}
+                    />{" "}
+                    (HUF)
+                  </th>
+                  <th>
+                    <Localize text="actions" isFirstLetterCapital={true} />
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {priceList.map((service: TEditableService) => (
+                  <tr key={service.id}>
+                    {/* Edit section */}
+                    {service.isEditing ? (
+                      <>
+                        <td>
+                          <input
+                            type="text"
+                            className="form-control text-start"
+                            value={service.enServiceEdit}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? { ...item, enServiceEdit: value }
+                                    : item
+                                )
+                              );
+                            }}
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            className="form-control text-start"
+                            value={service.huServiceEdit}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? { ...item, huServiceEdit: value }
+                                    : item
+                                )
+                              );
+                            }}
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            className="form-control text-start"
+                            value={service.priceEdit}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? { ...item, priceEdit: value }
+                                    : item
+                                )
+                              );
+                            }}
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            checked={service.onPromotionEdit}
+                            onChange={(e) =>
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? {
+                                        ...item,
+                                        onPromotionEdit: e.target.checked,
+                                      }
+                                    : item
+                                )
+                              )
+                            }
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            className="form-control text-start"
+                            value={service.promotionPriceEdit}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? { ...item, promotionPriceEdit: value }
+                                    : item
+                                )
+                              );
+                            }}
+                          />
+                        </td>
+                        <td className="text-center">
+                          <button
+                            className="btn btn-success btn-sm"
+                            style={{
+                              background: "transparent",
+                              border: "transparent",
+                            }}
+                            onClick={() => handleSaveEditRow(service.id)}
+                          >
+                            <i
+                              className="fa fa-check"
+                              style={{
+                                color: "#27C46B",
+                                textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                              }}
+                            ></i>
+                          </button>
+
+                          <button
+                            className="btn btn-danger btn-sm"
+                            style={{
+                              background: "transparent",
+                              border: "transparent",
+                            }}
+                            onClick={() => handleCancelEdit(service.id)}
+                          >
+                            <i
+                              className="fas fa-times"
+                              style={{
+                                color: "#E34724",
+                                textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                              }}
+                            ></i>
+                          </button>
+                        </td>
+                      </>
+                    ) : (
+                      <>
+                        {/* Preview section */}
+                        <td className="text-start">{service.enService}</td>
+                        <td className="text-start">{service.huService}</td>
+                        <td className="text-start">
+                          {formatNumberWithSeparators(parseInt(service.price))}
+                        </td>
+                        <td>
+                          {service.onPromotion ? (
+                            <i
+                              className="fa fa-check"
+                              style={{ color: "#27C46B" }}
+                            ></i>
+                          ) : (
+                            <i
+                              className="fa fa-times"
+                              style={{ color: "#E34724" }}
+                            ></i>
+                          )}
+                        </td>
+                        <td className="text-start">
+                          {service.promotionPrice ??
+                            formatNumberWithSeparators(
+                              parseInt(service.promotionPrice)
+                            )}
+                        </td>
+                        <td className="text-center">
+                          <button
+                            className="btn btn-warning btn-sm me-2"
+                            style={{
+                              background: "transparent",
+                              border: "transparent",
+                            }}
+                            onClick={() => handleEditRow(service.id)}
+                          >
+                            <i
+                              className="fas fa-pencil-alt"
+                              style={{
+                                color: "#FFC107",
+                                textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                              }}
+                            ></i>
+                          </button>
+                          <button
+                            className="btn btn-danger btn-sm"
+                            style={{
+                              background: "transparent",
+                              border: "transparent",
+                            }}
+                            onClick={() => handleDeleteRow(service.id)}
+                          >
+                            <i
+                              className="fas fa-trash"
+                              style={{
+                                color: "#E34724",
+                                textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+                              }}
+                            ></i>
+                          </button>
+                        </td>
+                      </>
+                    )}
+                  </tr>
+                ))}
+                {/* Add new record section */}
+                {newRow && (
+                  <tr>
                     <td>
                       <input
                         type="text"
                         className="form-control text-start"
-                        value={service.enServiceEdit}
-                        onChange={(e) => {
-                          const value = e.target.value;
-                          setPriceList((prevList) =>
-                            prevList.map((item) =>
-                              item.id === service.id
-                                ? { ...item, enServiceEdit: value }
-                                : item
-                            )
-                          );
-                        }}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        className="form-control text-start"
-                        value={service.huServiceEdit}
-                        onChange={(e) => {
-                          const value = e.target.value;
-                          setPriceList((prevList) =>
-                            prevList.map((item) =>
-                              item.id === service.id
-                                ? { ...item, huServiceEdit: value }
-                                : item
-                            )
-                          );
-                        }}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        className="form-control text-start"
-                        value={service.priceEdit}
-                        onChange={(e) => {
-                          const value = e.target.value;
-                          setPriceList((prevList) =>
-                            prevList.map((item) =>
-                              item.id === service.id
-                                ? { ...item, priceEdit: value }
-                                : item
-                            )
-                          );
-                        }}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="checkbox"
-                        className="form-check-input"
-                        checked={service.onPromotionEdit}
+                        value={newService.enService}
+                        placeholder={
+                          isCurrentLanguageEn ? "English" : "Angolul"
+                        }
                         onChange={(e) =>
-                          setPriceList((prevList) =>
-                            prevList.map((item) =>
-                              item.id === service.id
-                                ? {
-                                    ...item,
-                                    onPromotionEdit: e.target.checked,
-                                  }
-                                : item
-                            )
-                          )
+                          setNewService({
+                            ...newService,
+                            enService: e.target.value,
+                          })
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        className="form-control text-start"
+                        value={newService.huService}
+                        placeholder={
+                          isCurrentLanguageEn ? "Hungarian" : "Magyarul"
+                        }
+                        onChange={(e) =>
+                          setNewService({
+                            ...newService,
+                            huService: e.target.value,
+                          })
                         }
                       />
                     </td>
@@ -344,17 +506,43 @@ const EditPriceList: React.FC = () => {
                       <input
                         type="number"
                         className="form-control text-start"
-                        value={service.promotionPriceEdit}
+                        value={newService.price}
+                        placeholder={isCurrentLanguageEn ? "Price" : "Ár"}
+                        onChange={(e) =>
+                          setNewService({
+                            ...newService,
+                            price: e.target.value,
+                          })
+                        }
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        checked={newService.onPromotion}
                         onChange={(e) => {
-                          const value = e.target.value;
-                          setPriceList((prevList) =>
-                            prevList.map((item) =>
-                              item.id === service.id
-                                ? { ...item, promotionPriceEdit: value }
-                                : item
-                            )
-                          );
+                          setNewService({
+                            ...newService,
+                            onPromotion: e.target.checked,
+                          });
                         }}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        className="form-control text-start"
+                        value={newService.promotionPrice}
+                        placeholder={
+                          isCurrentLanguageEn ? "Promotion price" : "Akciós ár"
+                        }
+                        onChange={(e) =>
+                          setNewService({
+                            ...newService,
+                            promotionPrice: e.target.value,
+                          })
+                        }
                       />
                     </td>
                     <td className="text-center">
@@ -364,7 +552,7 @@ const EditPriceList: React.FC = () => {
                           background: "transparent",
                           border: "transparent",
                         }}
-                        onClick={() => handleSaveEditRow(service.id)}
+                        onClick={handleSaveNewRow}
                       >
                         <i
                           className="fa fa-check"
@@ -381,7 +569,7 @@ const EditPriceList: React.FC = () => {
                           background: "transparent",
                           border: "transparent",
                         }}
-                        onClick={() => handleCancelEdit(service.id)}
+                        onClick={hideNewRow}
                       >
                         <i
                           className="fas fa-times"
@@ -392,186 +580,13 @@ const EditPriceList: React.FC = () => {
                         ></i>
                       </button>
                     </td>
-                  </>
-                ) : (
-                  <>
-                    {/* Preview section */}
-                    <td className="text-start">{service.enService}</td>
-                    <td className="text-start">{service.huService}</td>
-                    <td className="text-start">
-                      {formatNumberWithSeparators(parseInt(service.price))}
-                    </td>
-                    <td>
-                      {service.onPromotion ? (
-                        <i
-                          className="fa fa-check"
-                          style={{ color: "#27C46B" }}
-                        ></i>
-                      ) : (
-                        <i
-                          className="fa fa-times"
-                          style={{ color: "#E34724" }}
-                        ></i>
-                      )}
-                    </td>
-                    <td className="text-start">
-                      {service.promotionPrice ??
-                        formatNumberWithSeparators(
-                          parseInt(service.promotionPrice)
-                        )}
-                    </td>
-                    <td className="text-center">
-                      <button
-                        className="btn btn-warning btn-sm me-2"
-                        style={{
-                          background: "transparent",
-                          border: "transparent",
-                        }}
-                        onClick={() => handleEditRow(service.id)}
-                      >
-                        <i
-                          className="fas fa-pencil-alt"
-                          style={{
-                            color: "#FFC107",
-                            textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-                          }}
-                        ></i>
-                      </button>
-                      <button
-                        className="btn btn-danger btn-sm"
-                        style={{
-                          background: "transparent",
-                          border: "transparent",
-                        }}
-                        onClick={() => handleDeleteRow(service.id)}
-                      >
-                        <i
-                          className="fas fa-trash"
-                          style={{
-                            color: "#E34724",
-                            textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-                          }}
-                        ></i>
-                      </button>
-                    </td>
-                  </>
+                  </tr>
                 )}
-              </tr>
-            ))}
-            {/* Add new record section */}
-            {newRow && (
-              <tr>
-                <td>
-                  <input
-                    type="text"
-                    className="form-control text-start"
-                    value={newService.enService}
-                    placeholder={isCurrentLanguageEn ? "English" : "Angolul"}
-                    onChange={(e) =>
-                      setNewService({
-                        ...newService,
-                        enService: e.target.value,
-                      })
-                    }
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    className="form-control text-start"
-                    value={newService.huService}
-                    placeholder={isCurrentLanguageEn ? "Hungarian" : "Magyarul"}
-                    onChange={(e) =>
-                      setNewService({
-                        ...newService,
-                        huService: e.target.value,
-                      })
-                    }
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    className="form-control text-start"
-                    value={newService.price}
-                    placeholder={isCurrentLanguageEn ? "Price" : "Ár"}
-                    onChange={(e) =>
-                      setNewService({
-                        ...newService,
-                        price: e.target.value,
-                      })
-                    }
-                  />
-                </td>
-                <td>
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    checked={newService.onPromotion}
-                    onChange={(e) => {
-                      setNewService({
-                        ...newService,
-                        onPromotion: e.target.checked,
-                      });
-                    }}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    className="form-control text-start"
-                    value={newService.promotionPrice}
-                    placeholder={
-                      isCurrentLanguageEn ? "Promotion price" : "Akciós ár"
-                    }
-                    onChange={(e) =>
-                      setNewService({
-                        ...newService,
-                        promotionPrice: e.target.value,
-                      })
-                    }
-                  />
-                </td>
-                <td className="text-center">
-                  <button
-                    className="btn btn-success btn-sm"
-                    style={{
-                      background: "transparent",
-                      border: "transparent",
-                    }}
-                    onClick={handleSaveNewRow}
-                  >
-                    <i
-                      className="fa fa-check"
-                      style={{
-                        color: "#27C46B",
-                        textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-                      }}
-                    ></i>
-                  </button>
-
-                  <button
-                    className="btn btn-danger btn-sm"
-                    style={{
-                      background: "transparent",
-                      border: "transparent",
-                    }}
-                    onClick={hideNewRow}
-                  >
-                    <i
-                      className="fas fa-times"
-                      style={{
-                        color: "#E34724",
-                        textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-                      }}
-                    ></i>
-                  </button>
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
