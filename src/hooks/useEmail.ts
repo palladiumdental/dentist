@@ -40,6 +40,7 @@ const useEmailForm = (initialState: EmailFormType) => {
         "Content-Type": "application/json",
       },
       data: {
+        from: "Palladium Dent",
         to: process.env.REACT_APP_EMAIL_RECEIVER,
         subject: `${emailData.form.toUpperCase()} FORM:  ${
           emailData.form === "contact"
