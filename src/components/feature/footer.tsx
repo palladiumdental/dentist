@@ -101,10 +101,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="col-md-4 text-center text-md-center mb-3 mb-md-0">
               Site created by{" "}
-              <a
-                className="border-bottom"
-                href="https://github.com/bahar-sadeghzadeh"
-              >
+              <a className="border-bottom" href="#">
                 <b>BS</b>
               </a>
             </div>
