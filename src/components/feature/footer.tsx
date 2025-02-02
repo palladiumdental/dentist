@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Localize from "../ui/localize";
 import { ADDRESS, PHONE_NUMBER, EMAIL } from "../../constants/constants";
 import { CATEGORY } from "../../constants/services";
+import LanguageSelector from "../ui/languageSelector";
 
 const Footer: React.FC = () => {
   return (
@@ -27,6 +28,16 @@ const Footer: React.FC = () => {
             <p className="mb-2" style={{ textAlign: "left" }}>
               <i className="fa fa-envelope me-3"></i>
               {EMAIL}
+            </p>
+            <p
+              className="mb-2"
+              style={{
+                textAlign: "left",
+                paddingTop: "15px",
+                borderTop: "1px solid #444",
+              }}
+            >
+              <LanguageSelector />
             </p>
             {/* <div className="d-flex pt-2"> */}
             {/* <a
@@ -55,6 +66,9 @@ const Footer: React.FC = () => {
               </a> */}
             {/* </div> */}
           </div>
+          {/* <div className="col-lg-3 col-md-6">
+            <LanguageSelector />
+          </div> */}
           <div className="col-lg-3 col-md-6">
             <h5 className="text-light mb-4" style={{ textAlign: "left" }}>
               <Localize text="services" isFirstLetterCapital={true} />
