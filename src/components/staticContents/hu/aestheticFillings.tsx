@@ -5,101 +5,170 @@ import about2 from "../../../assets/aestheticFillings2.png";
 
 const AestheticFillingsHu: React.FC = () => {
   const mainContent = {
-    title: "Aesthetic Fillings",
-    description: `Aesthetic fillings, also known as tooth-colored or composite fillings, are a modern and popular solution for restoring decayed or damaged teeth. Unlike traditional metal (amalgam) fillings, aesthetic fillings are designed to blend seamlessly with the natural color of your teeth, providing a more attractive and discreet result.`,
+    title: "Esztétikus tömések",
   };
   const subContetnt = [
     {
-      title: "What Are Aesthetic Fillings?",
-      description: `Aesthetic fillings are made from a composite resin material that can be closely matched to the color of your natural teeth. This material is durable, strong, and provides excellent adhesion to the tooth structure, making it an ideal choice for both front and back teeth restorations.`,
-    },
-    {
-      title: "When Are Aesthetic Fillings Needed?",
+      title: "Mikor van szükség fogtömésre?",
       description: (
         <div>
           <p>
-            <b>Cavities and Tooth Decay:</b> Aesthetic fillings are used to
-            restore teeth affected by cavities or decay.
+            A fogtömés akkor válik szükségessé, ha a fogakban szuvasodás vagy
+            más típusú sérülés alakul ki, amely rontja a fog egészségét és
+            funkcióját. Az alábbi esetekben lehet szüksége fogtömésre:
           </p>
+          <ul>
+            <li>
+              <strong>Szuvasodás:</strong> Amikor a fogzománc sérül a
+              baktériumok miatt, és üregek alakulnak ki a fogban.
+            </li>
+            <li>
+              <strong>Repedések vagy törések:</strong> Ha a fogban repedés vagy
+              törés keletkezik, amelyet helyre kell állítani.
+            </li>
+            <li>
+              <strong>Kopás:</strong> Amikor a fogak a rágás, szorítás vagy
+              fogcsikorgatás következtében elhasználódnak.
+            </li>
+            <li>
+              <strong>Régi tömés cseréje:</strong> Ha a meglévő tömés
+              elhasználódott, repedezett vagy kiesett, új tömésre van szükség.
+            </li>
+          </ul>
           <p>
-            <b>Chipped or Cracked Teeth:</b> They are also suitable for
-            repairing minor chips or cracks in the teeth.
-          </p>
-          <p>
-            <b>Replacing Old Fillings:</b> Aesthetic fillings can replace old,
-            unsightly metal fillings for a more natural look.
-          </p>
-          <p>
-            <b>Gaps Between Teeth:</b> They can be used to close small gaps or
-            spaces between teeth, improving your smile's overall appearance.
+            Klinikánkon gondoskodunk arról, hogy minden páciensünk a megfelelő
+            kezelést kapja, amely megőrzi fogainak egészségét és szépségét.
           </p>
         </div>
       ),
     },
     {
-      title: "Benefits of Aesthetic Fillings",
+      title: "Mi az esztétikus fogtömés?",
       description: (
         <div>
           <p>
-            <b>Natural Appearance:</b> The composite material used in aesthetic
-            fillings is designed to match the color and texture of your natural
-            teeth, making the fillings virtually invisible.
+            Az esztétikus fogtömés egy olyan speciális eljárás, amelynek során a
+            fogak helyreállításához olyan anyagokat használunk, amelyek színben
+            és textúrában tökéletesen illeszkednek a természetes fogakhoz.
+            Ezáltal a tömés szinte láthatatlan marad, és az eredmény
+            esztétikailag kellemes, természetes megjelenést biztosít.
           </p>
           <p>
-            <b>Minimally Invasive:</b> Less tooth structure needs to be removed
-            compared to traditional metal fillings, preserving more of your
-            natural tooth.
-          </p>
-          <p>
-            <b>Strong and Durable:</b> Aesthetic fillings are resilient and can
-            withstand normal biting and chewing forces, providing long-lasting
-            results.
-          </p>
-          <p>
-            <b>No Mercury:</b> Unlike amalgam fillings, aesthetic fillings are
-            free of mercury and other metals, making them a safer and more
-            biocompatible option.
-          </p>
-          <p>
-            <b>Quick and Painless Procedure:</b> The procedure is generally
-            quick and can be completed in a single visit, often with minimal
-            discomfort.
+            Az esztétikus tömőanyagok, mint például a kompozit gyanta, lehetővé
+            teszik, hogy a fog eredeti formáját és színét pontosan
+            rekonstruáljuk. Ezzel a módszerrel nemcsak a fogak egészségét
+            állítjuk helyre, hanem a mosoly szépségét is megőrizzük.
           </p>
         </div>
       ),
     },
     {
-      title: "How Are Aesthetic Fillings Placed?",
+      title: "Mi az inlay és onlay, és mikor alkalmazzuk őket?",
       description: (
         <div>
           <p>
-            <b>Assessment and Preparation:</b> The tooth is carefully examined,
-            and any decayed or damaged areas are removed.
+            Az inlay és onlay olyan speciális fogpótlások, amelyek a szuvasodott
+            vagy sérült fogak helyreállítására szolgálnak, ha a hagyományos
+            tömés már nem elegendő, de a korona alkalmazása még nem szükséges.
+            Ezek a betétek rendkívül pontosan illeszkednek a fogba, és hosszú
+            távú megoldást nyújtanak.
           </p>
           <p>
-            <b>Anesthesia:</b> A local anesthetic is used to numb the area,
-            ensuring a pain-free experience. In some cases, an anesthetic gel
-            may be applied before the injection for added comfort.
+            <b>Inlay:</b> Az inlay a fog belső részébe kerül, és akkor
+            alkalmazzuk, ha a fog felszínének kisebb része károsodott, de a fog
+            oldalfalai épek maradtak. Ez a betét segít megőrizni a fog
+            szerkezetét és helyreállítja a rágófelületet.
           </p>
           <p>
-            <b>Filling Placement:</b> The composite resin is applied in layers
-            and shaped to fit the tooth's natural contours.
+            <b>Onlay:</b> Az onlay hasonló az inlay-hez, de nagyobb kiterjedésű,
+            és a fog egyik vagy több csücske is érintett lehet. Az onlay-t akkor
+            használjuk, ha a fog nagyobb része sérült, és szükséges a fog felső
+            részének megerősítése is.
           </p>
           <p>
-            <b>Curing and Polishing:</b> A special light is used to harden each
-            layer of the filling, and then it is polished to achieve a smooth,
-            natural finish.
+            Mindkét eljárásMcélja a fog természetes megjelenésének és
+            funkciójának helyreállítása, miközben megőrzi a lehető legtöbb ép
+            foganyagot. Az inlay és onlay általában porcelánból vagy kompozit
+            anyagból készül, amelyek erősek, tartósak és esztétikailag is
+            kielégítőek.
           </p>
         </div>
       ),
     },
     {
-      title: "Caring for Aesthetic Fillings",
-      description: `To ensure the longevity of your aesthetic fillings, maintain good oral hygiene by brushing twice daily, flossing regularly, and visiting your dentist for routine check-ups and cleanings. Avoid biting on hard objects to prevent damage to the filling.`,
+      title: "Miért kell cserélni az amalgám fogtömést?",
+      description: (
+        <div>
+          <p>
+            Az amalgám fogtöméseket, amelyeket gyakran "ezüst töméseknek" is
+            neveznek, több okból is szükséges lehet cserélni vagy felújítani:
+          </p>
+          <p>
+            <b>Kopás és elhasználódás:</b> Az idő múlásával az amalgám tömések
+            megrepedezhetnek vagy elhasználódhatnak, ami csökkentheti
+            hatékonyságukat. Ez növelheti a fogszuvasodás kockázatát.
+          </p>
+          <p>
+            <b>Szuvasodás és szivárgás:</b> Az amalgám tömések körül is
+            kialakulhat szuvasodás, ha a tömés és a fog közötti tömítés
+            meggyengül. Ilyenkor a tömés cseréje szükséges lehet a fog
+            egészségének megőrzése érdekében.
+          </p>
+          <p>
+            <b>Repedések a fogban:</b> Az amalgám tömések a hőmérséklet
+            változásaira tágulással és zsugorodással reagálnak, ami idővel
+            repedésekhez vezethet a fogban. Ezek a repedések gyengíthetik a fog
+            szerkezetét.
+          </p>
+          <p>
+            <b>Esztétikai megfontolások:</b> Sokan szeretnék lecserélni az
+            amalgám töméseket esztétikusabb, fogszínű kompozit tömésekre,
+            amelyek természetesebb megjelenést biztosítanak.
+          </p>
+          <p>
+            <b>Fémérzékenység:</b> Bár ritka, előfordulhat, hogy valaki érzékeny
+            az amalgám tömésben található fémekre. Ilyen esetekben a tömés
+            cseréje szükségessé válhat.
+          </p>
+          <p>
+            <b>Modern fogászati anyagok:</b> A korszerű tömőanyagok jobban
+            illeszkednek a fogakhoz, kevésbé hajlamosak a szivárgásra, és
+            esztétikailag is előnyösebbek, ezért sokan választják a cserét.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Hogyan végezzük el az esztétikus fogtömést klinikánkon?",
+      description: (
+        <div>
+          <p>
+            Az esztétikus fogtömés során a legnagyobb figyelmet fordítjuk a
+            kényelmére. Az eljárás a következő lépésekből áll:
+          </p>
+          <p>
+            <b>Helyi érzéstelenítés:</b> A kezelés előtt helyi érzéstelenítőt
+            alkalmazunk, hogy a fog kezelése teljesen fájdalommentes legyen.
+          </p>
+          <p>
+            <b>Anesztetikus gél használata:</b> Az érzéstelenítő injekció előtt
+            anesztetikus gélt alkalmazunk, amely minimalizálja az injekciós tű
+            érzését, így a kezelés még kényelmesebb.
+          </p>
+          <p>
+            <b>Tömés behelyezése:</b> A fogat előkészítjük és az esztétikus
+            tömőanyagot precízen behelyezzük, hogy a végeredmény természetes
+            megjelenésű és tartós legyen.
+          </p>
+        </div>
+      ),
     },
     {
       description: (
-        <b>Choose Aesthetic Fillings for a Beautiful, Natural Smile!</b>
+        <p>
+          Ezek a lépések biztosítják, hogy az esztétikus tömés gyors, kényelmes
+          és teljesen fájdalommentes élmény legyen.
+        </p>
       ),
     },
   ];
