@@ -57,15 +57,31 @@ const Promotion: React.FC = () => {
                               </td>
                               <td style={{ textAlign: "end" }}>
                                 <p className="old-price">
-                                  {formatNumberWithSeparators(
-                                    parseInt(item.price)
-                                  )}{" "}
+                                  {item.priceTo
+                                    ? formatNumberWithSeparators(
+                                        parseInt(item.price)
+                                      ) +
+                                      " - " +
+                                      formatNumberWithSeparators(
+                                        parseInt(item.priceTo)
+                                      )
+                                    : formatNumberWithSeparators(
+                                        parseInt(item.price)
+                                      )}{" "}
                                   HUF
                                 </p>
                                 <p className="new-price">
-                                  {formatNumberWithSeparators(
-                                    parseInt(item.promotionPrice)
-                                  )}{" "}
+                                  {item.promotionPriceTo
+                                    ? formatNumberWithSeparators(
+                                        parseInt(item.promotionPrice)
+                                      ) +
+                                      " - " +
+                                      formatNumberWithSeparators(
+                                        parseInt(item.promotionPriceTo)
+                                      )
+                                    : formatNumberWithSeparators(
+                                        parseInt(item.promotionPrice)
+                                      )}{" "}
                                   HUF
                                 </p>
                               </td>

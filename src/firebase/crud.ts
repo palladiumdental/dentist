@@ -64,8 +64,10 @@ export const addData = async <T>(
       enService: data["enService"],
       huService: data["huService"],
       price: data["price"],
+      priceTo: data["priceTo"],
       onPromotion: data["onPromotion"],
       promotionPrice: data["promotionPrice"],
+      promotionPriceTo: data["promotionPriceTo"],
       serviceCategory: data["serviceCategory"],
     });
     return docRef.id;
@@ -99,8 +101,10 @@ export const editData = async (
       enService: data["enService"],
       huService: data["huService"],
       price: data["price"],
+      priceTo: data["priceTo"],
       onPromotion: data["onPromotion"],
       promotionPrice: data["promotionPrice"],
+      promotionPriceTo: data["promotionPriceTo"],
       serviceCategory: data["serviceCategory"],
     });
   } catch (error) {

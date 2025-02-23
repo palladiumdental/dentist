@@ -17,8 +17,10 @@ type TEditableService = TPriceType & {
   enServiceEdit?: string;
   huServiceEdit?: string;
   priceEdit?: string;
+  priceToEdit?: string;
   onPromotionEdit?: boolean;
   promotionPriceEdit?: string;
+  promotionPriceToEdit?: string;
   serviceCategoryEdit?: string;
 };
 
@@ -31,8 +33,10 @@ const EditPriceList: React.FC = () => {
     enService: "",
     huService: "",
     price: "",
+    priceTo: "",
     onPromotion: false,
     promotionPrice: "",
+    promotionPriceTo: "",
     serviceCategory: "",
   });
 
@@ -51,8 +55,10 @@ const EditPriceList: React.FC = () => {
       enServiceEdit: item.enService,
       huServiceEdit: item.huService,
       priceEdit: item.price,
+      priceToEdit: item.priceTo,
       onPromotionEdit: item.onPromotion,
       promotionPriceEdit: item.promotionPrice,
+      promotionPriceToEdit: item.promotionPriceTo,
       serviceCategoryEdit: item.serviceCategory,
     }));
     setPriceList(updatedPriceList);
@@ -69,8 +75,10 @@ const EditPriceList: React.FC = () => {
       enService: "",
       huService: "",
       price: "",
+      priceTo: "",
       onPromotion: false,
       promotionPrice: "",
+      promotionPriceTo: "",
       serviceCategory: "",
     });
   };
@@ -83,8 +91,10 @@ const EditPriceList: React.FC = () => {
         enServiceEdit: item.enService,
         huServiceEdit: item.huService,
         priceEdit: item.price,
+        priceToEdit: item.priceTo,
         onPromotionEdit: item.onPromotion,
         promotionPriceEdit: item.promotionPrice,
+        promotionPriceToEdit: item.promotionPriceTo,
         serviceCategoryEdit: item.serviceCategory,
       }))
     );
@@ -188,6 +198,7 @@ const EditPriceList: React.FC = () => {
           ? "Please make sure Service Category is filled in!"
           : "Kérjük, győződjön meg róla, hogy a Szolgáltatás kategória mező ki van töltve!"
       );
+      // return false;
     }
     if (!editedItem.priceEdit) {
       alert(
@@ -215,8 +226,10 @@ const EditPriceList: React.FC = () => {
         enService: editedItem.enServiceEdit || "",
         huService: editedItem.huServiceEdit || "",
         price: editedItem.priceEdit || "",
+        priceTo: editedItem.priceToEdit || "",
         onPromotion: editedItem.onPromotionEdit || false,
         promotionPrice: editedItem.promotionPriceEdit || "",
+        promotionPriceTo: editedItem.promotionPriceToEdit || "",
         serviceCategory: editedItem.serviceCategoryEdit || "",
       };
       try {
@@ -231,8 +244,10 @@ const EditPriceList: React.FC = () => {
                     enService: editedItem.enServiceEdit,
                     huService: editedItem.huServiceEdit,
                     price: editedItem.priceEdit,
+                    priceTo: editedItem.priceToEdit,
                     onPromotion: editedItem.onPromotionEdit,
                     promotionPrice: editedItem.promotionPriceEdit,
+                    promotionPriceTo: editedItem.promotionPriceToEdit,
                     serviceCategory: editedItem.serviceCategoryEdit,
                   }
                 : item
@@ -381,6 +396,7 @@ const EditPriceList: React.FC = () => {
                         <td>
                           <input
                             type="number"
+                            placeholder="from"
                             className="form-control text-start"
                             value={service.priceEdit}
                             onChange={(e) => {
@@ -389,6 +405,22 @@ const EditPriceList: React.FC = () => {
                                 prevList.map((item) =>
                                   item.id === service.id
                                     ? { ...item, priceEdit: value }
+                                    : item
+                                )
+                              );
+                            }}
+                          />
+                          <input
+                            type="number"
+                            placeholder="to"
+                            className="form-control text-start"
+                            value={service.priceToEdit}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? { ...item, priceToEdit: value }
                                     : item
                                 )
                               );
@@ -417,6 +449,7 @@ const EditPriceList: React.FC = () => {
                         <td>
                           <input
                             type="number"
+                            placeholder="from"
                             className="form-control text-start"
                             value={service.promotionPriceEdit}
                             onChange={(e) => {
@@ -425,6 +458,22 @@ const EditPriceList: React.FC = () => {
                                 prevList.map((item) =>
                                   item.id === service.id
                                     ? { ...item, promotionPriceEdit: value }
+                                    : item
+                                )
+                              );
+                            }}
+                          />
+                          <input
+                            type="number"
+                            placeholder="to"
+                            className="form-control text-start"
+                            value={service.promotionPriceToEdit}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? { ...item, promotionPriceToEdit: value }
                                     : item
                                 )
                               );
@@ -476,7 +525,17 @@ const EditPriceList: React.FC = () => {
                           {service.serviceCategory}
                         </td>
                         <td className="text-start">
-                          {formatNumberWithSeparators(parseInt(service.price))}
+                          {service.priceTo
+                            ? formatNumberWithSeparators(
+                                parseInt(service.price)
+                              ) +
+                              " - " +
+                              formatNumberWithSeparators(
+                                parseInt(service.priceTo)
+                              )
+                            : formatNumberWithSeparators(
+                                parseInt(service.price)
+                              )}
                         </td>
                         <td>
                           {service.onPromotion ? (
@@ -492,10 +551,18 @@ const EditPriceList: React.FC = () => {
                           )}
                         </td>
                         <td className="text-start">
-                          {service.promotionPrice ??
-                            formatNumberWithSeparators(
-                              parseInt(service.promotionPrice)
-                            )}
+                          {service.promotionPriceTo
+                            ? formatNumberWithSeparators(
+                                parseInt(service.promotionPrice)
+                              ) +
+                              " - " +
+                              formatNumberWithSeparators(
+                                parseInt(service.promotionPriceTo)
+                              )
+                            : service.promotionPrice ??
+                              formatNumberWithSeparators(
+                                parseInt(service.promotionPrice)
+                              )}
                         </td>
                         <td className="text-center">
                           <button
@@ -597,11 +664,23 @@ const EditPriceList: React.FC = () => {
                         type="number"
                         className="form-control text-start"
                         value={newService.price}
-                        placeholder={isCurrentLanguageEn ? "Price" : "Ár"}
+                        placeholder={isCurrentLanguageEn ? "from" : "from"}
                         onChange={(e) =>
                           setNewService({
                             ...newService,
                             price: e.target.value,
+                          })
+                        }
+                      />
+                      <input
+                        type="number"
+                        className="form-control text-start"
+                        value={newService.priceTo}
+                        placeholder={isCurrentLanguageEn ? "to" : "to"}
+                        onChange={(e) =>
+                          setNewService({
+                            ...newService,
+                            priceTo: e.target.value,
                           })
                         }
                       />
@@ -624,13 +703,23 @@ const EditPriceList: React.FC = () => {
                         type="number"
                         className="form-control text-start"
                         value={newService.promotionPrice}
-                        placeholder={
-                          isCurrentLanguageEn ? "Promotion price" : "Akciós ár"
-                        }
+                        placeholder={isCurrentLanguageEn ? "from" : "from"}
                         onChange={(e) =>
                           setNewService({
                             ...newService,
                             promotionPrice: e.target.value,
+                          })
+                        }
+                      />
+                      <input
+                        type="number"
+                        className="form-control text-start"
+                        value={newService.promotionPriceTo}
+                        placeholder={isCurrentLanguageEn ? "to" : "to"}
+                        onChange={(e) =>
+                          setNewService({
+                            ...newService,
+                            promotionPriceTo: e.target.value,
                           })
                         }
                       />

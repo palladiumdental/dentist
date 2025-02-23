@@ -3,7 +3,9 @@ export type TPriceType = {
   enService: string;
   huService: string;
   price: string;
+  priceTo?: string;
   onPromotion: boolean;
   promotionPrice: string;
+  promotionPriceTo: string;
   serviceCategory: string;
 };
