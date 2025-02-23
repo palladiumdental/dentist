@@ -6,6 +6,11 @@ import Localize from "../ui/localize";
 import { useTranslation } from "react-i18next";
 import { formatNumberWithSeparators } from "../../helpers/numbersFns";
 import Error from "../../components/feature/error";
+import Select from "../ui/select";
+import {
+  SERVICE_CATEGORY_EN,
+  SERVICE_CATEGORY_HU,
+} from "../../constants/lists";
 
 type TEditableService = TPriceType & {
   isEditing?: boolean;
@@ -14,6 +19,7 @@ type TEditableService = TPriceType & {
   priceEdit?: string;
   onPromotionEdit?: boolean;
   promotionPriceEdit?: string;
+  serviceCategoryEdit?: string;
 };
 
 const EditPriceList: React.FC = () => {
@@ -27,6 +33,7 @@ const EditPriceList: React.FC = () => {
     price: "",
     onPromotion: false,
     promotionPrice: "",
+    serviceCategory: "",
   });
 
   useEffect(() => {
@@ -46,6 +53,7 @@ const EditPriceList: React.FC = () => {
       priceEdit: item.price,
       onPromotionEdit: item.onPromotion,
       promotionPriceEdit: item.promotionPrice,
+      serviceCategoryEdit: item.serviceCategory,
     }));
     setPriceList(updatedPriceList);
   }, [data]);
@@ -63,6 +71,7 @@ const EditPriceList: React.FC = () => {
       price: "",
       onPromotion: false,
       promotionPrice: "",
+      serviceCategory: "",
     });
   };
 
@@ -76,6 +85,7 @@ const EditPriceList: React.FC = () => {
         priceEdit: item.price,
         onPromotionEdit: item.onPromotion,
         promotionPriceEdit: item.promotionPrice,
+        serviceCategoryEdit: item.serviceCategory,
       }))
     );
   };
@@ -94,6 +104,14 @@ const EditPriceList: React.FC = () => {
         isCurrentLanguageEn
           ? "Please make sure Service Text In Hungarian is filled in!"
           : "Kérjük, győződjön meg róla, hogy a Szolgáltatás szövege magyarul ki van töltve!"
+      );
+      return false;
+    }
+    if (!newService.serviceCategory) {
+      alert(
+        isCurrentLanguageEn
+          ? "Please make sure Service Category is filled in!"
+          : "Kérjük, győződjön meg róla, hogy a Szolgáltatás kategória mező ki van töltve!"
       );
       return false;
     }
@@ -164,6 +182,13 @@ const EditPriceList: React.FC = () => {
       );
       return false;
     }
+    if (!editedItem.serviceCategoryEdit) {
+      alert(
+        isCurrentLanguageEn
+          ? "Please make sure Service Category is filled in!"
+          : "Kérjük, győződjön meg róla, hogy a Szolgáltatás kategória mező ki van töltve!"
+      );
+    }
     if (!editedItem.priceEdit) {
       alert(
         isCurrentLanguageEn
@@ -192,6 +217,7 @@ const EditPriceList: React.FC = () => {
         price: editedItem.priceEdit || "",
         onPromotion: editedItem.onPromotionEdit || false,
         promotionPrice: editedItem.promotionPriceEdit || "",
+        serviceCategory: editedItem.serviceCategoryEdit || "",
       };
       try {
         if (saveEditRowValidation(editedItem)) {
@@ -207,6 +233,7 @@ const EditPriceList: React.FC = () => {
                     price: editedItem.priceEdit,
                     onPromotion: editedItem.onPromotionEdit,
                     promotionPrice: editedItem.promotionPriceEdit,
+                    serviceCategory: editedItem.serviceCategoryEdit,
                   }
                 : item
             )
@@ -257,6 +284,12 @@ const EditPriceList: React.FC = () => {
                   <th>
                     <Localize
                       text="service text in hungarian"
+                      isFirstLetterCapital={true}
+                    />
+                  </th>
+                  <th>
+                    <Localize
+                      text="service category"
                       isFirstLetterCapital={true}
                     />
                   </th>
@@ -317,6 +350,32 @@ const EditPriceList: React.FC = () => {
                                 )
                               );
                             }}
+                          />
+                        </td>
+                        <td>
+                          <Select
+                            name="dentalIntervention"
+                            handleChange={(e) => {
+                              const value = e.target.value;
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? { ...item, serviceCategory: value }
+                                    : item
+                                )
+                              );
+                            }}
+                            defaultOption={
+                              isCurrentLanguageEn
+                                ? "Service Category"
+                                : "Szolgáltatás kategória"
+                            }
+                            options={
+                              isCurrentLanguageEn
+                                ? SERVICE_CATEGORY_EN
+                                : SERVICE_CATEGORY_HU
+                            }
+                            value={service.serviceCategory}
                           />
                         </td>
                         <td>
@@ -414,6 +473,9 @@ const EditPriceList: React.FC = () => {
                         <td className="text-start">{service.enService}</td>
                         <td className="text-start">{service.huService}</td>
                         <td className="text-start">
+                          {service.serviceCategory}
+                        </td>
+                        <td className="text-start">
                           {formatNumberWithSeparators(parseInt(service.price))}
                         </td>
                         <td>
@@ -506,6 +568,28 @@ const EditPriceList: React.FC = () => {
                             huService: e.target.value,
                           })
                         }
+                      />
+                    </td>
+                    <td>
+                      <Select
+                        name="dentalIntervention"
+                        handleChange={(e) => {
+                          setNewService({
+                            ...newService,
+                            serviceCategory: e.target.value,
+                          });
+                        }}
+                        defaultOption={
+                          isCurrentLanguageEn
+                            ? "Service Category"
+                            : "Szolgáltatás kategória"
+                        }
+                        options={
+                          isCurrentLanguageEn
+                            ? SERVICE_CATEGORY_EN
+                            : SERVICE_CATEGORY_HU
+                        }
+                        value={newService.serviceCategory}
                       />
                     </td>
                     <td>

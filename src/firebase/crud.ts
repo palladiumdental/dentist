@@ -66,6 +66,7 @@ export const addData = async <T>(
       price: data["price"],
       onPromotion: data["onPromotion"],
       promotionPrice: data["promotionPrice"],
+      serviceCategory: data["serviceCategory"],
     });
     return docRef.id;
   } catch (error) {
@@ -100,6 +101,7 @@ export const editData = async (
       price: data["price"],
       onPromotion: data["onPromotion"],
       promotionPrice: data["promotionPrice"],
+      serviceCategory: data["serviceCategory"],
     });
   } catch (error) {
     console.error("Error updating document: ", error);

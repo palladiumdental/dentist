@@ -5,4 +5,5 @@ export type TPriceType = {
   price: string;
   onPromotion: boolean;
   promotionPrice: string;
+  serviceCategory: string;
 };

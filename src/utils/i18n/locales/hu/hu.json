@@ -3,7 +3,7 @@
   "service": "Szolgáltatás",
   "home": "Főoldal",
   "prices": "Árak",
-  "price": "Ar",
+  "price": "Ár",
   "promotions": "Akcióink",
   "about us": "Rólunk",
   "contact us": "Kapcsolat",
@@ -84,5 +84,6 @@
   "a34": "Sajnáljuk, váratlan hiba történt. Kérjük, próbálja meg később újra.",
   "your smile": "Az Ön mosolya",
   "our care": "a mi gondoskodásunk",
-  "your confidence": "az Ön magabiztossága"
+  "your confidence": "az Ön magabiztossága",
+  "service category": "Szolgáltatás kategória"
 }

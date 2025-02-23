@@ -59,3 +59,9 @@
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: #eff5ff;
 }
+
+.category-header {
+  font-size: 23px;
+  font-weight: bold;
+  transform: translateY(-3px);
+}

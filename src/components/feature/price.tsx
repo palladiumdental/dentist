@@ -43,64 +43,80 @@ const Price: React.FC = () => {
 
             <div className="wow fadeInUp" data-wow-delay="0.1s">
               <div className="service-item bg-light rounded h-100 p-5">
-                <div className="custom-table-container">
-                  <table className="table table-striped table-bordered custom-table">
-                    {/* <thead className="thead-dark">
-                  <tr>
-                    <th scope="col">
-                      <h5>
-                        <Localize text="service" isFirstLetterCapital={true} />
-                      </h5>
-                    </th>
-                    <th scope="col">
-                      <h5>
-                        <Localize text="price" isFirstLetterCapital={true} />
-                      </h5>
-                    </th>
-                  </tr>
-                </thead> */}
-                    <tbody>
-                      {data.map((item: TPriceType, index: number) => (
-                        <tr key={index}>
+                <table className="table table-bordered custom-table">
+                  <tbody>
+                    {Object.entries(
+                      data.reduce((acc, item) => {
+                        if (!acc[item.serviceCategory]) {
+                          acc[item.serviceCategory] = [];
+                        }
+                        acc[item.serviceCategory].push(item);
+                        return acc;
+                      }, {} as Record<string, TPriceType[]>)
+                    ).map(([category, items]) => (
+                      <React.Fragment key={category}>
+                        <tr className="category-header">
                           <td
-                            className={
-                              item.onPromotion ? "promotion-wrapper" : ""
-                            }
-                            style={{ textAlign: "start" }}
+                            colSpan={2}
+                            style={{ textAlign: "start", fontWeight: "bold" }}
                           >
-                            {item.onPromotion && (
-                              <p className={"promotion"}>
-                                <Localize
-                                  text="promotions"
-                                  isFirstLetterCapital={true}
-                                />
-                              </p>
-                            )}
-                            {isCurrentLanguageEn
-                              ? item.enService
-                              : item.huService}
-                          </td>
-                          <td style={{ textAlign: "end" }}>
-                            <p className={item.onPromotion ? "old-price" : ""}>
-                              {formatNumberWithSeparators(parseInt(item.price))}{" "}
-                              HUF
-                            </p>
-                            {item.onPromotion && (
-                              <p
-                                className={item.onPromotion ? "new-price" : ""}
-                              >
-                                {formatNumberWithSeparators(
-                                  parseInt(item.promotionPrice)
-                                )}{" "}
-                                HUF
-                              </p>
-                            )}
+                            {category}
                           </td>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                        <div className="custom-table-container">
+                          <table className="table table-striped table-bordered custom-table">
+                            <tbody>
+                              {items.map((item: TPriceType, index: number) => (
+                                <tr key={index}>
+                                  <td
+                                    className={
+                                      item.onPromotion
+                                        ? "promotion-wrapper"
+                                        : ""
+                                    }
+                                    style={{ textAlign: "start" }}
+                                  >
+                                    {item.onPromotion && (
+                                      <p className="promotion">
+                                        <Localize
+                                          text="promotions"
+                                          isFirstLetterCapital={true}
+                                        />
+                                      </p>
+                                    )}
+                                    {isCurrentLanguageEn
+                                      ? item.enService
+                                      : item.huService}
+                                  </td>
+                                  <td style={{ textAlign: "end" }}>
+                                    <p
+                                      className={
+                                        item.onPromotion ? "old-price" : ""
+                                      }
+                                    >
+                                      {formatNumberWithSeparators(
+                                        parseInt(item.price)
+                                      )}{" "}
+                                      HUF
+                                    </p>
+                                    {item.onPromotion && (
+                                      <p className="new-price">
+                                        {formatNumberWithSeparators(
+                                          parseInt(item.promotionPrice)
+                                        )}{" "}
+                                        HUF
+                                      </p>
+                                    )}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </React.Fragment>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
