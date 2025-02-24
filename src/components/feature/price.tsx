@@ -109,9 +109,17 @@ const Price: React.FC = () => {
                                     </p>
                                     {item.onPromotion && (
                                       <p className="new-price">
-                                        {formatNumberWithSeparators(
-                                          parseInt(item.promotionPrice)
-                                        )}{" "}
+                                        {item.promotionPriceTo
+                                          ? formatNumberWithSeparators(
+                                              parseInt(item.promotionPrice)
+                                            ) +
+                                            " - " +
+                                            formatNumberWithSeparators(
+                                              parseInt(item.promotionPriceTo)
+                                            )
+                                          : formatNumberWithSeparators(
+                                              parseInt(item.promotionPrice)
+                                            )}{" "}
                                         HUF
                                       </p>
                                     )}

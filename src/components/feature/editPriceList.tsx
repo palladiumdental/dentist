@@ -198,7 +198,7 @@ const EditPriceList: React.FC = () => {
           ? "Please make sure Service Category is filled in!"
           : "Kérjük, győződjön meg róla, hogy a Szolgáltatás kategória mező ki van töltve!"
       );
-      // return false;
+      return false;
     }
     if (!editedItem.priceEdit) {
       alert(
@@ -375,7 +375,7 @@ const EditPriceList: React.FC = () => {
                               setPriceList((prevList) =>
                                 prevList.map((item) =>
                                   item.id === service.id
-                                    ? { ...item, serviceCategory: value }
+                                    ? { ...item, serviceCategoryEdit: value }
                                     : item
                                 )
                               );
@@ -390,7 +390,7 @@ const EditPriceList: React.FC = () => {
                                 ? SERVICE_CATEGORY_EN
                                 : SERVICE_CATEGORY_HU
                             }
-                            value={service.serviceCategory}
+                            value={service.serviceCategoryEdit ?? ""}
                           />
                         </td>
                         <td>
