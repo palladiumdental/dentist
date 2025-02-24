@@ -17,28 +17,15 @@ export const ORAL_HYGIENE_INTERVENTION = [
   "deep teeth cleaning",
 ];
 
-export const SERVICE_CATEGORY_EN = [
-  "Consultation",
-  "Dental Scaling",
-  "Teeth Whitening",
-  "Dental fillings (Composite)",
-  "Inlay/onlay restoration",
-  "Root Canal Fillings",
-  "Tooth Extraction",
-  "Dental Implants",
-  "Prosthetic ( Porcelain crown, Zirkonium corwn, Dental Bridges)",
-  "Invisible Aligner (K-line)",
-];
-
-export const SERVICE_CATEGORY_HU = [
-  "Állapotfelmérés Diagnosztika, konzultációk",
-  "Fogkőeltávolítá Ultragangos fogkőeltávolítás, Szájhigiénia",
-  "Fogfehérítés",
-  "Esztétikus fogtömések",
-  "Inlay/onlay betétek",
-  "Gyökérkezelés",
-  "Fogeltávolítás",
-  "Implantátumok, fogbeültetés",
-  "Fogpótlások Porcelán koronák, cirkon koronák, foghiány pótlása híddal",
-  "Láthatatlan, kivehető fogszabályozók (K-line)",
+export const SERVICE_CATEGORY = [
+  "consultation",
+  "dental scaling",
+  "teeth whitening",
+  "dental fillings (composite)",
+  "inlay/onlay restoration",
+  "root canal fillings",
+  "tooth extraction",
+  "dental implants",
+  "prosthetic (porcelain crown, zirkonium corwn, dental bridges)",
+  "invisible aligner (k-line)",
 ];

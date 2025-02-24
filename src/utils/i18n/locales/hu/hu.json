@@ -46,7 +46,7 @@
   "orthodontics": "Fogszabályozás",
   "quick links": "Gyors Linkek",
   "aesthetic fillings": "Esztétikus tömések",
-  "tooth extraction": "Foghúzás",
+  "tooth extraction": "Fogeltávolítás",
   "at-home teeth whitening": "Otthoni Fogfehérítes",
   "teeth cleaning and tartar removal": "Fogtisztítás és Fogkőeltávolítás",
   "metal-ceramic crowns": "Fémkerámia Korona",
@@ -85,5 +85,13 @@
   "your smile": "Az Ön mosolya",
   "our care": "a mi gondoskodásunk",
   "your confidence": "az Ön magabiztossága",
-  "service category": "Szolgáltatás kategória"
+  "service category": "Szolgáltatás kategória",
+  "consultation": "Állapotfelmérés Diagnosztika, konzultációk",
+  "dental scaling": "Fogkőeltávolítá Ultragangos fogkőeltávolítás, Szájhigiénia",
+  "dental fillings (composite)": "Esztétikus fogtömések",
+  "inlay/onlay restoration": "Inlay/onlay betétek",
+  "root canal fillings": "Gyökérkezelés",
+  "dental implants": "Implantátumok, fogbeültetés",
+  "prosthetic (porcelain crown, zirkonium corwn, dental bridges)": "Fogpótlások Porcelán koronák, cirkon koronák, foghiány pótlása híddal",
+  "invisible aligner (k-line)": "Láthatatlan, kivehető fogszabályozók (K-line)"
 }

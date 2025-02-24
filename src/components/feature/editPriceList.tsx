@@ -7,10 +7,7 @@ import { useTranslation } from "react-i18next";
 import { formatNumberWithSeparators } from "../../helpers/numbersFns";
 import Error from "../../components/feature/error";
 import Select from "../ui/select";
-import {
-  SERVICE_CATEGORY_EN,
-  SERVICE_CATEGORY_HU,
-} from "../../constants/lists";
+import { SERVICE_CATEGORY } from "../../constants/lists";
 
 type TEditableService = TPriceType & {
   isEditing?: boolean;
@@ -385,11 +382,7 @@ const EditPriceList: React.FC = () => {
                                 ? "Service Category"
                                 : "Szolgáltatás kategória"
                             }
-                            options={
-                              isCurrentLanguageEn
-                                ? SERVICE_CATEGORY_EN
-                                : SERVICE_CATEGORY_HU
-                            }
+                            options={SERVICE_CATEGORY}
                             value={service.serviceCategoryEdit ?? ""}
                           />
                         </td>
@@ -522,7 +515,10 @@ const EditPriceList: React.FC = () => {
                         <td className="text-start">{service.enService}</td>
                         <td className="text-start">{service.huService}</td>
                         <td className="text-start">
-                          {service.serviceCategory}
+                          <Localize
+                            text={service.serviceCategory}
+                            isFirstLetterCapital={true}
+                          />
                         </td>
                         <td className="text-start">
                           {service.priceTo
@@ -651,11 +647,7 @@ const EditPriceList: React.FC = () => {
                             ? "Service Category"
                             : "Szolgáltatás kategória"
                         }
-                        options={
-                          isCurrentLanguageEn
-                            ? SERVICE_CATEGORY_EN
-                            : SERVICE_CATEGORY_HU
-                        }
+                        options={SERVICE_CATEGORY}
                         value={newService.serviceCategory}
                       />
                     </td>

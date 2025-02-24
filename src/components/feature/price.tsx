@@ -60,7 +60,10 @@ const Price: React.FC = () => {
                             colSpan={2}
                             style={{ textAlign: "start", fontWeight: "bold" }}
                           >
-                            {category}
+                            <Localize
+                              text={category}
+                              isFirstLetterCapital={true}
+                            />
                           </td>
                         </tr>
                         <div className="custom-table-container">
