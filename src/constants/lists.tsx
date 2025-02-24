@@ -23,7 +23,7 @@ export const SERVICE_CATEGORY = [
   "teeth whitening",
   "dental fillings (composite)",
   "inlay/onlay restoration",
-  "root canal fillings",
+  "root canal therapy",
   "tooth extraction",
   "dental implants",
   "prosthetic (porcelain crown, zirkonium corwn, dental bridges)",
