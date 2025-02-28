@@ -10,7 +10,14 @@ import Error from "../../components/feature/error";
 const Promotion: React.FC = () => {
   const { i18n } = useTranslation();
   const { data, loading, error } = useGetData<TPriceType>("prices");
-  const promotions = data.filter((item) => item.onPromotion === true);
+  const promotions = data
+    .filter((item) => item.onPromotion === true)
+    .sort((a, b) => {
+      if (a.serviceCategory === b.serviceCategory) {
+        return Number(a.order) - Number(b.order);
+      }
+      return a.serviceCategory.localeCompare(b.serviceCategory);
+    });
 
   useEffect(() => {
     // Load the saved language from localStorage, default to 'hu'
