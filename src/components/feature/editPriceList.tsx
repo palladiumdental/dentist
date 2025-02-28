@@ -11,6 +11,7 @@ import { SERVICE_CATEGORY } from "../../constants/lists";
 
 type TEditableService = TPriceType & {
   isEditing?: boolean;
+  orderEdit?: string;
   enServiceEdit?: string;
   huServiceEdit?: string;
   priceEdit?: string;
@@ -27,6 +28,7 @@ const EditPriceList: React.FC = () => {
   const [priceList, setPriceList] = useState<TEditableService[]>(data || []);
   const [newRow, setNewRow] = useState(false);
   const [newService, setNewService] = useState({
+    order: "",
     enService: "",
     huService: "",
     price: "",
@@ -46,18 +48,26 @@ const EditPriceList: React.FC = () => {
   const isCurrentLanguageEn = i18n.language === "en";
 
   React.useEffect(() => {
-    const updatedPriceList = data.map((item: TPriceType) => ({
-      ...item,
-      isEditing: false,
-      enServiceEdit: item.enService,
-      huServiceEdit: item.huService,
-      priceEdit: item.price,
-      priceToEdit: item.priceTo,
-      onPromotionEdit: item.onPromotion,
-      promotionPriceEdit: item.promotionPrice,
-      promotionPriceToEdit: item.promotionPriceTo,
-      serviceCategoryEdit: item.serviceCategory,
-    }));
+    const updatedPriceList = data
+      .map((item: TPriceType) => ({
+        ...item,
+        isEditing: false,
+        orderEdit: item.order,
+        enServiceEdit: item.enService,
+        huServiceEdit: item.huService,
+        priceEdit: item.price,
+        priceToEdit: item.priceTo,
+        onPromotionEdit: item.onPromotion,
+        promotionPriceEdit: item.promotionPrice,
+        promotionPriceToEdit: item.promotionPriceTo,
+        serviceCategoryEdit: item.serviceCategory,
+      }))
+      .sort((a, b) => {
+        if (a.serviceCategory === b.serviceCategory) {
+          return Number(a.order) - Number(b.order);
+        }
+        return a.serviceCategory.localeCompare(b.serviceCategory);
+      });
     setPriceList(updatedPriceList);
   }, [data]);
 
@@ -69,6 +79,7 @@ const EditPriceList: React.FC = () => {
   const hideNewRow = () => {
     setNewRow(false);
     setNewService({
+      order: "",
       enService: "",
       huService: "",
       price: "",
@@ -85,6 +96,7 @@ const EditPriceList: React.FC = () => {
       prevList.map((item: TEditableService) => ({
         ...item,
         isEditing: false,
+        orderEdit: item.order,
         enServiceEdit: item.enService,
         huServiceEdit: item.huService,
         priceEdit: item.price,
@@ -220,6 +232,7 @@ const EditPriceList: React.FC = () => {
     const editedItem = priceList.find((item) => item.id === id);
     if (editedItem) {
       const updatedData = {
+        order: editedItem.orderEdit || "",
         enService: editedItem.enServiceEdit || "",
         huService: editedItem.huServiceEdit || "",
         price: editedItem.priceEdit || "",
@@ -238,6 +251,7 @@ const EditPriceList: React.FC = () => {
                 ? {
                     ...item,
                     isEditing: false,
+                    order: editedItem.orderEdit,
                     enService: editedItem.enServiceEdit,
                     huService: editedItem.huServiceEdit,
                     price: editedItem.priceEdit,
@@ -288,6 +302,9 @@ const EditPriceList: React.FC = () => {
               <thead>
                 <tr>
                   <th>
+                    <Localize text="order" isFirstLetterCapital={true} />
+                  </th>
+                  <th>
                     <Localize
                       text="service text in english"
                       isFirstLetterCapital={true}
@@ -330,6 +347,23 @@ const EditPriceList: React.FC = () => {
                     {/* Edit section */}
                     {service.isEditing ? (
                       <>
+                        <td>
+                          <input
+                            type="number"
+                            className="form-control text-start"
+                            value={service.orderEdit}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              setPriceList((prevList) =>
+                                prevList.map((item) =>
+                                  item.id === service.id
+                                    ? { ...item, orderEdit: value }
+                                    : item
+                                )
+                              );
+                            }}
+                          />
+                        </td>
                         <td>
                           <input
                             type="text"
@@ -512,6 +546,7 @@ const EditPriceList: React.FC = () => {
                     ) : (
                       <>
                         {/* Preview section */}
+                        <td className="text-start">{service.order}</td>
                         <td className="text-start">{service.enService}</td>
                         <td className="text-start">{service.huService}</td>
                         <td className="text-start">
@@ -601,6 +636,20 @@ const EditPriceList: React.FC = () => {
                 {/* Add new record section */}
                 {newRow && (
                   <tr>
+                    <td>
+                      <input
+                        type="number"
+                        className="form-control text-start"
+                        value={newService.order}
+                        placeholder="Order"
+                        onChange={(e) =>
+                          setNewService({
+                            ...newService,
+                            order: e.target.value,
+                          })
+                        }
+                      />
+                    </td>
                     <td>
                       <input
                         type="text"

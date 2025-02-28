@@ -1,5 +1,6 @@
 export type TPriceType = {
   id: string;
+  order: string;
   enService: string;
   huService: string;
   price: string;

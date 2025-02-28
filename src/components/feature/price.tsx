@@ -7,6 +7,7 @@ import Localize from "../ui/localize";
 import { useTranslation } from "react-i18next";
 import { formatNumberWithSeparators } from "../../helpers/numbersFns";
 import Error from "../../components/feature/error";
+import { SERVICE_CATEGORY } from "../../constants/lists";
 
 const Price: React.FC = () => {
   const { i18n } = useTranslation();
@@ -45,95 +46,91 @@ const Price: React.FC = () => {
               <div className="service-item bg-light rounded h-100 p-5">
                 <table className="table table-bordered custom-table">
                   <tbody>
-                    {Object.entries(
-                      data.reduce((acc, item) => {
-                        if (!acc[item.serviceCategory]) {
-                          acc[item.serviceCategory] = [];
-                        }
-                        acc[item.serviceCategory].push(item);
-                        return acc;
-                      }, {} as Record<string, TPriceType[]>)
-                    ).map(([category, items]) => (
-                      <React.Fragment key={category}>
-                        <tr className="category-header">
-                          <td
-                            colSpan={2}
-                            style={{ textAlign: "start", fontWeight: "bold" }}
-                          >
-                            <Localize
-                              text={category}
-                              isFirstLetterCapital={true}
-                            />
-                          </td>
-                        </tr>
-                        <div className="custom-table-container">
-                          <table className="table table-striped table-bordered custom-table">
-                            <tbody>
-                              {items.map((item: TPriceType, index: number) => (
-                                <tr key={index}>
-                                  <td
-                                    className={
-                                      item.onPromotion
-                                        ? "promotion-wrapper"
-                                        : ""
-                                    }
-                                    style={{ textAlign: "start" }}
-                                  >
-                                    {item.onPromotion && (
-                                      <p className="promotion">
-                                        <Localize
-                                          text="promotions"
-                                          isFirstLetterCapital={true}
-                                        />
-                                      </p>
-                                    )}
-                                    {isCurrentLanguageEn
-                                      ? item.enService
-                                      : item.huService}
-                                  </td>
-                                  <td style={{ textAlign: "end" }}>
-                                    <p
+                    {SERVICE_CATEGORY.map((category) => {
+                      const filteredItems = data
+                        .filter((item) => item.serviceCategory === category)
+                        .sort((a, b) => Number(a.order) - Number(b.order));
+
+                      if (filteredItems.length === 0) return null;
+
+                      return (
+                        <React.Fragment key={category}>
+                          <tr className="category-header">
+                            <td
+                              colSpan={2}
+                              style={{ textAlign: "start", fontWeight: "bold" }}
+                            >
+                              <Localize
+                                text={category}
+                                isFirstLetterCapital={true}
+                              />
+                            </td>
+                          </tr>
+                          <div className="custom-table-container">
+                            <table className="table table-striped table-bordered custom-table">
+                              <tbody>
+                                {filteredItems.map((item, index) => (
+                                  <tr key={index}>
+                                    <td
                                       className={
-                                        item.onPromotion ? "old-price" : ""
+                                        item.onPromotion
+                                          ? "promotion-wrapper"
+                                          : ""
                                       }
+                                      style={{ textAlign: "start" }}
                                     >
-                                      {item.priceTo
-                                        ? formatNumberWithSeparators(
-                                            parseInt(item.price)
-                                          ) +
-                                          " - " +
-                                          formatNumberWithSeparators(
-                                            parseInt(item.priceTo)
-                                          )
-                                        : formatNumberWithSeparators(
-                                            parseInt(item.price)
-                                          )}{" "}
-                                      HUF
-                                    </p>
-                                    {item.onPromotion && (
-                                      <p className="new-price">
-                                        {item.promotionPriceTo
-                                          ? formatNumberWithSeparators(
-                                              parseInt(item.promotionPrice)
-                                            ) +
-                                            " - " +
-                                            formatNumberWithSeparators(
-                                              parseInt(item.promotionPriceTo)
-                                            )
+                                      {item.onPromotion && (
+                                        <p className="promotion">
+                                          <Localize
+                                            text="promotions"
+                                            isFirstLetterCapital={true}
+                                          />
+                                        </p>
+                                      )}
+                                      {isCurrentLanguageEn
+                                        ? item.enService
+                                        : item.huService}
+                                    </td>
+                                    <td style={{ textAlign: "end" }}>
+                                      <p
+                                        className={
+                                          item.onPromotion ? "old-price" : ""
+                                        }
+                                      >
+                                        {item.priceTo
+                                          ? `${formatNumberWithSeparators(
+                                              parseInt(item.price)
+                                            )} - ${formatNumberWithSeparators(
+                                              parseInt(item.priceTo)
+                                            )}`
                                           : formatNumberWithSeparators(
-                                              parseInt(item.promotionPrice)
+                                              parseInt(item.price)
                                             )}{" "}
                                         HUF
                                       </p>
-                                    )}
-                                  </td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      </React.Fragment>
-                    ))}
+                                      {item.onPromotion && (
+                                        <p className="new-price">
+                                          {item.promotionPriceTo
+                                            ? `${formatNumberWithSeparators(
+                                                parseInt(item.promotionPrice)
+                                              )} - ${formatNumberWithSeparators(
+                                                parseInt(item.promotionPriceTo)
+                                              )}`
+                                            : formatNumberWithSeparators(
+                                                parseInt(item.promotionPrice)
+                                              )}{" "}
+                                          HUF
+                                        </p>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </React.Fragment>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>

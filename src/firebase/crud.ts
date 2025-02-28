@@ -61,6 +61,7 @@ export const addData = async <T>(
 
   try {
     const docRef = await addDoc(value, {
+      order: data["order"],
       enService: data["enService"],
       huService: data["huService"],
       price: data["price"],
@@ -98,6 +99,7 @@ export const editData = async (
   try {
     const updateData = doc(database, collectionName, id);
     await updateDoc(updateData, {
+      order: data["order"],
       enService: data["enService"],
       huService: data["huService"],
       price: data["price"],
