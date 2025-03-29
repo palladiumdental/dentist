@@ -12,7 +12,7 @@ import DentalClinicSchema from "../components/ui/dentalClinicSchema";
 function HomePage() {
   return (
     <>
-      <SEOHead />
+      {/* <SEOHead /> */}
       <MainWrapper>
         <Header />
         <About />
